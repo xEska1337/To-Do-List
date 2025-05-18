@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/main.ico</file>
+        <file>icons/main.svg</file>
+        <file>icons/main.png</file>
+        <file>Combinear.qss</file>
+    </qresource>
+</RCC>
