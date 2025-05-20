@@ -2,6 +2,7 @@
 #include "./ui_mainwindow.h"
 #include "maintasks.h"
 #include <QPixmap>
+#include "createuser.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -27,5 +28,12 @@ void MainWindow::on_loginButton_clicked()
     taskWindow = new MainTasks();
     taskWindow->show();
     this->close();
+}
+
+
+void MainWindow::on_registerButton_clicked()
+{
+    createUserWindow = new CreateUser();
+    createUserWindow->show();
 }
 

@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "maintasks.h"
+#include "createuser.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,8 +22,11 @@ public:
 private slots:
     void on_loginButton_clicked();
 
+    void on_registerButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     MainTasks *taskWindow;
+    CreateUser *createUserWindow;
 };
 #endif // MAINWINDOW_H
