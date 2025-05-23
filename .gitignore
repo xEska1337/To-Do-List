@@ -81,3 +81,5 @@ CMakeLists.txt.user*
 .uic/
 /build*/
 /cmake-build-debug-qt/
+/cmake-build-release/
+/cmake-build-debug/

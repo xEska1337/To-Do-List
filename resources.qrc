@@ -4,5 +4,6 @@
         <file>icons/main.svg</file>
         <file>icons/main.png</file>
         <file>Combinear.qss</file>
+        <file>sounds/timerEnd.wav</file>
     </qresource>
 </RCC>
