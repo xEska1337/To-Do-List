@@ -27,6 +27,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         resources.qrc
         maintasks.h maintasks.cpp maintasks.ui
         createuser.h createuser.cpp createuser.ui
+        user.h user.cpp
+        team.h team.cpp
+        team.h team.cpp
+        task.h task.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET To-Do-List APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
