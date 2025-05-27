@@ -1,8 +1,6 @@
 #include "user.h"
 
-User::User() {
-
-}
+User::User() {}
 
 User::User(uint32_t id, const std::string& username, const std::string &password){
     this->setId(id);
