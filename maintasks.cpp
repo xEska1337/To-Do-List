@@ -29,6 +29,10 @@ MainTasks::MainTasks(QWidget *parent)
     timerEndSound->setSource(QUrl("qrc:/sounds/timerEnd.wav"));
     timerEndSound->setVolume(0.4);
 
+    //Add task button
+    ui->addTaskButton->setParent(ui->taskListDisplay);
+    ui->addTaskButton->raise();
+    ui->addTaskButton->setFixedSize(40,40);
 }
 
 MainTasks::~MainTasks()
@@ -112,5 +116,33 @@ void MainTasks::on_longBreakButton_clicked()
 {
     setTimer(15 * 60);
     ui->pomodoroTimerDisplay->setStyleSheet("background-color: #2d6a6e");
+}
+
+void MainTasks::moveAddTaskButton(){
+    //Pin button to right right corner
+    int margin = 10;
+    ui->addTaskButton->move(
+        ui->taskListDisplay->width() - ui->addTaskButton->width() - margin,
+        ui->taskListDisplay->height() - ui->addTaskButton->height() - margin
+        );
+}
+
+void MainTasks::resizeEvent(QResizeEvent *event)
+{
+    QWidget::resizeEvent(event);
+
+    moveAddTaskButton();
+}
+
+void MainTasks::showEvent(QShowEvent *event)
+{
+    QWidget::showEvent(event);
+
+    moveAddTaskButton();
+}
+
+void MainTasks::on_addTaskButton_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
 }
 

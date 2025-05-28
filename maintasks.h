@@ -34,6 +34,10 @@ private slots:
 
     void on_longBreakButton_clicked();
 
+    void moveAddTaskButton();
+
+    void on_addTaskButton_clicked();
+
 private:
     Ui::MainTasks *ui;
 
@@ -43,6 +47,13 @@ private:
     int startingTime;
     bool isRunning = false;
     QSoundEffect *timerEndSound;
+
+    //Add task button
+    QPushButton *addTaskButton;
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+    void showEvent(QShowEvent *event) override;
 };
 
 #endif // MAINTASKS_H
