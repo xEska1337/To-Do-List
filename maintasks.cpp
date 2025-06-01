@@ -119,7 +119,7 @@ void MainTasks::on_longBreakButton_clicked()
 }
 
 void MainTasks::moveAddTaskButton(){
-    //Pin button to right right corner
+    //Pin button to right bottom corner
     int margin = 10;
     ui->addTaskButton->move(
         ui->taskListDisplay->width() - ui->addTaskButton->width() - margin,
@@ -143,6 +143,24 @@ void MainTasks::showEvent(QShowEvent *event)
 
 void MainTasks::on_addTaskButton_clicked()
 {
+    //Switch view
     ui->stackedWidget->setCurrentIndex(1);
+
+    //Set minimum task due date
+    ui->taskDueDate->setDateTime(QDateTime::currentDateTime());
+    ui->taskDueDate->setMinimumDateTime(QDateTime::currentDateTime());
 }
+
+void MainTasks::on_cancelNewTaskButton_clicked() {
+    //Switch view
+    ui->stackedWidget->setCurrentIndex(0);
+    moveAddTaskButton();
+
+    //Clear task form
+    ui->taskName->clear();
+    ui->colabInput->clear();
+    ui->taskDescription->clear();
+
+}
+
 

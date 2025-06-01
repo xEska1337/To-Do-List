@@ -38,6 +38,8 @@ private slots:
 
     void on_addTaskButton_clicked();
 
+    void on_cancelNewTaskButton_clicked();
+
 private:
     Ui::MainTasks *ui;
 
