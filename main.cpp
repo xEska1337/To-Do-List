@@ -3,10 +3,39 @@
 #include <QApplication>
 #include <QIcon>
 #include <QFile>
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+
+    //Create database
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("todolist.db");
+
+    if (!db.open()) {
+        qFatal("Failed to open database: %s", qUtf8Printable(db.lastError().text()));
+    }
+
+    QSqlQuery query(db);
+    query.exec("CREATE TABLE IF NOT EXISTS users ("
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        "username TEXT NOT NULL, "
+                        "password TEXT NOT NULL, "
+                        "creationDate DATE)");
+
+    query.exec("CREATE TABLE IF NOT EXISTS tasks ("
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        "userAssigned INTEGER NOT NULL, "
+                        "collaborators TEXT, "
+                        "name TEXT NOT NULL, "
+                        "dueDate DATETIME, "
+                        "description TEXT, "
+                        "FOREIGN KEY(userAssigned) REFERENCES users(id))");
+
 
     //Set icon
     a.setWindowIcon(QIcon(":/icons/main.ico"));
