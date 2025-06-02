@@ -7,6 +7,7 @@
 #include <QLCDNumber>
 #include <QSoundEffect>
 
+
 namespace Ui {
 class MainTasks;
 }
@@ -39,6 +40,10 @@ private slots:
     void on_addTaskButton_clicked();
 
     void on_cancelNewTaskButton_clicked();
+
+    void on_updatePasswordButton_clicked();
+
+    void on_removeAccountButton_clicked();
 
 private:
     Ui::MainTasks *ui;

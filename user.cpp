@@ -49,12 +49,10 @@ uint32_t User::getId() const {
     return this->id;
 }
 
-std::string User::getUsername(){
+std::string User::getUsername() const { // Make const
     return this->username;
 }
-
 
 uint64_t User::getPassword() const {
     return this->password;
 }
-

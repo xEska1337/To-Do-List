@@ -25,6 +25,7 @@ int main(int argc, char *argv[])
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
                         "password TEXT NOT NULL, "
+                        "completedTasks INTEGER, "
                         "creationDate DATE)");
 
     query.exec("CREATE TABLE IF NOT EXISTS tasks ("

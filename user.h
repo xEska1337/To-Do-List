@@ -3,6 +3,7 @@
 
 #include <cstdint>
 #include <string>
+#include <functional> // Add this include for std::hash
 
 class User
 {
@@ -27,9 +28,8 @@ public:
 
     // Getters
     uint32_t getId() const;
-    std::string getUsername();
+    std::string getUsername() const; // Make const
     uint64_t getPassword() const;
-
 };
 
 #endif // USER_H

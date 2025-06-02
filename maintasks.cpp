@@ -1,5 +1,7 @@
 #include "maintasks.h"
 #include "ui_maintasks.h"
+#include "mainwindow.h"
+
 
 MainTasks::MainTasks(QWidget *parent)
     : QDialog(parent)
@@ -14,6 +16,8 @@ MainTasks::MainTasks(QWidget *parent)
 
     //Profile
     ui->removeAccountButton->setStyleSheet("background-color: red; color: white;");
+    ui->profileUsername->setText(QString::fromStdString(MainWindow::currentUser.getUsername()));
+
 
     //Timer
     pomodoroTimer = new QTimer(this);
@@ -162,5 +166,92 @@ void MainTasks::on_cancelNewTaskButton_clicked() {
     ui->taskDescription->clear();
 
 }
+void MainTasks::on_updatePasswordButton_clicked()
+{
+    QString currentPassword = ui->profilePassword->text();
+    QString newPassword = ui->profilePasswordConfirm->text();
 
+    if (currentPassword.isEmpty() || newPassword.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Both password fields are required!");
+        return;
+    }
 
+    if (newPassword.length() < 4) {
+        QMessageBox::warning(this, "Error", "New password must be at least 4 characters long!");
+        return;
+    }
+
+    // Check if the current password is correct
+    User currentUser = MainWindow::currentUser;
+    User tempUser(currentUser.getUsername(), currentPassword.toStdString());
+    if (tempUser.getPassword() != currentUser.getPassword()) {
+        QMessageBox::warning(this, "Error", "Current password is incorrect!");
+        return;
+    }
+
+    // Change the password in the database
+    User newUser(currentUser.getUsername(), newPassword.toStdString());
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        QMessageBox::critical(this, "Database Error", "Database connection failed!");
+        return;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("UPDATE users SET password = ? WHERE id = ?");
+    query.addBindValue(QString::number(newUser.getPassword()));
+    query.addBindValue(currentUser.getId());
+
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Database Error", "Failed to update password: " + query.lastError().text());
+        return;
+    }
+
+    MainWindow::currentUser.setPassword(newPassword.toStdString());
+
+    QMessageBox::information(this, "Success", "Password changed successfully!");
+    ui->profilePassword->clear();
+    ui->profilePasswordConfirm->clear();
+}
+
+void MainTasks::on_removeAccountButton_clicked()
+{
+    // User confirmation
+    auto reply = QMessageBox::question(this, "Delete Account",
+        "Are you sure you want to delete your account? This action cannot be undone.",
+        QMessageBox::Yes | QMessageBox::No);
+
+    if (reply != QMessageBox::Yes)
+        return;
+
+    User currentUser = MainWindow::currentUser;
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        QMessageBox::critical(this, "Database Error", "Database connection failed!");
+        return;
+    }
+
+    // Delete the user from the database
+    QSqlQuery query(db);
+    query.prepare("DELETE FROM users WHERE id = ?");
+    query.addBindValue(currentUser.getId());
+
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Database Error", "Failed to delete account: " + query.lastError().text());
+        return;
+    }
+
+    //  Delete the user's tasks
+    QSqlQuery taskQuery(db);
+    taskQuery.prepare("DELETE FROM tasks WHERE userAssigned = ?");
+    taskQuery.addBindValue(currentUser.getId());
+    taskQuery.exec();
+
+    QMessageBox::information(this, "Account Deleted", "Your account has been deleted.");
+
+    // Open the login window
+    MainWindow *loginWindow = new MainWindow();
+    loginWindow->show();
+
+    this->close(); //Close the tasks window
+}

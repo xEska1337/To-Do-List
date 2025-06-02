@@ -2,17 +2,25 @@
 #define CREATEUSER_H
 
 #include <QDialog>
+#include <QSqlDatabase>
+#include <QSqlQuery>
+#include <QSqlError>
+#include <QMessageBox>
+#include <QDateTime>
+#include "user.h"
 
+QT_BEGIN_NAMESPACE
 namespace Ui {
-class CreateUser;
+    class CreateUser;
 }
+QT_END_NAMESPACE
 
 class CreateUser : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit CreateUser(QWidget *parent = nullptr);
+    CreateUser(QWidget *parent = nullptr);
     ~CreateUser();
 
 private slots:
@@ -20,6 +28,8 @@ private slots:
 
 private:
     Ui::CreateUser *ui;
+    bool validateInput();
+    bool createUserInDatabase(const User& user);
 };
 
 #endif // CREATEUSER_H

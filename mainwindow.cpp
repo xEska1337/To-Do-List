@@ -4,6 +4,8 @@
 #include <QPixmap>
 #include "createuser.h"
 
+User MainWindow::currentUser; // Definition of static member
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -15,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     QPixmap pixmap(":/icons/main.png");
     QPixmap scaledPixmap = pixmap.scaled(ui->imageLabel->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
     ui->imageLabel->setPixmap(scaledPixmap);
-
 }
 
 MainWindow::~MainWindow()
@@ -25,15 +26,68 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_loginButton_clicked()
 {
-    taskWindow = new MainTasks();
-    taskWindow->show();
-    this->close();
-}
+    QString username = ui->loginForm->text().trimmed();
+    QString password = ui->passwordForm->text();
 
+    if (username.isEmpty() || password.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Please enter both username and password!");
+        return;
+    }
+
+    if (authenticateUser(username, password)) {
+        taskWindow = new MainTasks();
+        taskWindow->show();
+        this->close();
+    } else {
+        QMessageBox::warning(this, "Login Failed", "Invalid username or password!");
+        ui->passwordForm->clear();
+    }
+}
 
 void MainWindow::on_registerButton_clicked()
 {
-    createUserWindow = new CreateUser();
-    createUserWindow->show();
+    createUserWindow = new CreateUser(this);
+    createUserWindow->exec(); // Use exec() for modal dialog
 }
 
+bool MainWindow::authenticateUser(const QString& username, const QString& password)
+{
+    QSqlDatabase db = QSqlDatabase::database();
+
+    if (!db.isOpen()) {
+        QMessageBox::critical(this, "Database Error", "Database connection failed!");
+        return false;
+    }
+
+    // Hash the input password using the same method as User class
+    User tempUser(username.toStdString(), password.toStdString());
+    uint64_t hashedPassword = tempUser.getPassword();
+
+    QSqlQuery query(db);
+    query.prepare("SELECT id, username, password FROM users WHERE username = ? AND password = ?");
+    query.addBindValue(username);
+    query.addBindValue(QString::number(hashedPassword));
+
+    if (!query.exec()) {
+        QMessageBox::critical(this, "Database Error",
+                             "Login query failed: " + query.lastError().text());
+        return false;
+    }
+
+    if (query.next()) {
+        // User found, store current user info
+        uint32_t userId = query.value(0).toUInt();
+        std::string dbUsername = query.value(1).toString().toStdString();
+        uint64_t dbPassword = query.value(2).toULongLong();
+
+        currentUser = User(userId, dbUsername, dbPassword);
+        return true;
+    }
+
+    return false;
+}
+
+User MainWindow::getCurrentUser() const
+{
+    return currentUser;
+}
