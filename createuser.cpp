@@ -26,7 +26,8 @@ void CreateUser::on_createNewAccountButton_clicked()
     // Create User object
     User newUser(username.toStdString(), password.toStdString());
 
-    if (createUserInDatabase(newUser)) {
+    // Replaced createUserInDatabase with UserManager::createUser
+    if (UserManager::createUser(newUser)) {
         QMessageBox::information(this, "Success", "Account created successfully!");
         this->accept(); // Close dialog with success
     }
@@ -64,6 +65,8 @@ bool CreateUser::validateInput()
     return true;
 }
 
+// Deprecated
+// Consider using UserManager::createUser()
 bool CreateUser::createUserInDatabase(const User& user)
 {
     QSqlDatabase db = QSqlDatabase::database();

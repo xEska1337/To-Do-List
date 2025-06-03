@@ -7,6 +7,8 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
+#include "usermanager.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -24,7 +26,7 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS users ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
-                        "password TEXT NOT NULL, "
+                        "password BIGINT UNSIGNED NOT NULL, "
                         "completedTasks INTEGER, "
                         "creationDate DATE)");
 
@@ -36,7 +38,6 @@ int main(int argc, char *argv[])
                         "dueDate DATETIME, "
                         "description TEXT, "
                         "FOREIGN KEY(userAssigned) REFERENCES users(id))");
-
 
     //Set icon
     a.setWindowIcon(QIcon(":/icons/main.ico"));

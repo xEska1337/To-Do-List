@@ -8,6 +8,7 @@
 #include <QMessageBox>
 #include <QDateTime>
 #include "user.h"
+#include "usermanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
