@@ -7,6 +7,8 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
+#include "team.h"
+#include "teammanager.h"
 #include "usermanager.h"
 
 int main(int argc, char *argv[])
@@ -38,6 +40,12 @@ int main(int argc, char *argv[])
                         "dueDate DATETIME, "
                         "description TEXT, "
                         "FOREIGN KEY(userAssigned) REFERENCES users(id))");
+
+    query.exec("CREATE TABLE IF NOT EXISTS teams ("
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                        "name TEXT NOT NULL, "
+                        "password BIGINT UNSIGNED NOT NULL, "
+                        "members LONGTEXT NOT NULL)");
 
     //Set icon
     a.setWindowIcon(QIcon(":/icons/main.ico"));

@@ -3,9 +3,11 @@
 
 #include <cstdint>
 #include <string>
+#include <algorithm>
 #include <vector>
 
 #include "user.h"
+#include "usermanager.h"
 
 class Team
 {
@@ -33,12 +35,18 @@ public:
 
     // Getters
     uint32_t getId() const;
-    std::string getName();
+    std::string getName() const;
     uint64_t getPassword() const;
-    std::vector<uint32_t> getMembers();
-    std::vector<User> getMembersAsUsers();
+    std::vector<uint32_t> getMembers() const;
+    std::vector<User> getMembersAsUsers() const;
     bool containsUser(uint32_t userid);
     bool containsUser(const User &user);
+
+    // Adding members
+    void addMember(const User &user);
+    void addMember(uint32_t userid);
+    void removeMember(const User &user);
+    void removeMember(uint32_t userid);
 
 };
 

@@ -13,6 +13,7 @@ namespace UserManager {
      User getUser(const std::string& username);
      User getUser(uint32_t id);
      bool updateUser(const User& user);
+     bool deleteUser(const User& user);
      bool deleteUser(uint32_t id);
 
 }

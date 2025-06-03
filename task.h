@@ -14,7 +14,7 @@ private:
     std::string name;
     std::string description;
     uint8_t priority;
-    uint32_t teamId; // If teamId is 0, that means it's Task specified only for one User
+    uint32_t teamId; // If teamId is 0, that means it's a Task specified only for one User
     uint32_t userId; // If userId is 0, that means it's Task specified for Team
     TaskStatus status;
     time_t deadline; // If 0 - Task with unlimited time.

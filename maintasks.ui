@@ -51,7 +51,7 @@
        <item row="1" column="0">
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="taskPage">
           <layout class="QGridLayout" name="gridLayout_5">
@@ -85,7 +85,31 @@
          </widget>
          <widget class="QWidget" name="addTaskPage">
           <layout class="QGridLayout" name="gridLayout_6">
-           <item row="6" column="0">
+           <item row="2" column="0">
+            <widget class="QDateTimeEdit" name="taskDueDate">
+             <property name="calendarPopup">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QPlainTextEdit" name="taskDescription">
+             <property name="placeholderText">
+              <string>Description</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLineEdit" name="taskName">
+             <property name="placeholderText">
+              <string>Name</string>
+             </property>
+             <property name="clearButtonEnabled">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
               <widget class="QPushButton" name="cancelNewTaskButton">
@@ -103,30 +127,6 @@
              </item>
             </layout>
            </item>
-           <item row="1" column="0">
-            <widget class="QLineEdit" name="taskName">
-             <property name="placeholderText">
-              <string>Name</string>
-             </property>
-             <property name="clearButtonEnabled">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
-           <item row="4" column="0">
-            <widget class="QPlainTextEdit" name="taskDescription">
-             <property name="placeholderText">
-              <string>Description</string>
-             </property>
-            </widget>
-           </item>
-           <item row="2" column="0">
-            <widget class="QDateTimeEdit" name="taskDueDate">
-             <property name="calendarPopup">
-              <bool>true</bool>
-             </property>
-            </widget>
-           </item>
            <item row="3" column="0">
             <widget class="QLineEdit" name="colabInput">
              <property name="placeholderText">
@@ -134,6 +134,19 @@
              </property>
              <property name="clearButtonEnabled">
               <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QComboBox" name="teamSelect">
+             <property name="editable">
+              <bool>false</bool>
+             </property>
+             <property name="currentText">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>None</string>
              </property>
             </widget>
            </item>

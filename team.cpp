@@ -1,7 +1,5 @@
 #include "team.h"
 
-#include <algorithm>
-
 Team::Team() {}
 
 Team::Team(uint32_t id, const std::string &name, uint64_t password, const std::vector<uint32_t> &members) {
@@ -68,7 +66,7 @@ uint32_t Team::getId() const {
     return this->id;
 }
 
-std::string Team::getName() {
+std::string Team::getName() const {
     return this->name;
 }
 
@@ -76,15 +74,19 @@ uint64_t Team::getPassword() const {
     return this->password;
 }
 
-std::vector<uint32_t> Team::getMembers() {
+std::vector<uint32_t> Team::getMembers() const {
     return this->members;
 }
 
-std::vector<User> Team::getMembersAsUsers() {
+std::vector<User> Team::getMembersAsUsers() const {
 
-    // TODO: Add a manager that will create a new vector of users using vector of their id
+    std::vector<User> users;
 
-    return {};
+    for (uint32_t userid : this->members) {
+        users.push_back(UserManager::getUser(userid));
+    }
+
+    return users;
 }
 
 bool Team::containsUser(uint32_t userid) {
@@ -95,3 +97,24 @@ bool Team::containsUser(const User &user) {
     return std::find(this->members.begin(), this->members.end(), user.getId()) != this->members.end();
 }
 
+void Team::addMember(const User &user) {
+    this->addMember(user.getId());
+}
+
+void Team::addMember(uint32_t userid) {
+    if (this->containsUser(userid)) return;
+    this->members.push_back(userid);
+}
+
+void Team::removeMember(const User &user) {
+    this->removeMember(user.getId());
+}
+
+
+void Team::removeMember(uint32_t userid) {
+    for (size_t i = 0; i < this->members.size(); i++) {
+        if (this->members[i] == userid) {
+            this->members.erase(this->members.begin() + i);
+        }
+    }
+}

@@ -57,7 +57,8 @@ User UserManager::getUser(const std::string &username) {
         return User(0, "", 0);
     }
 
-    if (!getQuery.next()) {
+    getQuery.next();
+    if (getQuery.value(0).toInt() <= 0) {
         QMessageBox::warning(nullptr, "Error", "User with that username doesn't exist!");
         return User(0, "", 0);
     }
@@ -90,7 +91,9 @@ User UserManager::getUser(uint32_t id) {
         return User(0, "", 0);
     }
 
-    if (!getQuery.next()) {
+
+    getQuery.next();
+    if (getQuery.value(0).toInt() <= 0) {
         QMessageBox::warning(nullptr, "Error", "User with that username doesn't exist!");
         return User(0, "", 0);
     }
@@ -114,7 +117,7 @@ bool UserManager::updateUser(const User &user) {
         return false;
     }
 
-    // Check if username already exists
+    // Check if user exists
     QSqlQuery checkQuery(db);
     checkQuery.prepare("SELECT COUNT(*) FROM users WHERE id = ?");
     checkQuery.addBindValue(user.getId());
@@ -125,7 +128,8 @@ bool UserManager::updateUser(const User &user) {
         return false;
     }
 
-    if (!checkQuery.next()) {
+    checkQuery.next();
+    if (checkQuery.value(0).toInt() <= 0) {
         QMessageBox::warning(nullptr, "Error", "User doesn't exist!");
         return false;
     }
@@ -144,6 +148,11 @@ bool UserManager::updateUser(const User &user) {
     return true;
 }
 
+bool UserManager::deleteUser(const User &user) {
+    return UserManager::deleteUser(user.getId());
+}
+
+
 bool UserManager::deleteUser(uint32_t id) {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
@@ -151,7 +160,7 @@ bool UserManager::deleteUser(uint32_t id) {
         return false;
     }
 
-    // Check if username already exists
+    // Check if user exists
     QSqlQuery checkQuery(db);
     checkQuery.prepare("SELECT COUNT(*) FROM users WHERE id = ?");
     checkQuery.addBindValue(id);
@@ -172,8 +181,18 @@ bool UserManager::deleteUser(uint32_t id) {
     deleteQuery.addBindValue(id);
     if (!deleteQuery.exec()) {
         QMessageBox::critical(nullptr, "Database Error",
-                             "Failed to update user: " + deleteQuery.lastError().text());
+                             "Failed to delete user: " + deleteQuery.lastError().text());
         return false;
     }
+
+    QSqlQuery deleteTasksQuery(db);
+    deleteTasksQuery.prepare("DELETE FROM tasks WHERE userAssigned = ?");
+    deleteTasksQuery.addBindValue(id);
+    if (!deleteTasksQuery.exec()) {
+        QMessageBox::critical(nullptr, "Database Error",
+                             "Failed to delete user's tasks: " + deleteQuery.lastError().text());
+        return false;
+    }
+
     return true;
 }

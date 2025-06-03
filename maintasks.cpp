@@ -153,6 +153,10 @@ void MainTasks::on_addTaskButton_clicked()
     //Set minimum task due date
     ui->taskDueDate->setDateTime(QDateTime::currentDateTime());
     ui->taskDueDate->setMinimumDateTime(QDateTime::currentDateTime());
+
+    //Adding teams to list
+    ui->teamSelect->clear();
+    //ui->teamSelect->addItem("TeamName");
 }
 
 void MainTasks::on_cancelNewTaskButton_clicked() {
@@ -190,22 +194,9 @@ void MainTasks::on_updatePasswordButton_clicked()
     }
 
     // Change the password in the database
-    User newUser(currentUser.getUsername(), newPassword.toStdString());
-    QSqlDatabase db = QSqlDatabase::database();
-    if (!db.isOpen()) {
-        QMessageBox::critical(this, "Database Error", "Database connection failed!");
-        return;
-    }
+    User newUser(currentUser.getId(), currentUser.getUsername(), newPassword.toStdString(), currentUser.getCreationDate());
 
-    QSqlQuery query(db);
-    query.prepare("UPDATE users SET password = ? WHERE id = ?");
-    query.addBindValue(QString::number(newUser.getPassword()));
-    query.addBindValue(currentUser.getId());
-
-    if (!query.exec()) {
-        QMessageBox::critical(this, "Database Error", "Failed to update password: " + query.lastError().text());
-        return;
-    }
+    UserManager::updateUser(newUser);
 
     MainWindow::currentUser.setPassword(newPassword.toStdString());
 
@@ -225,27 +216,20 @@ void MainTasks::on_removeAccountButton_clicked()
         return;
 
     User currentUser = MainWindow::currentUser;
-    QSqlDatabase db = QSqlDatabase::database();
+    /*QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
         QMessageBox::critical(this, "Database Error", "Database connection failed!");
         return;
-    }
+    }*/
 
     // Delete the user from the database
-    QSqlQuery query(db);
-    query.prepare("DELETE FROM users WHERE id = ?");
-    query.addBindValue(currentUser.getId());
-
-    if (!query.exec()) {
-        QMessageBox::critical(this, "Database Error", "Failed to delete account: " + query.lastError().text());
-        return;
-    }
+    UserManager::deleteUser(currentUser.getId());
 
     //  Delete the user's tasks
-    QSqlQuery taskQuery(db);
+    /*QSqlQuery taskQuery(db);
     taskQuery.prepare("DELETE FROM tasks WHERE userAssigned = ?");
     taskQuery.addBindValue(currentUser.getId());
-    taskQuery.exec();
+    taskQuery.exec();*/
 
     QMessageBox::information(this, "Account Deleted", "Your account has been deleted.");
 
