@@ -7,8 +7,6 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
-#include "datamanager.h"
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -26,7 +24,8 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS users ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
-                        "password BIGINT UNSIGNED NOT NULL, " // Password after hashing is set to uint64_t
+                        "password TEXT NOT NULL, "
+                        "completedTasks INTEGER, "
                         "creationDate DATE)");
 
     query.exec("CREATE TABLE IF NOT EXISTS tasks ("
@@ -38,7 +37,6 @@ int main(int argc, char *argv[])
                         "description TEXT, "
                         "FOREIGN KEY(userAssigned) REFERENCES users(id))");
 
-    DataManager::setDatabase(db);
 
     //Set icon
     a.setWindowIcon(QIcon(":/icons/main.ico"));
