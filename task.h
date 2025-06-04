@@ -37,8 +37,8 @@ public:
 
     // Getters
     uint64_t getId() const;
-    std::string getName();
-    std::string getDescription();
+    std::string getName() const;
+    std::string getDescription() const;
     uint8_t getPriority() const;
     uint32_t getTeamId() const;
     uint32_t getUserId() const;

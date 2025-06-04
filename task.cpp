@@ -61,11 +61,11 @@ uint64_t Task::getId() const {
     return this->id;
 }
 
-std::string Task::getName() {
+std::string Task::getName() const{
     return this->name;
 }
 
-std::string Task::getDescription() {
+std::string Task::getDescription() const {
     return this->description;
 }
 

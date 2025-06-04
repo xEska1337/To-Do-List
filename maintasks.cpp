@@ -1,6 +1,7 @@
 #include "maintasks.h"
 #include "ui_maintasks.h"
 #include "mainwindow.h"
+#include "taskmanager.h"
 
 
 MainTasks::MainTasks(QWidget *parent)
@@ -8,6 +9,8 @@ MainTasks::MainTasks(QWidget *parent)
     , ui(new Ui::MainTasks)
 {
     ui->setupUi(this);
+
+    ui->taskDueDate->setMinimumDateTime(QDateTime::currentDateTime());
 
     //Tab names
     ui->tabWidget->setTabText(0, "Tasks");
@@ -238,4 +241,48 @@ void MainTasks::on_removeAccountButton_clicked()
     loginWindow->show();
 
     this->close(); //Close the tasks window
+}
+void MainTasks::on_confirmTaskAddButton_clicked()
+{
+    QString taskName = ui->taskName->text().trimmed();
+    QString taskDescription = ui->taskDescription->toPlainText().trimmed();
+    QDateTime dueDate = ui->taskDueDate->dateTime();
+
+    if (taskName.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Task name cannot be empty!");
+        return;
+    }
+
+    Task newTask;
+    newTask.setName(taskName.toStdString());
+    newTask.setDescription(taskDescription.toStdString());
+    newTask.setUserId(MainWindow::currentUser.getId());
+    newTask.setDeadline(dueDate.toSecsSinceEpoch());
+
+    if (TaskManager::createTask(newTask)) {
+        QMessageBox::information(this, "Success", "Task created successfully!");
+        ui->taskName->clear();
+        ui->taskDescription->clear();
+        ui->taskDueDate->setDateTime(QDateTime::currentDateTime());
+        ui->stackedWidget->setCurrentIndex(0);
+        refreshTaskList();
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to create task!");
+    }
+}
+
+void MainTasks::refreshTaskList()
+{
+    ui->taskListDisplay->clear();
+    uint32_t userId = MainWindow::currentUser.getId();
+    auto tasks = TaskManager::getTasksForUser(userId);
+    for (const auto& task : tasks) {
+        QString display = QString::fromStdString(task.getName());
+        if (!task.getDescription().empty()) {
+            display += " - " + QString::fromStdString(task.getDescription());
+        }
+        QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
+        display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
+        ui->taskListDisplay->addItem(display);
+    }
 }

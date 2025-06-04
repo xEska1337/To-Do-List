@@ -45,6 +45,10 @@ private slots:
 
     void on_removeAccountButton_clicked();
 
+    void on_confirmTaskAddButton_clicked();
+
+    void refreshTaskList();
+
 private:
     Ui::MainTasks *ui;
 
