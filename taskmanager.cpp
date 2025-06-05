@@ -25,6 +25,25 @@ bool TaskManager::createTask(const Task& task) {
     }
     return true;
 }
+bool TaskManager::deleteTask(const Task &task)
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        QMessageBox::critical(nullptr, "Database Error", "Database connection failed!");
+        return false;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("DELETE FROM tasks WHERE id = ?");
+    query.addBindValue(task.getId());
+
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Database Error",
+                              "Failed to delete task: " + query.lastError().text());
+        return false;
+    }
+    return true;
+}
 
 std::vector<Task> TaskManager::getTasksForUser(uint32_t userId) {
     std::vector<Task> tasks;

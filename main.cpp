@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
                         "username TEXT NOT NULL, "
                         "password BIGINT UNSIGNED NOT NULL, "
                         "completedTasks INTEGER, "
+                        "uncompletedTasks INTEGER, "
                         "creationDate DATE)");
 
     query.exec("CREATE TABLE IF NOT EXISTS tasks ("
@@ -55,6 +56,8 @@ int main(int argc, char *argv[])
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     a.setStyleSheet(styleSheet);
+
+
 
     MainWindow w;
     w.show();

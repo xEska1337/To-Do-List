@@ -1,10 +1,9 @@
 #ifndef MAINTASKS_H
 #define MAINTASKS_H
-
+#include <QListWidgetItem>
 #include <QDialog>
 #include <QTimer>
 #include <QTime>
-#include <QLCDNumber>
 #include <QSoundEffect>
 
 
@@ -48,6 +47,10 @@ private slots:
     void on_confirmTaskAddButton_clicked();
 
     void refreshTaskList();
+
+    void updateProfileStats();
+
+    void on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::MainTasks *ui;

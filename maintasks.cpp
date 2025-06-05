@@ -2,7 +2,9 @@
 #include "ui_maintasks.h"
 #include "mainwindow.h"
 #include "taskmanager.h"
-
+#include <QListWidgetItem>
+#include <QSqlQuery>
+#include <QSqlError>
 
 MainTasks::MainTasks(QWidget *parent)
     : QDialog(parent)
@@ -40,6 +42,9 @@ MainTasks::MainTasks(QWidget *parent)
     ui->addTaskButton->setParent(ui->taskListDisplay);
     ui->addTaskButton->raise();
     ui->addTaskButton->setFixedSize(40,40);
+
+    ui->profileUsername->setText(QString::fromStdString(MainWindow::currentUser.getUsername()));
+    updateProfileStats();
 }
 
 MainTasks::~MainTasks()
@@ -258,6 +263,13 @@ void MainTasks::on_confirmTaskAddButton_clicked()
     newTask.setDescription(taskDescription.toStdString());
     newTask.setUserId(MainWindow::currentUser.getId());
     newTask.setDeadline(dueDate.toSecsSinceEpoch());
+    QSqlDatabase db = QSqlDatabase::database();
+    if (db.isOpen()) {
+        QSqlQuery query(db);
+        query.prepare("UPDATE users SET uncompletedTasks = COALESCE(uncompletedTasks, 0) + 1 WHERE id = ?");
+        query.addBindValue(MainWindow::currentUser.getId());
+        query.exec();
+    }
 
     if (TaskManager::createTask(newTask)) {
         QMessageBox::information(this, "Success", "Task created successfully!");
@@ -273,8 +285,10 @@ void MainTasks::on_confirmTaskAddButton_clicked()
 
 void MainTasks::refreshTaskList()
 {
+    // Clear the current task list display
     ui->taskListDisplay->clear();
     uint32_t userId = MainWindow::currentUser.getId();
+    // Get all tasks for the current user
     auto tasks = TaskManager::getTasksForUser(userId);
     for (const auto& task : tasks) {
         QString display = QString::fromStdString(task.getName());
@@ -283,6 +297,99 @@ void MainTasks::refreshTaskList()
         }
         QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
         display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
-        ui->taskListDisplay->addItem(display);
+
+        // Store the task ID in the QListWidgetItem for later reference
+        auto *item = new QListWidgetItem(display);
+        item->setData(Qt::UserRole, static_cast<qulonglong>(task.getId()));
+        ui->taskListDisplay->addItem(item);
     }
+
+    // Update the profile statistics after refreshing the task list
+    updateProfileStats();
+}
+
+void MainTasks::updateProfileStats()
+{
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        // Show error if the database is not open
+        ui->label->setText("Database Error");
+        ui->label_2->setText("");
+        ui->label_3->setText("");
+        return;
+    }
+
+    QSqlQuery query(db);
+    // Get completedTasks, uncompletedTasks, and account creation date for the current user
+    query.prepare("SELECT completedTasks, uncompletedTasks, creationDate FROM users WHERE id = ?");
+    query.addBindValue(MainWindow::currentUser.getId());
+
+    if (!query.exec() || !query.next()) {
+        // Show error if the query fails or returns no results
+        ui->label->setText("Error loading stats");
+        ui->label_2->setText("");
+        ui->label_3->setText("");
+        return;
+    }
+
+    // Use column indices for compatibility with all Qt versions
+    int completedTasks = query.value(0).toInt();
+    int uncompletedTasks = query.value(1).toInt();
+    QDate creationDate = query.value(2).toDate();
+
+    int accountAge = creationDate.daysTo(QDate::currentDate());
+    int totalTasks = completedTasks + uncompletedTasks;
+    double completionPercentage = totalTasks > 0 ? (double)completedTasks / totalTasks * 100 : 0;
+
+    // Update the profile statistics labels
+    ui->label_3->setText("Stats:");
+    ui->label_2->setText(QString("Completed: %1 | Uncompleted: %2")
+                         .arg(completedTasks)
+                         .arg(uncompletedTasks));
+    ui->label->setText(QString("Account age: %1 days | Completion: %2%")
+                       .arg(accountAge)
+                       .arg(QString::number(completionPercentage, 'f', 1)));
+}
+
+void MainTasks::on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item)
+{
+    if (!item) return;
+
+    // Get the task ID stored in the QListWidgetItem
+    qulonglong taskId = item->data(Qt::UserRole).toULongLong();
+
+    // Ask the user for confirmation before marking the task as completed (deleting it)
+    if (QMessageBox::question(this, "Complete Task",
+                              "Mark this task as completed? It will be removed.",
+                              QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes)
+        return;
+
+    // Create a temporary Task object with only the ID set (needed for deleteTask)
+    Task tempTask;
+    tempTask.setId(taskId);
+
+    // Delete the task from the database
+    if (!TaskManager::deleteTask(tempTask)) {
+        QMessageBox::critical(this, "Error", "Failed to delete task!");
+        return;
+    }
+
+    // Increment completedTasks and decrement uncompletedTasks (but not below 0)
+    QSqlDatabase db = QSqlDatabase::database();
+    if (db.isOpen()) {
+        QSqlQuery query(db);
+        query.prepare("UPDATE users SET "
+                      "completedTasks = MAX(COALESCE(completedTasks, 0) + 1, 0), "
+                      "uncompletedTasks = MAX(COALESCE(uncompletedTasks, 0) - 1, 0) "
+                      "WHERE id = ?");
+        query.addBindValue(MainWindow::currentUser.getId());
+        if (!query.exec()) {
+            QMessageBox::warning(this, "Warning",
+                                 "Task removed but failed to update user stats: "
+                                 + query.lastError().text());
+        }
+    }
+
+    // Refresh the task list and profile statistics after deleting the task
+    refreshTaskList();
 }
