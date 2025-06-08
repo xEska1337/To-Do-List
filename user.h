@@ -3,7 +3,6 @@
 
 #include <cstdint>
 #include <string>
-#include <functional> // Add this include for std::hash
 #include <QDate>
 
 class User

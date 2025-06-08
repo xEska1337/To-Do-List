@@ -2,7 +2,6 @@
 #define TASK_H
 
 #include <cstdint>
-#include <qtypes.h>
 #include <string>
 
 #include "taskstatus.h"

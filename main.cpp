@@ -7,10 +7,6 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
-#include "team.h"
-#include "teammanager.h"
-#include "usermanager.h"
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

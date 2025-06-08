@@ -52,6 +52,14 @@ private slots:
 
     void on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item);
 
+    void on_createTeamButton_clicked();
+
+    void on_addMembersButton_clicked();
+
+    void on_crateTeamCancelButton_clicked();
+
+    void on_addMemberCancelButton_clicked();
+
 private:
     Ui::MainTasks *ui;
 

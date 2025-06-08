@@ -1,12 +1,6 @@
 #ifndef CREATEUSER_H
 #define CREATEUSER_H
 
-#include <QDialog>
-#include <QSqlDatabase>
-#include <QSqlQuery>
-#include <QSqlError>
-#include <QMessageBox>
-#include <QDateTime>
 #include "user.h"
 #include "usermanager.h"
 

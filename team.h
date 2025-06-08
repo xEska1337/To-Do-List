@@ -3,7 +3,6 @@
 
 #include <cstdint>
 #include <string>
-#include <algorithm>
 #include <vector>
 
 #include "user.h"

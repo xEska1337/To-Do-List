@@ -18,6 +18,7 @@ MainTasks::MainTasks(QWidget *parent)
     ui->tabWidget->setTabText(0, "Tasks");
     ui->tabWidget->setTabText(1, "Pomodoro");
     ui->tabWidget->setTabText(2, "Profile");
+    ui->tabWidget->setTabText(3, "Teams");
 
     //Profile
     ui->removeAccountButton->setStyleSheet("background-color: red; color: white;");
@@ -151,6 +152,7 @@ void MainTasks::showEvent(QShowEvent *event)
     QWidget::showEvent(event);
 
     moveAddTaskButton();
+    refreshTaskList();
 }
 
 void MainTasks::on_addTaskButton_clicked()
@@ -174,8 +176,8 @@ void MainTasks::on_cancelNewTaskButton_clicked() {
 
     //Clear task form
     ui->taskName->clear();
-    ui->colabInput->clear();
     ui->taskDescription->clear();
+    ui->teamSelect->clear();
 
 }
 void MainTasks::on_updatePasswordButton_clicked()
@@ -224,20 +226,9 @@ void MainTasks::on_removeAccountButton_clicked()
         return;
 
     User currentUser = MainWindow::currentUser;
-    /*QSqlDatabase db = QSqlDatabase::database();
-    if (!db.isOpen()) {
-        QMessageBox::critical(this, "Database Error", "Database connection failed!");
-        return;
-    }*/
 
     // Delete the user from the database
     UserManager::deleteUser(currentUser.getId());
-
-    //  Delete the user's tasks
-    /*QSqlQuery taskQuery(db);
-    taskQuery.prepare("DELETE FROM tasks WHERE userAssigned = ?");
-    taskQuery.addBindValue(currentUser.getId());
-    taskQuery.exec();*/
 
     QMessageBox::information(this, "Account Deleted", "Your account has been deleted.");
 
@@ -306,6 +297,7 @@ void MainTasks::refreshTaskList()
 
     // Update the profile statistics after refreshing the task list
     updateProfileStats();
+    moveAddTaskButton();
 }
 
 void MainTasks::updateProfileStats()
@@ -313,9 +305,10 @@ void MainTasks::updateProfileStats()
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
         // Show error if the database is not open
-        ui->label->setText("Database Error");
-        ui->label_2->setText("");
-        ui->label_3->setText("");
+        ui->completedTaskStat->setText("Database Error");
+        ui->uncompletedTaskStat->setText("");
+        ui->accoungAgeStat->setText("");
+        ui->completionPercStat->setText("");
         return;
     }
 
@@ -326,9 +319,10 @@ void MainTasks::updateProfileStats()
 
     if (!query.exec() || !query.next()) {
         // Show error if the query fails or returns no results
-        ui->label->setText("Error loading stats");
-        ui->label_2->setText("");
-        ui->label_3->setText("");
+        ui->completedTaskStat->setText("Error loading stats");
+        ui->uncompletedTaskStat->setText("");
+        ui->accoungAgeStat->setText("");
+        ui->completionPercStat->setText("");
         return;
     }
 
@@ -342,13 +336,10 @@ void MainTasks::updateProfileStats()
     double completionPercentage = totalTasks > 0 ? (double)completedTasks / totalTasks * 100 : 0;
 
     // Update the profile statistics labels
-    ui->label_3->setText("Stats:");
-    ui->label_2->setText(QString("Completed: %1 | Uncompleted: %2")
-                         .arg(completedTasks)
-                         .arg(uncompletedTasks));
-    ui->label->setText(QString("Account age: %1 days | Completion: %2%")
-                       .arg(accountAge)
-                       .arg(QString::number(completionPercentage, 'f', 1)));
+    ui->completedTaskStat->setText(QString("Completed tasks: %1").arg(completedTasks));
+    ui->uncompletedTaskStat->setText(QString("Uncompleted tasks: %1").arg(uncompletedTasks));
+    ui->accoungAgeStat->setText(QString("Account age: %1 days").arg(accountAge));
+    ui->completionPercStat->setText(QString("Completion: %1%").arg(QString::number(completionPercentage, 'f', 1)));
 }
 
 void MainTasks::on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item)
@@ -392,4 +383,24 @@ void MainTasks::on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item)
 
     // Refresh the task list and profile statistics after deleting the task
     refreshTaskList();
+}
+
+void MainTasks::on_createTeamButton_clicked() {
+    ui->stackedWidget_2->setCurrentIndex(1);
+}
+
+void MainTasks::on_crateTeamCancelButton_clicked() {
+    ui->stackedWidget_2->setCurrentIndex(0);
+    ui->createTeamTeamName->clear();
+    ui->createTeamNameConfirm->clear();
+    ui->crateTeamMemberAddList->clear();
+}
+
+void MainTasks::on_addMembersButton_clicked() {
+    ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+void MainTasks::on_addMemberCancelButton_clicked() {
+    ui->stackedWidget_2->setCurrentIndex(0);
+    ui->addMemberList->clear();
 }
