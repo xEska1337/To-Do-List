@@ -62,6 +62,11 @@ private slots:
 
     void on_leaveJoinTeamButton_clicked();
 
+    void on_createTeamConfirmButton_clicked();
+    void refreshTeamDisplay();
+    void updateTeamInfo();
+    void on_allTeamsComboBox_currentIndexChanged(int index);
+
 private:
     Ui::MainTasks *ui;
 
@@ -76,6 +81,7 @@ private:
     QPushButton *addTaskButton;
 
     JoinTeam *JoinTeamWindow;
+    void loadAllTeamsToComboBox();
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

@@ -5,6 +5,9 @@
 #include <QListWidgetItem>
 #include <QSqlQuery>
 #include <QSqlError>
+#include "teammanager.h"
+#include <QStringListModel>
+#include <QInputDialog>
 
 MainTasks::MainTasks(QWidget *parent)
     : QDialog(parent)
@@ -46,6 +49,8 @@ MainTasks::MainTasks(QWidget *parent)
 
     ui->profileUsername->setText(QString::fromStdString(MainWindow::currentUser.getUsername()));
     updateProfileStats();
+    refreshTeamDisplay();
+    loadAllTeamsToComboBox();
 }
 
 MainTasks::~MainTasks()
@@ -153,6 +158,7 @@ void MainTasks::showEvent(QShowEvent *event)
 
     moveAddTaskButton();
     refreshTaskList();
+    refreshTeamDisplay();
 }
 
 void MainTasks::on_addTaskButton_clicked()
@@ -397,7 +403,37 @@ void MainTasks::on_crateTeamCancelButton_clicked() {
 }
 
 void MainTasks::on_addMembersButton_clicked() {
-    ui->stackedWidget_2->setCurrentIndex(2);
+    int index = ui->allTeamsComboBox->currentIndex();
+    if (index < 0) return;
+    uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
+    Team team = TeamManager::getTeam(teamId);
+
+    // Request a username to add
+    bool ok;
+    QString username = QInputDialog::getText(this, "Add member", "Enter the username to add:", QLineEdit::Normal, "", &ok);
+    if (!ok || username.isEmpty()) return;
+
+    // Check if such user exists
+    User user = UserManager::getUser(username.toStdString());
+    if (user.getId() == 0) {
+        QMessageBox::warning(this, "Error", "No user with the specified name found.");
+        return;
+    }
+
+    // Check if you are a member
+    if (team.containsUser(user.getId())) {
+        QMessageBox::information(this, "Info", "This user is already a team member.");
+        return;
+    }
+
+    // add member to team
+    team.addMember(user.getId());
+    TeamManager::updateTeam(team);
+
+    QMessageBox::information(this, "Success", "User has been added to the team.");
+
+
+    refreshTeamDisplay();
 }
 
 void MainTasks::on_addMemberCancelButton_clicked() {
@@ -406,6 +442,166 @@ void MainTasks::on_addMemberCancelButton_clicked() {
 }
 
 void MainTasks::on_leaveJoinTeamButton_clicked() {
-    JoinTeamWindow = new JoinTeam(this);
-    JoinTeamWindow->exec();
+
+    int index = ui->allTeamsComboBox->currentIndex();
+    if (index < 0) return;
+    uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
+    Team team = TeamManager::getTeam(teamId);
+
+    uint32_t userId = MainWindow::currentUser.getId();
+
+    if (team.containsUser(userId)) {
+        // User is a member - logic "Leave team"
+        if (QMessageBox::question(this, "Leave team", "Are you sure you want to leave this team?") != QMessageBox::Yes)
+            return;
+
+        team.removeMember(userId);
+
+        if (team.getMembers().empty()) {
+            TeamManager::deleteTeam(teamId);
+            QMessageBox::information(this, "Info", "The group has been removed because it no longer has any members..");
+        } else {
+            TeamManager::updateTeam(team);
+            QMessageBox::information(this, "Info", "You left the team.");
+        }
+    } else {
+        // User is not a member - logic "Join team"
+        bool ok;
+        QString password = QInputDialog::getText(this, "Join team", "Enter your team password:", QLineEdit::Password, "", &ok);
+        if (!ok || password.isEmpty()) return;
+
+        // check password
+        Team tempTeam(team.getName(), password.toStdString(), {});
+        if (tempTeam.getPassword() != team.getPassword()) {
+            QMessageBox::warning(this, "Error", "Incorrect password!");
+            return;
+        }
+
+        // Add user to team
+        team.addMember(userId);
+        TeamManager::updateTeam(team);
+        QMessageBox::information(this, "Success", "Joined the team!");
+    }
+
+
+    loadAllTeamsToComboBox();
+    refreshTeamDisplay();
+}
+void MainTasks::on_createTeamConfirmButton_clicked()
+{
+    QString teamName = ui->createTeamTeamName->text().trimmed();
+    QString teamNameConfirm = ui->createTeamNameConfirm->text().trimmed();
+    QString teamPassword = ui->createTeamPassword->text();
+    QString teamPasswordConfirm = ui->createTeamPasswordConfirm->text();
+
+
+    if (teamName.isEmpty() || teamNameConfirm.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Team name cannot be empty!");
+        return;
+    }
+
+    if (teamName != teamNameConfirm) {
+        QMessageBox::warning(this, "Error", "Team names do not match!");
+        return;
+    }
+
+    if (teamPassword.isEmpty() || teamPasswordConfirm.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Team password cannot be empty!");
+        return;
+    }
+
+    if (teamPassword != teamPasswordConfirm) {
+        QMessageBox::warning(this, "Error", "Team passwords do not match!");
+        return;
+    }
+
+    if (teamPassword.length() < 4) {
+        QMessageBox::warning(this, "Error", "Team password must be at least 4 characters long!");
+        return;
+    }
+
+    // Creating a team with a current user as the first member
+    std::vector<uint32_t> members;
+    members.push_back(MainWindow::currentUser.getId());
+
+    Team newTeam(teamName.toStdString(), teamPassword.toStdString(), members);
+
+    // Zapisanie zespołu do bazy danych
+    if (TeamManager::createTeam(newTeam)) {
+        QMessageBox::information(this, "Success", "Team created successfully!");
+
+        // Wyczyszczenie formularza
+        ui->createTeamTeamName->clear();
+        ui->createTeamNameConfirm->clear();
+        ui->createTeamPassword->clear();
+        ui->createTeamPasswordConfirm->clear();
+        ui->crateTeamMemberAddList->clear();
+
+        //Back to main teams view
+        ui->stackedWidget_2->setCurrentIndex(0);
+        refreshTeamDisplay();
+
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to create team!");
+    }
+}
+void MainTasks::refreshTeamDisplay() {
+
+    Team currentTeam = TeamManager::getTeamForUser(MainWindow::currentUser.getId());
+
+    if (currentTeam.getId() == 0) {
+
+        ui->teamNameDisplay->setText("No team");
+        ui->teamMembersDisplay->setModel(nullptr);
+        ui->leaveJoinTeamButton->setText("Join team");
+    } else {
+
+        ui->teamNameDisplay->setText(QString::fromStdString(currentTeam.getName()));
+        ui->leaveJoinTeamButton->setText("Leave team");
+
+
+        QStringListModel *model = new QStringListModel(this);
+        QStringList memberNames;
+
+        std::vector<User> members = currentTeam.getMembersAsUsers();
+        for (const auto& member : members) {
+            memberNames << QString::fromStdString(member.getUsername());
+        }
+
+        model->setStringList(memberNames);
+        ui->teamMembersDisplay->setModel(model);
+    }
+    if (currentTeam.containsUser(MainWindow::currentUser.getId())) {
+        ui->leaveJoinTeamButton->setText("Leave team");
+    } else {
+        ui->leaveJoinTeamButton->setText("Join team");
+    }
+}
+
+void MainTasks::updateTeamInfo() {
+    refreshTeamDisplay();
+}
+void MainTasks::loadAllTeamsToComboBox() {
+    ui->allTeamsComboBox->clear();
+    auto allTeams = TeamManager::getAllTeams();
+    for (const auto& team : allTeams) {
+        ui->allTeamsComboBox->addItem(QString::fromStdString(team.getName()), QVariant::fromValue(team.getId()));
+    }
+}
+void MainTasks::on_allTeamsComboBox_currentIndexChanged(int index) {
+    if (index < 0) return;
+    uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
+    Team selectedTeam = TeamManager::getTeam(teamId);
+
+    ui->teamNameDisplay->setText(QString::fromStdString(selectedTeam.getName()));
+
+
+    QStringListModel *model = new QStringListModel(this);
+    QStringList memberNames;
+    std::vector<User> members = selectedTeam.getMembersAsUsers();
+    for (const auto& member : members) {
+        memberNames << QString::fromStdString(member.getUsername());
+    }
+    model->setStringList(memberNames);
+    ui->teamMembersDisplay->setModel(model);
 }

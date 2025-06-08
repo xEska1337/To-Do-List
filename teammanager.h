@@ -17,6 +17,10 @@ namespace TeamManager {
     bool deleteTeam(const Team& team);
     bool deleteTeam(uint32_t id);
 
+    std::vector<Team> getAllTeams();
+    std::vector<Team> getTeamsForUser(uint32_t userId);
+    Team getTeamForUser(uint32_t userId);
+
 
 }
 

@@ -250,3 +250,72 @@ bool TeamManager::deleteTeam(uint32_t id) {
 
     return true;
 }
+std::vector<Team> TeamManager::getAllTeams() {
+    std::vector<Team> teams;
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        QMessageBox::critical(nullptr, "Database Error", "Database connection failed!");
+        return teams;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM teams");
+
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Database Error",
+                             "Failed to get teams: " + query.lastError().text());
+        return teams;
+    }
+
+    while (query.next()) {
+        std::vector<uint32_t> members;
+        std::string membersString = query.value("members").toString().toStdString();
+
+        // Parse members string
+        std::string memberId = "";
+        for (uint64_t i = 0; i < membersString.size(); i++) {
+            if (membersString[i] == ';') {
+                if (memberId != "") {
+                    members.push_back(std::stoi(memberId));
+                }
+                memberId = "";
+                continue;
+            }
+            memberId += membersString[i];
+        }
+        if (memberId != "") {
+            members.push_back(std::stoi(memberId));
+        }
+
+        Team team{
+            query.value("id").toUInt(),
+            query.value("name").toString().toStdString(),
+            query.value("password").toULongLong(),
+            members
+        };
+        teams.push_back(team);
+    }
+
+    return teams;
+}
+
+std::vector<Team> TeamManager::getTeamsForUser(uint32_t userId) {
+    std::vector<Team> userTeams;
+    std::vector<Team> allTeams = getAllTeams();
+
+    for (const auto& team : allTeams) {
+        if (team.containsUser(userId)) {
+            userTeams.push_back(team);
+        }
+    }
+
+    return userTeams;
+}
+
+Team TeamManager::getTeamForUser(uint32_t userId) {
+    std::vector<Team> userTeams = getTeamsForUser(userId);
+    if (!userTeams.empty()) {
+        return userTeams[0];
+    }
+    return Team(0, "", 0);
+}

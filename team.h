@@ -38,8 +38,8 @@ public:
     uint64_t getPassword() const;
     std::vector<uint32_t> getMembers() const;
     std::vector<User> getMembersAsUsers() const;
-    bool containsUser(uint32_t userid);
-    bool containsUser(const User &user);
+    bool containsUser(uint32_t userid) const;
+    bool containsUser(const User &user) const;
 
     // Adding members
     void addMember(const User &user);

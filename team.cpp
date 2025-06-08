@@ -89,11 +89,11 @@ std::vector<User> Team::getMembersAsUsers() const {
     return users;
 }
 
-bool Team::containsUser(uint32_t userid) {
+bool Team::containsUser(uint32_t userid) const {
     return std::find(this->members.begin(), this->members.end(), userid) != this->members.end();
 }
 
-bool Team::containsUser(const User &user) {
+bool Team::containsUser(const User &user) const {
     return std::find(this->members.begin(), this->members.end(), user.getId()) != this->members.end();
 }
 
