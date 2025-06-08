@@ -13,8 +13,9 @@ bool TaskManager::createTask(const Task& task) {
         return false;
     }
     QSqlQuery insertQuery(db);
-    insertQuery.prepare("INSERT INTO tasks (userAssigned, name, dueDate, description) VALUES (?, ?, ?, ?)");
+    insertQuery.prepare("INSERT INTO tasks (userAssigned, teamId, name, dueDate, description) VALUES (?, ?, ?, ?, ?)");
     insertQuery.addBindValue(task.getUserId());
+    insertQuery.addBindValue(task.getTeamId());
     insertQuery.addBindValue(QString::fromStdString(task.getName()));
     insertQuery.addBindValue(QDateTime::fromSecsSinceEpoch(task.getDeadline()));
     insertQuery.addBindValue(QString::fromStdString(task.getDescription()));

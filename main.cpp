@@ -36,6 +36,7 @@ int main(int argc, char *argv[])
                         "name TEXT NOT NULL, "
                         "dueDate DATETIME, "
                         "description TEXT, "
+                        "teamId INTEGER, "
                         "FOREIGN KEY(userAssigned) REFERENCES users(id))");
 
     query.exec("CREATE TABLE IF NOT EXISTS teams ("

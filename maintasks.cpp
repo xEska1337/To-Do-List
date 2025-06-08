@@ -173,6 +173,25 @@ void MainTasks::on_addTaskButton_clicked()
     //Adding teams to list
     ui->teamSelect->clear();
     //ui->teamSelect->addItem("TeamName");
+    ui->teamSelect->addItem("No team", QVariant(0));
+    QSqlDatabase db = QSqlDatabase::database();
+    QSqlQuery query(db);
+    query.prepare("SELECT id, name, members FROM teams");
+    if (query.exec()) {
+        while (query.next()) {
+            uint32_t teamId = query.value("id").toUInt();
+            QString teamName = query.value("name").toString();
+            QString membersStr = query.value("members").toString();
+            // Check if user is a member
+            QStringList membersList = membersStr.split(';', Qt::SkipEmptyParts);
+            for (const QString& member : membersList) {
+                if (member.toUInt() == MainWindow::currentUser.getId()) {
+                    ui->teamSelect->addItem(teamName, QVariant(teamId));
+                    break;
+                }
+            }
+        }
+    }
 }
 
 void MainTasks::on_cancelNewTaskButton_clicked() {
@@ -260,7 +279,9 @@ void MainTasks::on_confirmTaskAddButton_clicked()
     newTask.setDescription(taskDescription.toStdString());
     newTask.setUserId(MainWindow::currentUser.getId());
     newTask.setDeadline(dueDate.toSecsSinceEpoch());
+    newTask.setTeamId(ui->teamSelect->currentData().toUInt());
     QSqlDatabase db = QSqlDatabase::database();
+
     if (db.isOpen()) {
         QSqlQuery query(db);
         query.prepare("UPDATE users SET uncompletedTasks = COALESCE(uncompletedTasks, 0) + 1 WHERE id = ?");
