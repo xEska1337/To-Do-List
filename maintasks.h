@@ -5,7 +5,7 @@
 #include <QTimer>
 #include <QTime>
 #include <QSoundEffect>
-
+#include "jointeam.h"
 
 namespace Ui {
 class MainTasks;
@@ -60,6 +60,8 @@ private slots:
 
     void on_addMemberCancelButton_clicked();
 
+    void on_leaveJoinTeamButton_clicked();
+
 private:
     Ui::MainTasks *ui;
 
@@ -72,6 +74,8 @@ private:
 
     //Add task button
     QPushButton *addTaskButton;
+
+    JoinTeam *JoinTeamWindow;
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

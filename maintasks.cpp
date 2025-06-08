@@ -404,3 +404,8 @@ void MainTasks::on_addMemberCancelButton_clicked() {
     ui->stackedWidget_2->setCurrentIndex(0);
     ui->addMemberList->clear();
 }
+
+void MainTasks::on_leaveJoinTeamButton_clicked() {
+    JoinTeamWindow = new JoinTeam(this);
+    JoinTeamWindow->exec();
+}
