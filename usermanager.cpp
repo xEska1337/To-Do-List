@@ -86,8 +86,7 @@ User UserManager::getUser(uint32_t id) {
     getQuery.addBindValue(id);
 
     if (!getQuery.exec()) {
-        QMessageBox::critical(nullptr, "Database Error",
-                             "Failed to check username: " + getQuery.lastError().text());
+      QMessageBox::critical(nullptr, "Database Error", "Failed to check username: " + getQuery.lastError().text());
         return User(0, "", 0);
     }
 

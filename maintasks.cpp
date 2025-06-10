@@ -161,8 +161,7 @@ void MainTasks::showEvent(QShowEvent *event)
     refreshTeamDisplay();
 }
 
-void MainTasks::on_addTaskButton_clicked()
-{
+void MainTasks::on_addTaskButton_clicked() {
     //Switch view
     ui->stackedWidget->setCurrentIndex(1);
 
@@ -186,7 +185,7 @@ void MainTasks::on_addTaskButton_clicked()
             QStringList membersList = membersStr.split(';', Qt::SkipEmptyParts);
             for (const QString& member : membersList) {
                 if (member.toUInt() == MainWindow::currentUser.getId()) {
-                    ui->teamSelect->addItem(teamName, QVariant(teamId));
+                    ui->teamSelect->addItem(teamName + " (Team task)", QVariant(teamId));  // Dodano "(Team task)"
                     break;
                 }
             }
@@ -277,9 +276,19 @@ void MainTasks::on_confirmTaskAddButton_clicked()
     Task newTask;
     newTask.setName(taskName.toStdString());
     newTask.setDescription(taskDescription.toStdString());
-    newTask.setUserId(MainWindow::currentUser.getId());
+
     newTask.setDeadline(dueDate.toSecsSinceEpoch());
-    newTask.setTeamId(ui->teamSelect->currentData().toUInt());
+
+    uint32_t selectedTeamId = ui->teamSelect->currentData().toUInt();
+    if (selectedTeamId == 0) {
+        // Personal task
+        newTask.setUserId(MainWindow::currentUser.getId());
+        newTask.setTeamId(0);
+    } else {
+        // Team task
+        newTask.setUserId(0);  // 0 means it's a team task
+        newTask.setTeamId(selectedTeamId);
+    }
     QSqlDatabase db = QSqlDatabase::database();
 
     if (db.isOpen()) {
@@ -437,7 +446,7 @@ void MainTasks::on_addMembersButton_clicked() {
     // Check if such user exists
     User user = UserManager::getUser(username.toStdString());
     if (user.getId() == 0) {
-        QMessageBox::warning(this, "Error", "No user with the specified name found.");
+
         return;
     }
 
@@ -567,36 +576,39 @@ void MainTasks::on_createTeamConfirmButton_clicked()
     }
 }
 void MainTasks::refreshTeamDisplay() {
+    ui->taskListDisplay->clear();
+    uint32_t userId = MainWindow::currentUser.getId();
+    auto userTasks = TaskManager::getTasksForUser(userId);
+    Team currentTeam = TeamManager::getTeamForUser(userId);
+    std::vector<Task> teamTasks;
+    if (currentTeam.getId() != 0) {
+        teamTasks = TaskManager::getTasksForTeam(currentTeam.getId());
+    }
+    std::vector<Task> allTasks = userTasks;
+    allTasks.insert(allTasks.end(), teamTasks.begin(), teamTasks.end());
 
-    Team currentTeam = TeamManager::getTeamForUser(MainWindow::currentUser.getId());
-
-    if (currentTeam.getId() == 0) {
-
-        ui->teamNameDisplay->setText("No team");
-        ui->teamMembersDisplay->setModel(nullptr);
-        ui->leaveJoinTeamButton->setText("Join team");
-    } else {
-
-        ui->teamNameDisplay->setText(QString::fromStdString(currentTeam.getName()));
-        ui->leaveJoinTeamButton->setText("Leave team");
+    for (const auto& task : allTasks) {
+        QString display = QString::fromStdString(task.getName());
+        if (!task.getDescription().empty()) {
+            display += " - " + QString::fromStdString(task.getDescription());
+        }
+        QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
+        display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
 
 
-        QStringListModel *model = new QStringListModel(this);
-        QStringList memberNames;
-
-        std::vector<User> members = currentTeam.getMembersAsUsers();
-        for (const auto& member : members) {
-            memberNames << QString::fromStdString(member.getUsername());
+        if (task.getUserId() == 0) {
+            display = "[TEAM] " + display;
         }
 
-        model->setStringList(memberNames);
-        ui->teamMembersDisplay->setModel(model);
+        auto *item = new QListWidgetItem(display);
+        item->setData(Qt::UserRole, static_cast<qulonglong>(task.getId()));
+        ui->taskListDisplay->addItem(item);
     }
-    if (currentTeam.containsUser(MainWindow::currentUser.getId())) {
-        ui->leaveJoinTeamButton->setText("Leave team");
-    } else {
-        ui->leaveJoinTeamButton->setText("Join team");
-    }
+
+    updateProfileStats();
+    moveAddTaskButton();
+
+
 }
 
 void MainTasks::updateTeamInfo() {

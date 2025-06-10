@@ -65,3 +65,27 @@ std::vector<Task> TaskManager::getTasksForUser(uint32_t userId) {
     }
     return tasks;
 }
+std::vector<Task> TaskManager::getTasksForTeam(uint32_t teamId) {
+    std::vector<Task> tasks;
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) return tasks;
+
+    QSqlQuery query(db);
+    query.prepare("SELECT * FROM tasks WHERE teamId = ? AND userAssigned = 0");
+    query.addBindValue(teamId);
+
+    if (!query.exec()) return tasks;
+
+    while (query.next()) {
+        Task task;
+        task.setId(query.value("id").toULongLong());
+        task.setUserId(query.value("userAssigned").toUInt());
+        task.setTeamId(query.value("teamId").toUInt());
+        task.setName(query.value("name").toString().toStdString());
+        task.setDescription(query.value("description").toString().toStdString());
+        QDateTime dueDateTime = query.value("dueDate").toDateTime();
+        task.setDeadline(dueDateTime.toSecsSinceEpoch());
+        tasks.push_back(task);
+    }
+    return tasks;
+}

@@ -6,6 +6,7 @@
 namespace TaskManager {
 
     bool createTask(const Task& task);
+    std::vector<Task> getTasksForTeam(uint32_t teamId);
     std::vector<Task> getTasksForUser(uint32_t userId);
     Task getTask(uint64_t id);
     bool updateTask(const Task& task);
