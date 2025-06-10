@@ -5,7 +5,9 @@
 #include <QTimer>
 #include <QTime>
 #include <QSoundEffect>
-#include "jointeam.h"
+#include <QDateTime>
+#include <algorithm>
+#include <QBrush>
 
 namespace Ui {
 class MainTasks;
@@ -63,9 +65,12 @@ private slots:
     void on_leaveJoinTeamButton_clicked();
 
     void on_createTeamConfirmButton_clicked();
-    void refreshTeamDisplay();
-    void updateTeamInfo();
+
     void on_allTeamsComboBox_currentIndexChanged(int index);
+
+    void on_addMemberConfimButton_clicked();
+
+    void on_sortTasksComboBox_currentIndexChanged(int index);
 
 private:
     Ui::MainTasks *ui;
@@ -80,8 +85,16 @@ private:
     //Add task button
     QPushButton *addTaskButton;
 
-    JoinTeam *JoinTeamWindow;
     void loadAllTeamsToComboBox();
+
+    // Task Sorting
+    enum TaskSortCriteria { // <<< Updated enum
+        SortByDueDateAsc,
+        SortByDueDateDesc,
+        SortByNameAsc,
+        SortByNameDesc
+    };
+    TaskSortCriteria currentTaskSortCriteria;
 
 protected:
     void resizeEvent(QResizeEvent *event) override;

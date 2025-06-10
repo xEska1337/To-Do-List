@@ -2,6 +2,11 @@
 
 using namespace TeamManager;
 
+/**
+ * Creates Team in database
+ * @param team Team to create
+ * @return True if success, false if there was any error
+ */
 bool TeamManager::createTeam(const Team &team) {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
@@ -29,7 +34,7 @@ bool TeamManager::createTeam(const Team &team) {
     QSqlQuery insertQuery(db);
     insertQuery.prepare("INSERT INTO teams (name, password, members) VALUES (?, ?, ?)");
     insertQuery.addBindValue(QString::fromStdString(team.getName()));
-    insertQuery.addBindValue(QString::number(team.getPassword()));
+    insertQuery.addBindValue(QString::fromStdString(team.getPassword()));
     std::string membersString;
     if (!team.getMembers().empty()) {
         membersString = std::to_string(team.getMembers()[0]);
@@ -50,6 +55,11 @@ bool TeamManager::createTeam(const Team &team) {
     return true;
 }
 
+/**
+ * Gets Team from a database identifying it by name and returns as Team's object
+ * @param name Team's name
+ * @return Team's object, if Team->id equals 0, then Team doesn't exist, or there was an error
+ */
 Team TeamManager::getTeam(const std::string &name) {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
@@ -95,13 +105,18 @@ Team TeamManager::getTeam(const std::string &name) {
     Team team{
         getQuery.value("id").toUInt(),
         getQuery.value("name").toString().toStdString(),
-        getQuery.value("password").toULongLong(),
+        getQuery.value("password").toString().toStdString(),
         members
     };
 
     return team;
 }
 
+/**
+ * Gets Team from a database identifying it by ID and returns as Team's object
+ * @param id Team's ID
+ * @return Team's object, if Team->id equals 0, then Team doesn't exist, or there was an error
+ */
 Team TeamManager::getTeam(uint32_t id) {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
@@ -147,13 +162,18 @@ Team TeamManager::getTeam(uint32_t id) {
     Team team{
         getQuery.value("id").toUInt(),
         getQuery.value("name").toString().toStdString(),
-        getQuery.value("password").toULongLong(),
+        getQuery.value("password").toString().toStdString(),
         members
     };
 
     return team;
 }
 
+/**
+ * Updates Team in a database
+ * @param team Team to update
+ * @return True if success, false if there was any error
+ */
 bool TeamManager::updateTeam(const Team &team) {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
@@ -181,7 +201,7 @@ bool TeamManager::updateTeam(const Team &team) {
     QSqlQuery updateQuery(db);
     updateQuery.prepare("UPDATE teams SET name=?, password=?, members=? WHERE id=?");
     updateQuery.addBindValue(QString::fromStdString(team.getName()));
-    updateQuery.addBindValue(team.getPassword());
+    updateQuery.addBindValue(QString::fromStdString(team.getPassword()));
     std::string membersString;
     if (!team.getMembers().empty()) {
         membersString = std::to_string(team.getMembers()[0]);
@@ -201,10 +221,20 @@ bool TeamManager::updateTeam(const Team &team) {
     return true;
 }
 
+/**
+ * Deletes Team from a database
+ * @param team Team to delete
+ * @return True if success, false if Team doesn't exist or there was any error
+ */
 bool TeamManager::deleteTeam(const Team &team) {
     return TeamManager::deleteTeam(team.getId());
 }
 
+/**
+ * Deletes Team using his ID from a database
+ * @param id ID of a Team to delete
+ * @return True if success, false if Team doesn't exist or there was any error
+ */
 bool TeamManager::deleteTeam(uint32_t id) {
     QSqlDatabase db = QSqlDatabase::database();
     if (!db.isOpen()) {
@@ -237,19 +267,13 @@ bool TeamManager::deleteTeam(uint32_t id) {
         return false;
     }
 
-
-    // TODO: Usuwanie taskow od teamow?
-    /*QSqlQuery deleteTasksQuery(db);
-    deleteTasksQuery.prepare("DELETE FROM teams WHERE userAssigned = ?");
-    deleteTasksQuery.addBindValue(id);
-    if (!deleteTasksQuery.exec()) {
-        QMessageBox::critical(nullptr, "Database Error",
-                             "Failed to delete user's tasks: " + deleteQuery.lastError().text());
-        return false;
-    }*/
-
     return true;
 }
+
+/**
+ * Returns all Teams from a database
+ * @return Vector of all Teams from a database
+ */
 std::vector<Team> TeamManager::getAllTeams() {
     std::vector<Team> teams;
     QSqlDatabase db = QSqlDatabase::database();
@@ -290,7 +314,7 @@ std::vector<Team> TeamManager::getAllTeams() {
         Team team{
             query.value("id").toUInt(),
             query.value("name").toString().toStdString(),
-            query.value("password").toULongLong(),
+            query.value("password").toString().toStdString(),
             members
         };
         teams.push_back(team);
@@ -299,6 +323,10 @@ std::vector<Team> TeamManager::getAllTeams() {
     return teams;
 }
 
+/**
+ * Returns all Teams that the User belongs to from a database
+ * @return Vector of all Teams that the User belongs to
+ */
 std::vector<Team> TeamManager::getTeamsForUser(uint32_t userId) {
     std::vector<Team> userTeams;
     std::vector<Team> allTeams = getAllTeams();
@@ -312,6 +340,10 @@ std::vector<Team> TeamManager::getTeamsForUser(uint32_t userId) {
     return userTeams;
 }
 
+/**
+ * Returns first User's Team from a database
+ * @return First User's Team
+ */
 Team TeamManager::getTeamForUser(uint32_t userId) {
     std::vector<Team> userTeams = getTeamsForUser(userId);
     if (!userTeams.empty()) {

@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 
-    //Create database
+    //Create a database
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("todolist.db");
 
@@ -21,10 +21,13 @@ int main(int argc, char *argv[])
     }
 
     QSqlQuery query(db);
+
+    // Create all needed tables in database.
     query.exec("CREATE TABLE IF NOT EXISTS users ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
-                        "password BIGINT UNSIGNED NOT NULL, "
+                        "password TEXT NOT NULL, "
+                        "salt TEXT NOT NULL, "
                         "completedTasks INTEGER, "
                         "uncompletedTasks INTEGER, "
                         "creationDate DATE)");
@@ -32,7 +35,6 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS tasks ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "userAssigned INTEGER NOT NULL, "
-                        "collaborators TEXT, "
                         "name TEXT NOT NULL, "
                         "dueDate DATETIME, "
                         "description TEXT, "
@@ -42,7 +44,7 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS teams ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "name TEXT NOT NULL, "
-                        "password BIGINT UNSIGNED NOT NULL, "
+                        "password TEXT NOT NULL, "
                         "members LONGTEXT NOT NULL)");
 
     //Set icon
@@ -53,7 +55,6 @@ int main(int argc, char *argv[])
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     a.setStyleSheet(styleSheet);
-
 
 
     MainWindow w;

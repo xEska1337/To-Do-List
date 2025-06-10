@@ -29,7 +29,7 @@
    <item row="0" column="1">
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>3</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tasksTab">
       <attribute name="title">
@@ -65,7 +65,7 @@
             <number>0</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <item row="0" column="0">
             <widget class="QListWidget" name="taskListDisplay">
@@ -80,6 +80,9 @@
               <string>+</string>
              </property>
             </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QComboBox" name="sortTasksComboBox"/>
            </item>
           </layout>
          </widget>
@@ -329,13 +332,6 @@
             <layout class="QVBoxLayout" name="verticalLayout_2">
              <item>
               <widget class="QComboBox" name="allTeamsComboBox"/>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="teamNameDisplay">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
              </item>
              <item>
               <widget class="QListView" name="teamMembersDisplay"/>

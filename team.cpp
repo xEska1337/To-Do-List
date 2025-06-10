@@ -2,7 +2,7 @@
 
 Team::Team() {}
 
-Team::Team(uint32_t id, const std::string &name, uint64_t password, const std::vector<uint32_t> &members) {
+Team::Team(uint32_t id, const std::string &name, std::string &password, const std::vector<uint32_t> &members) {
     this->setId(id);
     this->setName(name);
     this->setPassword(password);
@@ -16,7 +16,7 @@ Team::Team(uint32_t id, const std::string &name, const std::string &password, co
     this->setMembers(members);
 }
 
-Team::Team(uint32_t id, const std::string &name, uint64_t password) {
+Team::Team(uint32_t id, const std::string &name, std::string &password) {
     this->setId(id);
     this->setName(name);
     this->setPassword(password);
@@ -28,7 +28,7 @@ Team::Team(uint32_t id, const std::string &name, const std::string &password) {
     this->setPassword(password);
 }
 
-Team::Team(const std::string &name, uint64_t password, const std::vector<uint32_t> &members) {
+Team::Team(const std::string &name, std::string &password, const std::vector<uint32_t> &members) {
     this->setName(name);
     this->setPassword(password);
     this->setMembers(members);
@@ -48,13 +48,14 @@ void Team::setName(const std::string &name) {
     this->name = name;
 }
 
-void Team::setPassword(uint64_t password) {
+void Team::setPassword(std::string &password) {
     this->password = password;
 }
 
 void Team::setPassword(const std::string &password) {
-    std::hash<std::string> hasher;
-    this->password = hasher(password);
+    QCryptographicHash hasher(QCryptographicHash::Blake2b_256);
+    hasher.addData(QByteArray::fromStdString(password));
+    this->password = hasher.result().toHex().toStdString();
 }
 
 
@@ -70,7 +71,7 @@ std::string Team::getName() const {
     return this->name;
 }
 
-uint64_t Team::getPassword() const {
+std::string Team::getPassword() const {
     return this->password;
 }
 
