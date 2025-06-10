@@ -1,4 +1,5 @@
 #include "usermanager.h"
+#include <vector>
 
 using namespace UserManager;
 
@@ -194,4 +195,33 @@ bool UserManager::deleteUser(uint32_t id) {
     }
 
     return true;
+}
+
+std::vector<User> UserManager::getAllUsers() {
+    std::vector<User> users;
+    QSqlDatabase db = QSqlDatabase::database();
+    if (!db.isOpen()) {
+        QMessageBox::critical(nullptr, "Database Error", "Database connection failed!");
+        return users;
+    }
+
+    QSqlQuery query(db);
+    query.prepare("SELECT id, username, password, creationDate FROM users");
+
+    if (!query.exec()) {
+        QMessageBox::critical(nullptr, "Database Error",
+                             "Failed to retrieve users: " + query.lastError().text());
+        return users;
+    }
+
+    while (query.next()) {
+        User user(
+            query.value("id").toUInt(),
+            query.value("username").toString().toStdString(),
+            query.value("password").toULongLong(), // Matches your User constructor
+            query.value("creationDate").toDate()
+        );
+        users.push_back(user);
+    }
+    return users;
 }

@@ -15,6 +15,7 @@ namespace UserManager {
      bool updateUser(const User& user);
      bool deleteUser(const User& user);
      bool deleteUser(uint32_t id);
+     std::vector<User> getAllUsers();
 
 }
 

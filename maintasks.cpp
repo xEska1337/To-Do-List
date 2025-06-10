@@ -461,6 +461,21 @@ void MainTasks::updateProfileStats()
 
 void MainTasks::on_createTeamButton_clicked() {
     ui->stackedWidget_2->setCurrentIndex(1);
+    //Populate user list
+    ui->crateTeamMemberAddList->clear();
+    std::vector<User> allUsers = UserManager::getAllUsers();
+
+    for (const auto& user : allUsers) {
+        // Skip the current user, as they are the creator and added by default
+        if (user.getId() == MainWindow::currentUser.getId()) {
+            continue;
+        }
+
+        QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(user.getUsername()), ui->crateTeamMemberAddList);
+        item->setData(Qt::UserRole, QVariant::fromValue(user.getId()));
+        item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+        item->setCheckState(Qt::Unchecked);
+    }
 }
 
 void MainTasks::on_crateTeamCancelButton_clicked() {
@@ -547,10 +562,6 @@ void MainTasks::on_leaveJoinTeamButton_clicked() {
         TeamManager::updateTeam(team);
         QMessageBox::information(this, "Success", "Joined the team!");
     }
-
-
-    loadAllTeamsToComboBox();
-    refreshTaskList();
 }
 void MainTasks::on_createTeamConfirmButton_clicked()
 {
@@ -589,6 +600,17 @@ void MainTasks::on_createTeamConfirmButton_clicked()
     std::vector<uint32_t> members;
     members.push_back(MainWindow::currentUser.getId());
 
+    // Add selected users from the list
+    for (int i = 0; i < ui->crateTeamMemberAddList->count(); ++i) {
+        QListWidgetItem *item = ui->crateTeamMemberAddList->item(i);
+        if (item->checkState() == Qt::Checked) {
+            uint32_t selectedUserId = item->data(Qt::UserRole).toUInt();
+            if (selectedUserId != MainWindow::currentUser.getId()) {
+                members.push_back(selectedUserId);
+            }
+        }
+    }
+
     Team newTeam(teamName.toStdString(), teamPassword.toStdString(), members);
 
     // Zapisanie zespołu do bazy danych
@@ -604,16 +626,13 @@ void MainTasks::on_createTeamConfirmButton_clicked()
 
         //Back to main teams view
         ui->stackedWidget_2->setCurrentIndex(0);
-        refreshTaskList();
+        loadAllTeamsToComboBox();
 
     } else {
         QMessageBox::critical(this, "Error", "Failed to create team!");
     }
 }
 
-void MainTasks::updateTeamInfo() {
-    refreshTaskList();
-}
 void MainTasks::loadAllTeamsToComboBox() {
     ui->allTeamsComboBox->clear();
     auto allTeams = TeamManager::getAllTeams();

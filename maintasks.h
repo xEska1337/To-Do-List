@@ -64,8 +64,6 @@ private slots:
 
     void on_createTeamConfirmButton_clicked();
 
-    void updateTeamInfo();
-
     void on_allTeamsComboBox_currentIndexChanged(int index);
 
 private:
