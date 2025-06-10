@@ -32,7 +32,6 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS tasks ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "userAssigned INTEGER NOT NULL, "
-                        "collaborators TEXT, "
                         "name TEXT NOT NULL, "
                         "dueDate DATETIME, "
                         "description TEXT, "

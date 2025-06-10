@@ -49,7 +49,6 @@ MainTasks::MainTasks(QWidget *parent)
 
     ui->profileUsername->setText(QString::fromStdString(MainWindow::currentUser.getUsername()));
     updateProfileStats();
-    refreshTeamDisplay();
     loadAllTeamsToComboBox();
 }
 
@@ -57,6 +56,10 @@ MainTasks::~MainTasks()
 {
     delete ui;
 }
+
+//
+//Pomodoro
+//
 
 void MainTasks::on_startPomodoroButton_clicked()
 {
@@ -136,6 +139,10 @@ void MainTasks::on_longBreakButton_clicked()
     ui->pomodoroTimerDisplay->setStyleSheet("background-color: #2d6a6e");
 }
 
+//
+//Tasks
+//
+
 void MainTasks::moveAddTaskButton(){
     //Pin button to right bottom corner
     int margin = 10;
@@ -158,7 +165,6 @@ void MainTasks::showEvent(QShowEvent *event)
 
     moveAddTaskButton();
     refreshTaskList();
-    refreshTeamDisplay();
 }
 
 void MainTasks::on_addTaskButton_clicked() {
@@ -204,6 +210,150 @@ void MainTasks::on_cancelNewTaskButton_clicked() {
     ui->teamSelect->clear();
 
 }
+
+void MainTasks::on_confirmTaskAddButton_clicked()
+{
+    QString taskName = ui->taskName->text().trimmed();
+    QString taskDescription = ui->taskDescription->toPlainText().trimmed();
+    QDateTime dueDate = ui->taskDueDate->dateTime();
+
+    if (taskName.isEmpty()) {
+        QMessageBox::warning(this, "Error", "Task name cannot be empty!");
+        return;
+    }
+
+    Task newTask;
+    newTask.setName(taskName.toStdString());
+    newTask.setDescription(taskDescription.toStdString());
+
+    newTask.setDeadline(dueDate.toSecsSinceEpoch());
+
+    uint32_t selectedTeamId = ui->teamSelect->currentData().toUInt();
+    if (selectedTeamId == 0) {
+        // Personal task
+        newTask.setUserId(MainWindow::currentUser.getId());
+        newTask.setTeamId(0);
+    } else {
+        // Team task
+        newTask.setUserId(0);  // 0 means it's a team task
+        newTask.setTeamId(selectedTeamId);
+    }
+    QSqlDatabase db = QSqlDatabase::database();
+
+    if (db.isOpen()) {
+        QSqlQuery query(db);
+        query.prepare("UPDATE users SET uncompletedTasks = COALESCE(uncompletedTasks, 0) + 1 WHERE id = ?");
+        query.addBindValue(MainWindow::currentUser.getId());
+        query.exec();
+    }
+
+    if (TaskManager::createTask(newTask)) {
+        QMessageBox::information(this, "Success", "Task created successfully!");
+        ui->taskName->clear();
+        ui->taskDescription->clear();
+        ui->taskDueDate->setDateTime(QDateTime::currentDateTime());
+        ui->stackedWidget->setCurrentIndex(0);
+        refreshTaskList();
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to create task!");
+    }
+}
+
+void MainTasks::refreshTaskList()
+{
+    // Clear the current task list display
+    ui->taskListDisplay->clear();
+    uint32_t userId = MainWindow::currentUser.getId();
+
+    // Get all tasks for the current user
+    auto userTasks = TaskManager::getTasksForUser(userId);
+
+    // Get tasks for user teams
+    std::vector<Team> userTeams = TeamManager::getTeamsForUser(userId);
+    std::vector<Task> teamTasks;
+
+    for (const auto& team : userTeams) {
+        auto tasks = TaskManager::getTasksForTeam(team.getId());
+        teamTasks.insert(teamTasks.end(), tasks.begin(), tasks.end());
+    }
+
+
+    //Combine tasks
+    std::vector<Task> allTasks = userTasks;
+    allTasks.insert(allTasks.end(), teamTasks.begin(), teamTasks.end());
+
+    for (const auto& task : allTasks) {
+        QString display = QString::fromStdString(task.getName());
+        if (!task.getDescription().empty()) {
+            display += " - " + QString::fromStdString(task.getDescription());
+        }
+        QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
+        display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
+
+        if (task.getUserId() == 0) {
+            Team team = TeamManager::getTeam(task.getTeamId());
+            QString teamName = QString::fromStdString(team.getName());
+            display = "[" + teamName + "] " + display;
+        }
+
+        // Store the task ID in the QListWidgetItem for later reference
+        auto *item = new QListWidgetItem(display);
+        item->setData(Qt::UserRole, static_cast<qulonglong>(task.getId()));
+        ui->taskListDisplay->addItem(item);
+    }
+
+    // Update the profile statistics after refreshing the task list
+    updateProfileStats();
+    moveAddTaskButton();
+}
+
+void MainTasks::on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item)
+{
+    if (!item) return;
+
+    // Get the task ID stored in the QListWidgetItem
+    qulonglong taskId = item->data(Qt::UserRole).toULongLong();
+
+    // Ask the user for confirmation before marking the task as completed (deleting it)
+    if (QMessageBox::question(this, "Complete Task",
+                              "Mark this task as completed? It will be removed.",
+                              QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes)
+        return;
+
+    // Create a temporary Task object with only the ID set (needed for deleteTask)
+    Task tempTask;
+    tempTask.setId(taskId);
+
+    // Delete the task from the database
+    if (!TaskManager::deleteTask(tempTask)) {
+        QMessageBox::critical(this, "Error", "Failed to delete task!");
+        return;
+    }
+
+    // Increment completedTasks and decrement uncompletedTasks (but not below 0)
+    QSqlDatabase db = QSqlDatabase::database();
+    if (db.isOpen()) {
+        QSqlQuery query(db);
+        query.prepare("UPDATE users SET "
+                      "completedTasks = MAX(COALESCE(completedTasks, 0) + 1, 0), "
+                      "uncompletedTasks = MAX(COALESCE(uncompletedTasks, 0) - 1, 0) "
+                      "WHERE id = ?");
+        query.addBindValue(MainWindow::currentUser.getId());
+        if (!query.exec()) {
+            QMessageBox::warning(this, "Warning",
+                                 "Task removed but failed to update user stats: "
+                                 + query.lastError().text());
+        }
+    }
+
+    // Refresh the task list and profile statistics after deleting the task
+    refreshTaskList();
+}
+
+//
+//Profile
+//
+
 void MainTasks::on_updatePasswordButton_clicked()
 {
     QString currentPassword = ui->profilePassword->text();
@@ -262,79 +412,6 @@ void MainTasks::on_removeAccountButton_clicked()
 
     this->close(); //Close the tasks window
 }
-void MainTasks::on_confirmTaskAddButton_clicked()
-{
-    QString taskName = ui->taskName->text().trimmed();
-    QString taskDescription = ui->taskDescription->toPlainText().trimmed();
-    QDateTime dueDate = ui->taskDueDate->dateTime();
-
-    if (taskName.isEmpty()) {
-        QMessageBox::warning(this, "Error", "Task name cannot be empty!");
-        return;
-    }
-
-    Task newTask;
-    newTask.setName(taskName.toStdString());
-    newTask.setDescription(taskDescription.toStdString());
-
-    newTask.setDeadline(dueDate.toSecsSinceEpoch());
-
-    uint32_t selectedTeamId = ui->teamSelect->currentData().toUInt();
-    if (selectedTeamId == 0) {
-        // Personal task
-        newTask.setUserId(MainWindow::currentUser.getId());
-        newTask.setTeamId(0);
-    } else {
-        // Team task
-        newTask.setUserId(0);  // 0 means it's a team task
-        newTask.setTeamId(selectedTeamId);
-    }
-    QSqlDatabase db = QSqlDatabase::database();
-
-    if (db.isOpen()) {
-        QSqlQuery query(db);
-        query.prepare("UPDATE users SET uncompletedTasks = COALESCE(uncompletedTasks, 0) + 1 WHERE id = ?");
-        query.addBindValue(MainWindow::currentUser.getId());
-        query.exec();
-    }
-
-    if (TaskManager::createTask(newTask)) {
-        QMessageBox::information(this, "Success", "Task created successfully!");
-        ui->taskName->clear();
-        ui->taskDescription->clear();
-        ui->taskDueDate->setDateTime(QDateTime::currentDateTime());
-        ui->stackedWidget->setCurrentIndex(0);
-        refreshTaskList();
-    } else {
-        QMessageBox::critical(this, "Error", "Failed to create task!");
-    }
-}
-
-void MainTasks::refreshTaskList()
-{
-    // Clear the current task list display
-    ui->taskListDisplay->clear();
-    uint32_t userId = MainWindow::currentUser.getId();
-    // Get all tasks for the current user
-    auto tasks = TaskManager::getTasksForUser(userId);
-    for (const auto& task : tasks) {
-        QString display = QString::fromStdString(task.getName());
-        if (!task.getDescription().empty()) {
-            display += " - " + QString::fromStdString(task.getDescription());
-        }
-        QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
-        display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
-
-        // Store the task ID in the QListWidgetItem for later reference
-        auto *item = new QListWidgetItem(display);
-        item->setData(Qt::UserRole, static_cast<qulonglong>(task.getId()));
-        ui->taskListDisplay->addItem(item);
-    }
-
-    // Update the profile statistics after refreshing the task list
-    updateProfileStats();
-    moveAddTaskButton();
-}
 
 void MainTasks::updateProfileStats()
 {
@@ -378,48 +455,9 @@ void MainTasks::updateProfileStats()
     ui->completionPercStat->setText(QString("Completion: %1%").arg(QString::number(completionPercentage, 'f', 1)));
 }
 
-void MainTasks::on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item)
-{
-    if (!item) return;
-
-    // Get the task ID stored in the QListWidgetItem
-    qulonglong taskId = item->data(Qt::UserRole).toULongLong();
-
-    // Ask the user for confirmation before marking the task as completed (deleting it)
-    if (QMessageBox::question(this, "Complete Task",
-                              "Mark this task as completed? It will be removed.",
-                              QMessageBox::Yes | QMessageBox::No) != QMessageBox::Yes)
-        return;
-
-    // Create a temporary Task object with only the ID set (needed for deleteTask)
-    Task tempTask;
-    tempTask.setId(taskId);
-
-    // Delete the task from the database
-    if (!TaskManager::deleteTask(tempTask)) {
-        QMessageBox::critical(this, "Error", "Failed to delete task!");
-        return;
-    }
-
-    // Increment completedTasks and decrement uncompletedTasks (but not below 0)
-    QSqlDatabase db = QSqlDatabase::database();
-    if (db.isOpen()) {
-        QSqlQuery query(db);
-        query.prepare("UPDATE users SET "
-                      "completedTasks = MAX(COALESCE(completedTasks, 0) + 1, 0), "
-                      "uncompletedTasks = MAX(COALESCE(uncompletedTasks, 0) - 1, 0) "
-                      "WHERE id = ?");
-        query.addBindValue(MainWindow::currentUser.getId());
-        if (!query.exec()) {
-            QMessageBox::warning(this, "Warning",
-                                 "Task removed but failed to update user stats: "
-                                 + query.lastError().text());
-        }
-    }
-
-    // Refresh the task list and profile statistics after deleting the task
-    refreshTaskList();
-}
+//
+//Teams
+//
 
 void MainTasks::on_createTeamButton_clicked() {
     ui->stackedWidget_2->setCurrentIndex(1);
@@ -461,9 +499,6 @@ void MainTasks::on_addMembersButton_clicked() {
     TeamManager::updateTeam(team);
 
     QMessageBox::information(this, "Success", "User has been added to the team.");
-
-
-    refreshTeamDisplay();
 }
 
 void MainTasks::on_addMemberCancelButton_clicked() {
@@ -515,7 +550,7 @@ void MainTasks::on_leaveJoinTeamButton_clicked() {
 
 
     loadAllTeamsToComboBox();
-    refreshTeamDisplay();
+    refreshTaskList();
 }
 void MainTasks::on_createTeamConfirmButton_clicked()
 {
@@ -569,50 +604,15 @@ void MainTasks::on_createTeamConfirmButton_clicked()
 
         //Back to main teams view
         ui->stackedWidget_2->setCurrentIndex(0);
-        refreshTeamDisplay();
+        refreshTaskList();
 
     } else {
         QMessageBox::critical(this, "Error", "Failed to create team!");
     }
 }
-void MainTasks::refreshTeamDisplay() {
-    ui->taskListDisplay->clear();
-    uint32_t userId = MainWindow::currentUser.getId();
-    auto userTasks = TaskManager::getTasksForUser(userId);
-    Team currentTeam = TeamManager::getTeamForUser(userId);
-    std::vector<Task> teamTasks;
-    if (currentTeam.getId() != 0) {
-        teamTasks = TaskManager::getTasksForTeam(currentTeam.getId());
-    }
-    std::vector<Task> allTasks = userTasks;
-    allTasks.insert(allTasks.end(), teamTasks.begin(), teamTasks.end());
-
-    for (const auto& task : allTasks) {
-        QString display = QString::fromStdString(task.getName());
-        if (!task.getDescription().empty()) {
-            display += " - " + QString::fromStdString(task.getDescription());
-        }
-        QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
-        display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
-
-
-        if (task.getUserId() == 0) {
-            display = "[TEAM] " + display;
-        }
-
-        auto *item = new QListWidgetItem(display);
-        item->setData(Qt::UserRole, static_cast<qulonglong>(task.getId()));
-        ui->taskListDisplay->addItem(item);
-    }
-
-    updateProfileStats();
-    moveAddTaskButton();
-
-
-}
 
 void MainTasks::updateTeamInfo() {
-    refreshTeamDisplay();
+    refreshTaskList();
 }
 void MainTasks::loadAllTeamsToComboBox() {
     ui->allTeamsComboBox->clear();

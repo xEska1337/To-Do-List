@@ -63,8 +63,9 @@ private slots:
     void on_leaveJoinTeamButton_clicked();
 
     void on_createTeamConfirmButton_clicked();
-    void refreshTeamDisplay();
+
     void updateTeamInfo();
+
     void on_allTeamsComboBox_currentIndexChanged(int index);
 
 private:
