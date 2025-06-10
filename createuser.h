@@ -19,10 +19,17 @@ public:
     ~CreateUser();
 
 private slots:
+    /**
+     * Triggered when a user tries to create a new account
+     */
     void on_createNewAccountButton_clicked();
 
 private:
     Ui::CreateUser *ui;
+    /**
+     * Validates if the input is correct.
+     * @return True if the input is correct, false if not.
+     */
     bool validateInput();
     bool createUserInDatabase(const User& user);
 };

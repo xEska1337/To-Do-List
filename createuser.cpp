@@ -14,6 +14,9 @@ CreateUser::~CreateUser()
     delete ui;
 }
 
+/**
+ * Triggered when a user tries to create a new account
+ */
 void CreateUser::on_createNewAccountButton_clicked()
 {
     if (!validateInput()) {
@@ -33,6 +36,10 @@ void CreateUser::on_createNewAccountButton_clicked()
     }
 }
 
+/**
+ * Validates if the input is correct.
+ * @return True if the input is correct, false if not.
+ */
 bool CreateUser::validateInput()
 {
     QString username = ui->newUsername->text().trimmed();

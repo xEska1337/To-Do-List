@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
 
-    //Create database
+    //Create a database
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("todolist.db");
 
@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
     }
 
     QSqlQuery query(db);
+
+    // Create all needed tables in database.
     query.exec("CREATE TABLE IF NOT EXISTS users ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
@@ -52,7 +54,6 @@ int main(int argc, char *argv[])
     styleSheetFile.open(QFile::ReadOnly);
     QString styleSheet = QLatin1String(styleSheetFile.readAll());
     a.setStyleSheet(styleSheet);
-
 
 
     MainWindow w;

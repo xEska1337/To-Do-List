@@ -20,6 +20,7 @@ private:
 public:
     // Constructors
     Task();
+    Task(uint32_t id);
     Task(uint32_t id, const std::string &name, const std::string &description, uint8_t priority, uint32_t teamId, uint32_t userId, TaskStatus status, time_t deadline);
     Task(const std::string &name, const std::string &description, uint8_t priority, uint32_t teamId, uint32_t userId, TaskStatus status, time_t deadline);
 
