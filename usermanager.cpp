@@ -35,7 +35,7 @@ bool UserManager::createUser(const User& user) {
     QSqlQuery insertQuery(db);
     insertQuery.prepare("INSERT INTO users (username, password, creationDate) VALUES (?, ?, ?)");
     insertQuery.addBindValue(QString::fromStdString(user.getUsername()));
-    insertQuery.addBindValue(QString::number(user.getPassword()));
+    insertQuery.addBindValue(QString::fromStdString(user.getPassword()));
     insertQuery.addBindValue(user.getCreationDate());
 
     if (!insertQuery.exec()) {
@@ -77,7 +77,7 @@ User UserManager::getUser(const std::string &username) {
     User user{
         getQuery.value("id").toUInt(),
         getQuery.value("username").toString().toStdString(),
-        getQuery.value("password").toULongLong(),
+        getQuery.value("password").toString().toStdString(),
         getQuery.value("creationDate").toDate()
     };
 
@@ -116,7 +116,7 @@ User UserManager::getUser(uint32_t id) {
     User user{
         getQuery.value("id").toUInt(),
         getQuery.value("username").toString().toStdString(),
-        getQuery.value("password").toULongLong(),
+        getQuery.value("password").toString().toStdString(),
         getQuery.value("creationDate").toDate()
     };
 
@@ -157,7 +157,7 @@ bool UserManager::updateUser(const User &user) {
     QSqlQuery updateQuery(db);
     updateQuery.prepare("UPDATE users SET username=?, password=?, creationDate=? WHERE id=?");
     updateQuery.addBindValue(QString::fromStdString(user.getUsername()));
-    updateQuery.addBindValue(user.getPassword());
+    updateQuery.addBindValue(QString::fromStdString(user.getPassword()));
     updateQuery.addBindValue(user.getCreationDate());
     updateQuery.addBindValue(user.getId());
     if (!updateQuery.exec()) {
@@ -251,7 +251,7 @@ std::vector<User> UserManager::getAllUsers() {
         User user(
             query.value("id").toUInt(),
             query.value("username").toString().toStdString(),
-            query.value("password").toULongLong(), // Matches your User constructor
+            query.value("password").toString().toStdString(),
             query.value("creationDate").toDate()
         );
         users.push_back(user);

@@ -34,7 +34,7 @@ bool TeamManager::createTeam(const Team &team) {
     QSqlQuery insertQuery(db);
     insertQuery.prepare("INSERT INTO teams (name, password, members) VALUES (?, ?, ?)");
     insertQuery.addBindValue(QString::fromStdString(team.getName()));
-    insertQuery.addBindValue(QString::number(team.getPassword()));
+    insertQuery.addBindValue(QString::fromStdString(team.getPassword()));
     std::string membersString;
     if (!team.getMembers().empty()) {
         membersString = std::to_string(team.getMembers()[0]);
@@ -105,7 +105,7 @@ Team TeamManager::getTeam(const std::string &name) {
     Team team{
         getQuery.value("id").toUInt(),
         getQuery.value("name").toString().toStdString(),
-        getQuery.value("password").toULongLong(),
+        getQuery.value("password").toString().toStdString(),
         members
     };
 
@@ -162,7 +162,7 @@ Team TeamManager::getTeam(uint32_t id) {
     Team team{
         getQuery.value("id").toUInt(),
         getQuery.value("name").toString().toStdString(),
-        getQuery.value("password").toULongLong(),
+        getQuery.value("password").toString().toStdString(),
         members
     };
 
@@ -201,7 +201,7 @@ bool TeamManager::updateTeam(const Team &team) {
     QSqlQuery updateQuery(db);
     updateQuery.prepare("UPDATE teams SET name=?, password=?, members=? WHERE id=?");
     updateQuery.addBindValue(QString::fromStdString(team.getName()));
-    updateQuery.addBindValue(team.getPassword());
+    updateQuery.addBindValue(QString::fromStdString(team.getPassword()));
     std::string membersString;
     if (!team.getMembers().empty()) {
         membersString = std::to_string(team.getMembers()[0]);
@@ -314,7 +314,7 @@ std::vector<Team> TeamManager::getAllTeams() {
         Team team{
             query.value("id").toUInt(),
             query.value("name").toString().toStdString(),
-            query.value("password").toULongLong(),
+            query.value("password").toString().toStdString(),
             members
         };
         teams.push_back(team);

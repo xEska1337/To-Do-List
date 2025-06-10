@@ -24,7 +24,7 @@ void CreateUser::on_createNewAccountButton_clicked()
     }
 
     QString username = ui->newUsername->text().trimmed();
-    QString password = ui->newPassword->text();
+    QString password = ui->newPassword->text().trimmed();
 
     // Create User object
     User newUser(username.toStdString(), password.toStdString());
@@ -104,7 +104,7 @@ bool CreateUser::createUserInDatabase(const User& user)
     QSqlQuery insertQuery(db);
     insertQuery.prepare("INSERT INTO users (username, password, creationDate) VALUES (?, ?, ?)");
     insertQuery.addBindValue(QString::fromStdString(user.getUsername()));
-    insertQuery.addBindValue(QString::number(user.getPassword()));
+    insertQuery.addBindValue(QString::fromStdString(user.getPassword()));
     insertQuery.addBindValue(QDateTime::currentDateTime());
 
     if (!insertQuery.exec()) {

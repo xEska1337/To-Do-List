@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS users ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
-                        "password BIGINT UNSIGNED NOT NULL, "
+                        "password TEXT NOT NULL, "
+                        "salt TEXT NOT NULL, "
                         "completedTasks INTEGER, "
                         "uncompletedTasks INTEGER, "
                         "creationDate DATE)");
@@ -43,7 +44,7 @@ int main(int argc, char *argv[])
     query.exec("CREATE TABLE IF NOT EXISTS teams ("
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "name TEXT NOT NULL, "
-                        "password BIGINT UNSIGNED NOT NULL, "
+                        "password TEXT NOT NULL, "
                         "members LONGTEXT NOT NULL)");
 
     //Set icon

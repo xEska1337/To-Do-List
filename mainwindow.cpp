@@ -61,12 +61,12 @@ bool MainWindow::authenticateUser(const QString& username, const QString& passwo
 
     // Hash the input password using the same method as User class
     User tempUser(username.toStdString(), password.toStdString());
-    uint64_t hashedPassword = tempUser.getPassword();
+    std::string hashedPassword = tempUser.getPassword();
 
     QSqlQuery query(db);
     query.prepare("SELECT id, username, password FROM users WHERE username = ? AND password = ?");
     query.addBindValue(username);
-    query.addBindValue(QString::number(hashedPassword));
+    query.addBindValue(QString::fromStdString(hashedPassword));
 
     if (!query.exec()) {
         QMessageBox::critical(this, "Database Error",
@@ -78,7 +78,7 @@ bool MainWindow::authenticateUser(const QString& username, const QString& passwo
         // User found, store current user info
         uint32_t userId = query.value(0).toUInt();
         std::string dbUsername = query.value(1).toString().toStdString();
-        uint64_t dbPassword = query.value(2).toULongLong();
+        std::string dbPassword = query.value(2).toString().toStdString();
 
         currentUser = User(userId, dbUsername, dbPassword);
         return true;
