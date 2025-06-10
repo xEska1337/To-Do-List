@@ -50,6 +50,20 @@ MainTasks::MainTasks(QWidget *parent)
     ui->profileUsername->setText(QString::fromStdString(MainWindow::currentUser.getUsername()));
     updateProfileStats();
     loadAllTeamsToComboBox();
+
+    // Task Sorting
+    currentTaskSortCriteria = SortByDueDateAsc;
+    ui->sortTasksComboBox->clear();
+    ui->sortTasksComboBox->setStyleSheet("QComboBox#sortTasksComboBox { margin-left: 10px; margin-right: 10px; }");
+    ui->sortTasksComboBox->addItem("Date (Oldest First)", SortByDueDateAsc);
+    ui->sortTasksComboBox->addItem("Date (Newest First)", SortByDueDateDesc);
+    ui->sortTasksComboBox->addItem("Name (A-Z)", SortByNameAsc);
+    ui->sortTasksComboBox->addItem("Name (Z-A)", SortByNameDesc);
+    ui->sortTasksComboBox->setCurrentIndex(ui->sortTasksComboBox->findData(currentTaskSortCriteria));
+
+    if (!connect(ui->sortTasksComboBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+                 this, &MainTasks::on_sortTasksComboBox_currentIndexChanged)) {}
+
 }
 
 MainTasks::~MainTasks()
@@ -282,29 +296,77 @@ void MainTasks::refreshTaskList()
     std::vector<Task> allTasks = userTasks;
     allTasks.insert(allTasks.end(), teamTasks.begin(), teamTasks.end());
 
+    //Sorting
+    std::sort(allTasks.begin(), allTasks.end(), [this](const Task& a, const Task& b) {
+        bool a_has_deadline = a.getDeadline() != 0;
+        bool b_has_deadline = b.getDeadline() != 0;
+
+        switch (currentTaskSortCriteria) {
+            case SortByNameAsc:
+                return QString::fromStdString(a.getName()).toLower() < QString::fromStdString(b.getName()).toLower();
+            case SortByNameDesc:
+                return QString::fromStdString(a.getName()).toLower() > QString::fromStdString(b.getName()).toLower();
+            case SortByDueDateAsc:
+                if (a_has_deadline && !b_has_deadline) return true;
+                if (!a_has_deadline && b_has_deadline) return false;
+                if (!a_has_deadline && !b_has_deadline) {
+                    return QString::fromStdString(a.getName()).toLower() < QString::fromStdString(b.getName()).toLower();
+                }
+                return a.getDeadline() < b.getDeadline();
+            case SortByDueDateDesc:
+                if (a_has_deadline && !b_has_deadline) return true;
+                if (!a_has_deadline && b_has_deadline) return false;
+                if (!a_has_deadline && !b_has_deadline) {
+                    return QString::fromStdString(a.getName()).toLower() < QString::fromStdString(b.getName()).toLower();
+                }
+                return a.getDeadline() > b.getDeadline();
+        }
+        return false;
+    });
+
+    qint64 currentTime = QDateTime::currentDateTime().toSecsSinceEpoch();
+
     for (const auto& task : allTasks) {
         QString display = QString::fromStdString(task.getName());
         if (!task.getDescription().empty()) {
             display += " - " + QString::fromStdString(task.getDescription());
         }
-        QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
-        display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
 
-        if (task.getUserId() == 0) {
-            Team team = TeamManager::getTeam(task.getTeamId());
-            QString teamName = QString::fromStdString(team.getName());
-            display = "[" + teamName + "] " + display;
+        if (task.getDeadline() > 0) {
+            QDateTime due = QDateTime::fromSecsSinceEpoch(task.getDeadline());
+            display += " (Due: " + due.toString("yyyy-MM-dd HH:mm") + ")";
         }
 
-        // Store the task ID in the QListWidgetItem for later reference
+        if (task.getUserId() == 0 && task.getTeamId() != 0) {
+            Team team = TeamManager::getTeam(task.getTeamId());
+            if (team.getId() != 0) {
+                QString teamName = QString::fromStdString(team.getName());
+                display = "[" + teamName + "] " + display;
+            } else {
+                display = "[Unknown Team] " + display;
+            }
+        }
+
         auto *item = new QListWidgetItem(display);
         item->setData(Qt::UserRole, static_cast<qulonglong>(task.getId()));
+
+        // Change color if past due date
+        if (task.getDeadline() > 0 && task.getDeadline() < currentTime) {
+            item->setForeground(Qt::red);
+        }
         ui->taskListDisplay->addItem(item);
     }
 
     // Update the profile statistics after refreshing the task list
     updateProfileStats();
     moveAddTaskButton();
+}
+
+void MainTasks::on_sortTasksComboBox_currentIndexChanged(int index)
+{
+    if (index < 0) return;
+    currentTaskSortCriteria = static_cast<TaskSortCriteria>(ui->sortTasksComboBox->itemData(index).toInt());
+    refreshTaskList();
 }
 
 void MainTasks::on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item)
@@ -483,6 +545,8 @@ void MainTasks::on_crateTeamCancelButton_clicked() {
     ui->createTeamTeamName->clear();
     ui->createTeamNameConfirm->clear();
     ui->crateTeamMemberAddList->clear();
+    ui->createTeamPassword->clear();
+    ui->createTeamPasswordConfirm->clear();
 }
 
 void MainTasks::on_addMembersButton_clicked() {
@@ -605,6 +669,7 @@ void MainTasks::on_leaveJoinTeamButton_clicked() {
         if (team.getMembers().empty()) {
             TeamManager::deleteTeam(teamId);
             QMessageBox::information(this, "Info", "The group has been removed because it no longer has any members..");
+            loadAllTeamsToComboBox();
         } else {
             TeamManager::updateTeam(team);
             QMessageBox::information(this, "Info", "You left the team.");
@@ -626,6 +691,11 @@ void MainTasks::on_leaveJoinTeamButton_clicked() {
         team.addMember(userId);
         TeamManager::updateTeam(team);
         QMessageBox::information(this, "Success", "Joined the team!");
+    }
+
+    //Refresh
+    if (ui->allTeamsComboBox->currentData().isValid() && ui->allTeamsComboBox->currentData().toUInt() == teamId) {
+        on_allTeamsComboBox_currentIndexChanged(ui->allTeamsComboBox->currentIndex());
     }
 }
 void MainTasks::on_createTeamConfirmButton_clicked()
@@ -706,11 +776,30 @@ void MainTasks::loadAllTeamsToComboBox() {
     }
 }
 void MainTasks::on_allTeamsComboBox_currentIndexChanged(int index) {
-    if (index < 0) return;
+    if (index < 0) {
+        // No team selected, or combobox is empty
+        ui->teamMembersDisplay->setModel(nullptr);
+        ui->leaveJoinTeamButton->setText("Join/Leave Team");
+        ui->leaveJoinTeamButton->setEnabled(false);
+        ui->addMembersButton->setEnabled(false);
+        return;
+    }
     uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
     Team selectedTeam = TeamManager::getTeam(teamId);
 
-    QStringListModel *model = new QStringListModel(this);
+    ui->leaveJoinTeamButton->setEnabled(true);
+    ui->addMembersButton->setEnabled(true);
+    ui->teamMembersDisplay->setEditTriggers(QAbstractItemView::NoEditTriggers);
+
+    // Update button text based on team
+    if (selectedTeam.containsUser(MainWindow::currentUser.getId())) {
+        ui->leaveJoinTeamButton->setText("Leave Team");
+    } else {
+        ui->leaveJoinTeamButton->setText("Join Team");
+    }
+
+    // Populate team members display (existing logic)
+    QStringListModel *model = new QStringListModel(this); // Consider making this a member to avoid leaks if not parented well
     QStringList memberNames;
     std::vector<User> members = selectedTeam.getMembersAsUsers();
     for (const auto& member : members) {

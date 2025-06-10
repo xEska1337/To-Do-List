@@ -34,7 +34,6 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
             usermanager.h usermanager.cpp
             taskmanager.h taskmanager.cpp
             teammanager.h teammanager.cpp
-            jointeam.h jointeam.cpp jointeam.ui
     )
     # Define target properties for Android with Qt 6 as:
     #    set_property(TARGET To-Do-List APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

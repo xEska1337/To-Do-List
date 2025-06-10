@@ -65,7 +65,7 @@
             <number>0</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>5</number>
            </property>
            <item row="0" column="0">
             <widget class="QListWidget" name="taskListDisplay">
@@ -80,6 +80,9 @@
               <string>+</string>
              </property>
             </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QComboBox" name="sortTasksComboBox"/>
            </item>
           </layout>
          </widget>
