@@ -620,6 +620,8 @@ void MainTasks::loadAllTeamsToComboBox() {
     for (const auto& team : allTeams) {
         ui->allTeamsComboBox->addItem(QString::fromStdString(team.getName()), QVariant::fromValue(team.getId()));
     }
+    if (ui->allTeamsComboBox->count() > 0)
+        ui->allTeamsComboBox->setCurrentIndex(0);
 }
 void MainTasks::on_allTeamsComboBox_currentIndexChanged(int index) {
     if (index < 0) return;
