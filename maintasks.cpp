@@ -486,39 +486,104 @@ void MainTasks::on_crateTeamCancelButton_clicked() {
 }
 
 void MainTasks::on_addMembersButton_clicked() {
-    int index = ui->allTeamsComboBox->currentIndex();
-    if (index < 0) return;
-    uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
-    Team team = TeamManager::getTeam(teamId);
-
-    // Request a username to add
-    bool ok;
-    QString username = QInputDialog::getText(this, "Add member", "Enter the username to add:", QLineEdit::Normal, "", &ok);
-    if (!ok || username.isEmpty()) return;
-
-    // Check if such user exists
-    User user = UserManager::getUser(username.toStdString());
-    if (user.getId() == 0) {
-
+   int comboBoxIndex = ui->allTeamsComboBox->currentIndex();
+    if (comboBoxIndex < 0) {
+        QMessageBox::warning(this, "No Team Selected", "Please select a team from the list first.");
         return;
     }
 
-    // Check if you are a member
-    if (team.containsUser(user.getId())) {
-        QMessageBox::information(this, "Info", "This user is already a team member.");
+    Team selectedTeam = TeamManager::getTeam(ui->allTeamsComboBox->currentData().toUInt());
+
+    if (selectedTeam.getId() == 0) {
+        QMessageBox::critical(this, "Error", "Could not retrieve team details.");
         return;
     }
 
-    // add member to team
-    team.addMember(user.getId());
-    TeamManager::updateTeam(team);
+    // Check if the current user is a member of the team
+    if (!selectedTeam.containsUser(MainWindow::currentUser.getId())) {
+        QMessageBox::warning(this, "Access Denied", "You must be a member of this team to add other users.");
+        return;
+    }
 
-    QMessageBox::information(this, "Success", "User has been added to the team.");
+    ui->stackedWidget_2->setCurrentIndex(2);
+
+    // Populate list with users not already in the team
+    ui->addMemberList->clear();
+    std::vector<User> allUsers = UserManager::getAllUsers();
+    std::vector<uint32_t> currentTeamMembers = selectedTeam.getMembers();
+
+    for (const auto& user : allUsers) {
+        if (user.getId() == MainWindow::currentUser.getId()) {
+            continue;
+        }
+
+        bool isAlreadyMember = false;
+        for (uint32_t memberId : currentTeamMembers) {
+            if (user.getId() == memberId) {
+                isAlreadyMember = true;
+                break;
+            }
+        }
+        if (isAlreadyMember) {
+            continue;
+        }
+
+        QListWidgetItem *item = new QListWidgetItem(QString::fromStdString(user.getUsername()), ui->addMemberList);
+        item->setData(Qt::UserRole, QVariant::fromValue(user.getId()));
+        item->setFlags(item->flags() | Qt::ItemIsUserCheckable);
+        item->setCheckState(Qt::Unchecked);
+    }
 }
 
 void MainTasks::on_addMemberCancelButton_clicked() {
     ui->stackedWidget_2->setCurrentIndex(0);
     ui->addMemberList->clear();
+}
+
+void MainTasks::on_addMemberConfimButton_clicked() {
+    uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
+    if (teamId == 0) {
+        QMessageBox::critical(this, "Error", "No team context for adding members. Please try again.");
+        on_addMemberCancelButton_clicked();
+        return;
+    }
+
+    Team teamToUpdate = TeamManager::getTeam(teamId);
+    if (teamToUpdate.getId() == 0) {
+        QMessageBox::critical(this, "Error", "Could not retrieve team details for update.");
+        on_addMemberCancelButton_clicked();
+        return;
+    }
+
+    std::vector<uint32_t> membersToAdd;
+    for (int i = 0; i < ui->addMemberList->count(); ++i) {
+        QListWidgetItem *item = ui->addMemberList->item(i);
+        if (item->checkState() == Qt::Checked) {
+            membersToAdd.push_back(item->data(Qt::UserRole).toUInt());
+        }
+    }
+
+    if (membersToAdd.empty()) {
+        QMessageBox::information(this, "No Selection", "No new members were selected to add.");
+        return;
+    }
+
+    for (uint32_t userId : membersToAdd) {
+        teamToUpdate.addMember(userId);
+    }
+
+    if (TeamManager::updateTeam(teamToUpdate)) {
+        QMessageBox::information(this, "Success", "Selected members have been added to the team.");
+        loadAllTeamsToComboBox();
+
+        if (ui->allTeamsComboBox->currentData().isValid() && ui->allTeamsComboBox->currentData().toUInt() == teamId) {
+            on_allTeamsComboBox_currentIndexChanged(ui->allTeamsComboBox->currentIndex());
+        }
+    } else {
+        QMessageBox::critical(this, "Error", "Failed to add members to the team.");
+    }
+
+    on_addMemberCancelButton_clicked();
 }
 
 void MainTasks::on_leaveJoinTeamButton_clicked() {
@@ -644,9 +709,6 @@ void MainTasks::on_allTeamsComboBox_currentIndexChanged(int index) {
     if (index < 0) return;
     uint32_t teamId = ui->allTeamsComboBox->currentData().toUInt();
     Team selectedTeam = TeamManager::getTeam(teamId);
-
-    ui->teamNameDisplay->setText(QString::fromStdString(selectedTeam.getName()));
-
 
     QStringListModel *model = new QStringListModel(this);
     QStringList memberNames;

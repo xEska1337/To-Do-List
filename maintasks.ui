@@ -331,13 +331,6 @@
               <widget class="QComboBox" name="allTeamsComboBox"/>
              </item>
              <item>
-              <widget class="QLineEdit" name="teamNameDisplay">
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QListView" name="teamMembersDisplay"/>
              </item>
              <item>

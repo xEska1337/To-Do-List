@@ -66,6 +66,8 @@ private slots:
 
     void on_allTeamsComboBox_currentIndexChanged(int index);
 
+    void on_addMemberConfimButton_clicked();
+
 private:
     Ui::MainTasks *ui;
 
