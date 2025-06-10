@@ -27,7 +27,6 @@ int main(int argc, char *argv[])
                         "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                         "username TEXT NOT NULL, "
                         "password TEXT NOT NULL, "
-                        "salt TEXT NOT NULL, "
                         "completedTasks INTEGER, "
                         "uncompletedTasks INTEGER, "
                         "creationDate DATE)");

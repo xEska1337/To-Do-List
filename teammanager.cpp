@@ -102,10 +102,14 @@ Team TeamManager::getTeam(const std::string &name) {
         members.push_back(std::stoi(memberId));
     }
 
+    uint32_t team_id = getQuery.value("id").toUInt();
+    std::string team_name_str = getQuery.value("name").toString().toStdString();
+    std::string team_password_str = getQuery.value("password").toString().toStdString();
+
     Team team{
-        getQuery.value("id").toUInt(),
-        getQuery.value("name").toString().toStdString(),
-        getQuery.value("password").toString().toStdString(),
+        team_id,
+        team_name_str,
+        team_password_str,
         members
     };
 
@@ -159,10 +163,14 @@ Team TeamManager::getTeam(uint32_t id) {
         members.push_back(std::stoi(memberId));
     }
 
+    uint32_t team_id = getQuery.value("id").toUInt();
+    std::string team_name_str = getQuery.value("name").toString().toStdString();
+    std::string team_password_str = getQuery.value("password").toString().toStdString();
+
     Team team{
-        getQuery.value("id").toUInt(),
-        getQuery.value("name").toString().toStdString(),
-        getQuery.value("password").toString().toStdString(),
+        team_id,
+        team_name_str,
+        team_password_str,
         members
     };
 

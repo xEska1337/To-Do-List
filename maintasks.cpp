@@ -677,9 +677,8 @@ void MainTasks::on_leaveJoinTeamButton_clicked() {
     } else {
         // User is not a member - logic "Join team"
         bool ok;
-        QString password = QInputDialog::getText(this, "Join team", "Enter your team password:", QLineEdit::Password, "", &ok);
+        QString password = QInputDialog::getText(this, "Join team", "Enter your team password:", QLineEdit::Password, "", &ok).trimmed();
         if (!ok || password.isEmpty()) return;
-
         // check password
         Team tempTeam(team.getName(), password.toStdString(), {});
         if (tempTeam.getPassword() != team.getPassword()) {
@@ -702,8 +701,8 @@ void MainTasks::on_createTeamConfirmButton_clicked()
 {
     QString teamName = ui->createTeamTeamName->text().trimmed();
     QString teamNameConfirm = ui->createTeamNameConfirm->text().trimmed();
-    QString teamPassword = ui->createTeamPassword->text();
-    QString teamPasswordConfirm = ui->createTeamPasswordConfirm->text();
+    QString teamPassword = ui->createTeamPassword->text().trimmed();
+    QString teamPasswordConfirm = ui->createTeamPasswordConfirm->text().trimmed();
 
 
     if (teamName.isEmpty() || teamNameConfirm.isEmpty()) {
