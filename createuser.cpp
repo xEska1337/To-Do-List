@@ -14,9 +14,6 @@ CreateUser::~CreateUser()
     delete ui;
 }
 
-/**
- * Triggered when a user tries to create a new account
- */
 void CreateUser::on_createNewAccountButton_clicked()
 {
     if (!validateInput()) {

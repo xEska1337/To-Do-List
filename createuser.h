@@ -19,9 +19,11 @@ public:
     ~CreateUser();
 
 private slots:
-    /**
-     * Triggered when a user tries to create a new account
-     */
+
+    // Event handlers
+
+    // Click handlers
+
     void on_createNewAccountButton_clicked();
 
 private:
@@ -31,6 +33,9 @@ private:
      * @return True if the input is correct, false if not.
      */
     bool validateInput();
+
+    // Deprecated
+    // Consider using UserManager::createUser()
     bool createUserInDatabase(const User& user);
 };
 

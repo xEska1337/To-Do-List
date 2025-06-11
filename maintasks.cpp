@@ -93,6 +93,9 @@ void MainTasks::on_startPomodoroButton_clicked()
 
 }
 
+/**
+ * Updates Pomodoro Timer
+ */
 void MainTasks::updateDisplay()
 {
     if(remainingTime > 0){
@@ -112,6 +115,9 @@ void MainTasks::updateDisplay()
     }
 }
 
+/**
+ * Changes Pomodoro Timer's display time
+ */
 void MainTasks::setDisplay(int time)
 {
     int min = time / 60;
@@ -121,6 +127,9 @@ void MainTasks::setDisplay(int time)
     ui->pomodoroTimerDisplay->display(dispTime.toString("mm:ss"));
 }
 
+/**
+ * Changes Pomodoro Timer's time
+ */
 void MainTasks::setTimer(int time)
 {
     remainingTime = time;
@@ -157,6 +166,9 @@ void MainTasks::on_longBreakButton_clicked()
 //Tasks
 //
 
+/**
+ * Changes Task Button position in UI
+ */
 void MainTasks::moveAddTaskButton(){
     //Pin button to right bottom corner
     int margin = 10;
@@ -273,6 +285,9 @@ void MainTasks::on_confirmTaskAddButton_clicked()
     }
 }
 
+/**
+ * Updates Task list in UI
+ */
 void MainTasks::refreshTaskList()
 {
     // Clear the current task list display
@@ -475,6 +490,9 @@ void MainTasks::on_removeAccountButton_clicked()
     this->close(); //Close the tasks window
 }
 
+/**
+ * Updates logged in User's profile stats
+ */
 void MainTasks::updateProfileStats()
 {
     QSqlDatabase db = QSqlDatabase::database();
@@ -697,6 +715,7 @@ void MainTasks::on_leaveJoinTeamButton_clicked() {
         on_allTeamsComboBox_currentIndexChanged(ui->allTeamsComboBox->currentIndex());
     }
 }
+
 void MainTasks::on_createTeamConfirmButton_clicked()
 {
     QString teamName = ui->createTeamTeamName->text().trimmed();

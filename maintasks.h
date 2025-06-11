@@ -22,21 +22,18 @@ public:
     ~MainTasks();
 
 private slots:
+
+    // Event handlers
+
+    // Click handlers
+
     void on_startPomodoroButton_clicked();
-
-    void updateDisplay();
-
-    void setDisplay(int time);
-
-    void setTimer(int time);
 
     void on_pomodoroButton_clicked();
 
     void on_shortBreakButton_clicked();
 
     void on_longBreakButton_clicked();
-
-    void moveAddTaskButton();
 
     void on_addTaskButton_clicked();
 
@@ -47,10 +44,6 @@ private slots:
     void on_removeAccountButton_clicked();
 
     void on_confirmTaskAddButton_clicked();
-
-    void refreshTaskList();
-
-    void updateProfileStats();
 
     void on_taskListDisplay_itemDoubleClicked(QListWidgetItem *item);
 
@@ -71,6 +64,38 @@ private slots:
     void on_addMemberConfimButton_clicked();
 
     void on_sortTasksComboBox_currentIndexChanged(int index);
+
+    // Others
+
+    /**
+     * Updates Pomodoro Timer
+     */
+    void updateDisplay();
+
+    /**
+     * Changes Pomodoro Timer's display time
+     */
+    void setDisplay(int time);
+
+    /**
+     * Changes Pomodoro Timer's time
+     */
+    void setTimer(int time);
+
+    /**
+     * Updates Task list in UI
+     */
+    void refreshTaskList();
+
+    /**
+     * Updates logged in User's profile stats
+     */
+    void updateProfileStats();
+
+    /**
+     * Changes Task Button position in UI
+     */
+    void moveAddTaskButton();
 
 private:
     Ui::MainTasks *ui;

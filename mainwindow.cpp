@@ -50,6 +50,12 @@ void MainWindow::on_registerButton_clicked()
     createUserWindow->exec(); // Use exec() for modal dialog
 }
 
+/**
+ * Authenticates user with specified name and password
+ * @param username User's name
+ * @param password Password to authenticate
+ * @return True if success, false if not
+ */
 bool MainWindow::authenticateUser(const QString& username, const QString& password)
 {
     QSqlDatabase db = QSqlDatabase::database();
@@ -87,6 +93,10 @@ bool MainWindow::authenticateUser(const QString& username, const QString& passwo
     return false;
 }
 
+/**
+ * Returns User currently logged in
+ * @return Current logged in User
+ */
 User MainWindow::getCurrentUser() const
 {
     return currentUser;
