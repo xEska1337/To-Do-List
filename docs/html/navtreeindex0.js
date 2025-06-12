@@ -1,0 +1,27 @@
+var NAVTREEINDEX0 =
+{
+"annotated.html":[0,0],
+"class_create_user.html":[0,0,0],
+"class_main_tasks.html":[0,0,1],
+"class_main_window.html":[0,0,2],
+"class_task.html":[0,0,3],
+"class_team.html":[0,0,4],
+"class_user.html":[0,0,5],
+"classes.html":[0,1],
+"createuser_8h_source.html":[1,0,0,0,0],
+"dir_5ead9793fba0717ddcd1fac0e814676a.html":[1,0,0,0],
+"dir_ed353eea8d78a173a119b387b77c750d.html":[1,0,0],
+"files.html":[1,0],
+"hierarchy.html":[0,2],
+"index.html":[],
+"maintasks_8h_source.html":[1,0,0,0,1],
+"mainwindow_8h_source.html":[1,0,0,0,2],
+"pages.html":[],
+"task_8h_source.html":[1,0,0,0,3],
+"taskmanager_8h_source.html":[1,0,0,0,4],
+"taskstatus_8h_source.html":[1,0,0,0,5],
+"team_8h_source.html":[1,0,0,0,6],
+"teammanager_8h_source.html":[1,0,0,0,7],
+"user_8h_source.html":[1,0,0,0,8],
+"usermanager_8h_source.html":[1,0,0,0,9]
+};
