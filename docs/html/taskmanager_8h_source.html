@@ -91,35 +91,46 @@ $(function(){initNavTree('taskmanager_8h_source.html','',''); });
   <div class="headertitle"><div class="title">taskmanager.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TASKMANAGER_H</span></div>
+<a href="taskmanager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TASKMANAGER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TASKMANAGER_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;task.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="task_8h.html">task.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>TaskManager {</div>
+<div class="foldopen" id="foldopen00006" data-start="{" data-end="}">
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="namespace_task_manager.html">    6</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_task_manager.html">TaskManager</a> {</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keywordtype">bool</span> createTask(<span class="keyword">const</span> Task&amp; task);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::vector&lt;Task&gt; getTasksForTeam(uint32_t teamId);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::vector&lt;Task&gt; getTasksForUser(uint32_t userId);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    Task getTask(uint64_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">bool</span> updateTask(<span class="keyword">const</span> Task&amp; task);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span> deleteTask(<span class="keyword">const</span> Task&amp; task);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">#endif </span><span class="comment">// TASKMANAGER_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_task_manager.html#ab861fb7902a25da2d75bde462775811f">createTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_task.html">Task</a>&amp; task);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    std::vector&lt;Task&gt; <a class="code hl_function" href="namespace_task_manager.html#a3e03db817c3f64d023030232c4d3ff45">getTasksForTeam</a>(uint32_t teamId);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::vector&lt;Task&gt; <a class="code hl_function" href="namespace_task_manager.html#afb066b574326c1541fd887e602cb302e">getTasksForUser</a>(uint32_t userId);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_class" href="class_task.html">Task</a> <a class="code hl_function" href="namespace_task_manager.html#a841d4de2360276ce9e574ecad7736eac">getTask</a>(uint64_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_task_manager.html#a459f3d33e68cbf743f772cca37ad6f27">updateTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_task.html">Task</a>&amp; task);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_task_manager.html#a564f1f4ed29f53eda7c15e2f7764274f">deleteTask</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_task.html">Task</a>&amp; task);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#endif </span><span class="comment">// TASKMANAGER_H</span></div>
+<div class="ttc" id="aclass_task_html"><div class="ttname"><a href="class_task.html">Task</a></div><div class="ttdef"><b>Definition</b> task.h:10</div></div>
+<div class="ttc" id="anamespace_task_manager_html"><div class="ttname"><a href="namespace_task_manager.html">TaskManager</a></div><div class="ttdef"><b>Definition</b> taskmanager.h:6</div></div>
+<div class="ttc" id="anamespace_task_manager_html_a3e03db817c3f64d023030232c4d3ff45"><div class="ttname"><a href="namespace_task_manager.html#a3e03db817c3f64d023030232c4d3ff45">TaskManager::getTasksForTeam</a></div><div class="ttdeci">std::vector&lt; Task &gt; getTasksForTeam(uint32_t teamId)</div><div class="ttdoc">Returns all Team&#39;s Task.</div><div class="ttdef"><b>Definition</b> taskmanager.cpp:94</div></div>
+<div class="ttc" id="anamespace_task_manager_html_a459f3d33e68cbf743f772cca37ad6f27"><div class="ttname"><a href="namespace_task_manager.html#a459f3d33e68cbf743f772cca37ad6f27">TaskManager::updateTask</a></div><div class="ttdeci">bool updateTask(const Task &amp;task)</div><div class="ttdoc">Updates Task in a database.</div><div class="ttdef"><b>Definition</b> taskmanager.cpp:164</div></div>
+<div class="ttc" id="anamespace_task_manager_html_a564f1f4ed29f53eda7c15e2f7764274f"><div class="ttname"><a href="namespace_task_manager.html#a564f1f4ed29f53eda7c15e2f7764274f">TaskManager::deleteTask</a></div><div class="ttdeci">bool deleteTask(const Task &amp;task)</div><div class="ttdoc">Deletes Task from a database.</div><div class="ttdef"><b>Definition</b> taskmanager.cpp:42</div></div>
+<div class="ttc" id="anamespace_task_manager_html_a841d4de2360276ce9e574ecad7736eac"><div class="ttname"><a href="namespace_task_manager.html#a841d4de2360276ce9e574ecad7736eac">TaskManager::getTask</a></div><div class="ttdeci">Task getTask(uint64_t id)</div><div class="ttdoc">Gets Task from a database identifying it by ID and returns as Task&#39;s object.</div><div class="ttdef"><b>Definition</b> taskmanager.cpp:125</div></div>
+<div class="ttc" id="anamespace_task_manager_html_ab861fb7902a25da2d75bde462775811f"><div class="ttname"><a href="namespace_task_manager.html#ab861fb7902a25da2d75bde462775811f">TaskManager::createTask</a></div><div class="ttdeci">bool createTask(const Task &amp;task)</div><div class="ttdoc">Creates Task in a database.</div><div class="ttdef"><b>Definition</b> taskmanager.cpp:16</div></div>
+<div class="ttc" id="anamespace_task_manager_html_afb066b574326c1541fd887e602cb302e"><div class="ttname"><a href="namespace_task_manager.html#afb066b574326c1541fd887e602cb302e">TaskManager::getTasksForUser</a></div><div class="ttdeci">std::vector&lt; Task &gt; getTasksForUser(uint32_t userId)</div><div class="ttdoc">Returns all User&#39;s Task.</div><div class="ttdef"><b>Definition</b> taskmanager.cpp:67</div></div>
+<div class="ttc" id="atask_8h_html"><div class="ttname"><a href="task_8h.html">task.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><b>taskmanager.h</b></li>
+    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><a href="taskmanager_8h.html">taskmanager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

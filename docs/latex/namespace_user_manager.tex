@@ -1,0 +1,163 @@
+\doxysection{User\+Manager Namespace Reference}
+\hypertarget{namespace_user_manager}{}\label{namespace_user_manager}\index{UserManager@{UserManager}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_user_manager_ad102e157f2fd29ba6653ec653e6eeb4e}{create\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Creates \doxylink{class_user}{User} in a database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{namespace_user_manager_a71d205bb3da539057a6c30cd48d4e053}{get\+User}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_user}{User} from a database identifying him by username and returns as \doxylink{class_user}{User}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{namespace_user_manager_a2949aea40eeb12b608666ee8721bc098}{get\+User}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_user}{User} from a database identifying him by username and returns as \doxylink{class_user}{User}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_user_manager_addd0fece521e9b0364a87f5ac63d377b}{update\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Updates \doxylink{class_user}{User} in a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_user_manager_a59e0b484c96bbf7a9f192c55e3735a3e}{delete\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_user}{User} from a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_user_manager_a4d55187f4a6c41e96f3e8a4eea49b755}{delete\+User}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_user}{User} using his ID from a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{namespace_user_manager_a449a6070c9fce9476a76185b414ed1a8}{get\+All\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Returns all Users from a database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_user_manager_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_user_manager_ad102e157f2fd29ba6653ec653e6eeb4e}\index{UserManager@{UserManager}!createUser@{createUser}}
+\index{createUser@{createUser}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{createUser()}{createUser()}}
+{\footnotesize\ttfamily \label{namespace_user_manager_ad102e157f2fd29ba6653ec653e6eeb4e} 
+bool User\+Manager\+::create\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Creates \doxylink{class_user}{User} in a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \doxylink{class_user}{User} to create in a database \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if there was any error 
+\end{DoxyReturn}
+\Hypertarget{namespace_user_manager_a59e0b484c96bbf7a9f192c55e3735a3e}\index{UserManager@{UserManager}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespace_user_manager_a59e0b484c96bbf7a9f192c55e3735a3e} 
+bool User\+Manager\+::delete\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Deletes \doxylink{class_user}{User} from a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \doxylink{class_user}{User} to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if \doxylink{class_user}{User} doesn\textquotesingle{}t exist or there was any error 
+\end{DoxyReturn}
+\Hypertarget{namespace_user_manager_a4d55187f4a6c41e96f3e8a4eea49b755}\index{UserManager@{UserManager}!deleteUser@{deleteUser}}
+\index{deleteUser@{deleteUser}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{deleteUser()}{deleteUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespace_user_manager_a4d55187f4a6c41e96f3e8a4eea49b755} 
+bool User\+Manager\+::delete\+User (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes \doxylink{class_user}{User} using his ID from a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & ID of a \doxylink{class_user}{User} to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if \doxylink{class_user}{User} doesn\textquotesingle{}t exist or there was any error 
+\end{DoxyReturn}
+\Hypertarget{namespace_user_manager_a449a6070c9fce9476a76185b414ed1a8}\index{UserManager@{UserManager}!getAllUsers@{getAllUsers}}
+\index{getAllUsers@{getAllUsers}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{getAllUsers()}{getAllUsers()}}
+{\footnotesize\ttfamily \label{namespace_user_manager_a449a6070c9fce9476a76185b414ed1a8} 
+std\+::vector$<$ \mbox{\hyperlink{class_user}{User}} $>$ User\+Manager\+::get\+All\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns all Users from a database. 
+
+\begin{DoxyReturn}{Returns}
+Vector of all Users from a database 
+\end{DoxyReturn}
+\Hypertarget{namespace_user_manager_a71d205bb3da539057a6c30cd48d4e053}\index{UserManager@{UserManager}!getUser@{getUser}}
+\index{getUser@{getUser}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespace_user_manager_a71d205bb3da539057a6c30cd48d4e053} 
+\mbox{\hyperlink{class_user}{User}} User\+Manager\+::get\+User (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{username}{}\end{DoxyParamCaption})}
+
+
+
+Gets \doxylink{class_user}{User} from a database identifying him by username and returns as \doxylink{class_user}{User}\textquotesingle{}s object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \doxylink{class_user}{User}\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_user}{User}\textquotesingle{}s object, if User-\/\texorpdfstring{$>$}{>}id equals 0, then \doxylink{class_user}{User} doesn\textquotesingle{}t exist, or there was an error
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \doxylink{class_user}{User}\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_user}{User}\textquotesingle{}s object, if User-\/\texorpdfstring{$>$}{>}id is 0, then \doxylink{class_user}{User} doesn\textquotesingle{}t exist or there was an error 
+\end{DoxyReturn}
+\Hypertarget{namespace_user_manager_a2949aea40eeb12b608666ee8721bc098}\index{UserManager@{UserManager}!getUser@{getUser}}
+\index{getUser@{getUser}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{getUser()}{getUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespace_user_manager_a2949aea40eeb12b608666ee8721bc098} 
+\mbox{\hyperlink{class_user}{User}} User\+Manager\+::get\+User (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Gets \doxylink{class_user}{User} from a database identifying him by username and returns as \doxylink{class_user}{User}\textquotesingle{}s object. 
+
+Gets \doxylink{class_user}{User} from a database identifying him by ID and returns as \doxylink{class_user}{User}\textquotesingle{}s object.
+
+
+\begin{DoxyParams}{Parameters}
+{\em username} & \doxylink{class_user}{User}\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_user}{User}\textquotesingle{}s object, if User-\/\texorpdfstring{$>$}{>}id is 0, then \doxylink{class_user}{User} doesn\textquotesingle{}t exist, or there was an error
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \doxylink{class_user}{User}\textquotesingle{}s ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_user}{User}\textquotesingle{}s object, if User-\/\texorpdfstring{$>$}{>}id is 0, then \doxylink{class_user}{User} doesn\textquotesingle{}t exist or there was an error 
+\end{DoxyReturn}
+\Hypertarget{namespace_user_manager_addd0fece521e9b0364a87f5ac63d377b}\index{UserManager@{UserManager}!updateUser@{updateUser}}
+\index{updateUser@{updateUser}!UserManager@{UserManager}}
+\doxysubsubsection{\texorpdfstring{updateUser()}{updateUser()}}
+{\footnotesize\ttfamily \label{namespace_user_manager_addd0fece521e9b0364a87f5ac63d377b} 
+bool User\+Manager\+::update\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption})}
+
+
+
+Updates \doxylink{class_user}{User} in a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user} & \doxylink{class_user}{User} to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if there was any error 
+\end{DoxyReturn}

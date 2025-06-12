@@ -1,0 +1,209 @@
+\doxysection{Team Class Reference}
+\hypertarget{class_team}{}\label{class_team}\index{Team@{Team}}
+
+
+{\ttfamily \#include $<$team.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}} ()
+\item 
+\mbox{\hyperlink{class_team_aa7b56cf1729eaf361674513fd28f1a6c}{Team}} (uint32\+\_\+t id, const std\+::string \&name, std\+::string \&password, const std\+::vector$<$ uint32\+\_\+t $>$ \&members)
+\item 
+\mbox{\hyperlink{class_team_ac21ffee0ca73b6d25de6ab0e53f92006}{Team}} (uint32\+\_\+t id, const std\+::string \&name, const std\+::string \&password, const std\+::vector$<$ uint32\+\_\+t $>$ \&members)
+\item 
+\mbox{\hyperlink{class_team_aec523840fa8bc6af7855583ef8c7519a}{Team}} (uint32\+\_\+t id, const std\+::string \&name, std\+::string \&password)
+\item 
+\mbox{\hyperlink{class_team_a725698ca023c3fef46353585c559346c}{Team}} (uint32\+\_\+t id, const std\+::string \&name, const std\+::string \&password)
+\item 
+\mbox{\hyperlink{class_team_a221b886d1d1ae7352fce14a846f29664}{Team}} (const std\+::string \&name, std\+::string \&password, const std\+::vector$<$ uint32\+\_\+t $>$ \&members)
+\item 
+\mbox{\hyperlink{class_team_aa77d172cbf97a00d97480022826f7fdc}{Team}} (const std\+::string \&name, const std\+::string \&password, const std\+::vector$<$ uint32\+\_\+t $>$ \&members)
+\item 
+void \mbox{\hyperlink{class_team_a2fcd7adc680638312fc9055c9f9793f9}{set\+Id}} (uint32\+\_\+t id)
+\item 
+void \mbox{\hyperlink{class_team_aa23602fd25e733b999c8e3dc534519a7}{set\+Name}} (const std\+::string \&name)
+\item 
+void \mbox{\hyperlink{class_team_a4bc6c42c2a9aee207aeb429181151c25}{set\+Password}} (const std\+::string \&password)
+\item 
+void \mbox{\hyperlink{class_team_ace45749f1a73a1d1347e50fdcab38278}{set\+Password}} (std\+::string \&password)
+\item 
+void \mbox{\hyperlink{class_team_a600021784df39bef9d5662e77457fed5}{set\+Members}} (const std\+::vector$<$ uint32\+\_\+t $>$ \&members)
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_team_a25c55467cd0c72d5a4e1eb7fb9810104}{get\+Id}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_team_abd78875654e91bf887ecd2f915f4a0b3}{get\+Name}} () const
+\item 
+std\+::string \mbox{\hyperlink{class_team_a9eb7918b71c8feb4ed7ed143ec724138}{get\+Password}} () const
+\item 
+std\+::vector$<$ uint32\+\_\+t $>$ \mbox{\hyperlink{class_team_a75f1beeecc394338233b4fab0bc7449b}{get\+Members}} () const
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{class_team_aa5ec4b752b6561920d89be7638232d8f}{get\+Members\+As\+Users}} () const
+\item 
+bool \mbox{\hyperlink{class_team_ac1820a7d5ed3856fe1ac78ca15dc3dad}{contains\+User}} (uint32\+\_\+t userid) const
+\item 
+bool \mbox{\hyperlink{class_team_a5bcc4dc496dfce87f41a1a7dbeeae5ff}{contains\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user) const
+\item 
+void \mbox{\hyperlink{class_team_a3c1b9b2e57a957e0b912e6645a2b01b8}{add\+Member}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\item 
+void \mbox{\hyperlink{class_team_a08e45b24454c260a0f0249299b3cf313}{add\+Member}} (uint32\+\_\+t userid)
+\item 
+void \mbox{\hyperlink{class_team_a2e73b43acdc6d85e45471b3c311b512d}{remove\+Member}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\item 
+void \mbox{\hyperlink{class_team_aefa5e25a3d1abb69af915b1dca914034}{remove\+Member}} (uint32\+\_\+t userid)
+\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_team_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_team_aada295895b747960576b69d8c87a54ba}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily \label{class_team_aada295895b747960576b69d8c87a54ba} 
+Team\+::\+Team (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_aa7b56cf1729eaf361674513fd28f1a6c}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily \label{class_team_aa7b56cf1729eaf361674513fd28f1a6c} 
+Team\+::\+Team (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{const std\+::string \&}]{name}{, }\item[{std\+::string \&}]{password}{, }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{members}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_ac21ffee0ca73b6d25de6ab0e53f92006}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily \label{class_team_ac21ffee0ca73b6d25de6ab0e53f92006} 
+Team\+::\+Team (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{const std\+::string \&}]{name}{, }\item[{const std\+::string \&}]{password}{, }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{members}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_aec523840fa8bc6af7855583ef8c7519a}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily \label{class_team_aec523840fa8bc6af7855583ef8c7519a} 
+Team\+::\+Team (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{const std\+::string \&}]{name}{, }\item[{std\+::string \&}]{password}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a725698ca023c3fef46353585c559346c}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily \label{class_team_a725698ca023c3fef46353585c559346c} 
+Team\+::\+Team (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{, }\item[{const std\+::string \&}]{name}{, }\item[{const std\+::string \&}]{password}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a221b886d1d1ae7352fce14a846f29664}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily \label{class_team_a221b886d1d1ae7352fce14a846f29664} 
+Team\+::\+Team (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{std\+::string \&}]{password}{, }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{members}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_aa77d172cbf97a00d97480022826f7fdc}\index{Team@{Team}!Team@{Team}}
+\index{Team@{Team}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{Team()}{Team()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily \label{class_team_aa77d172cbf97a00d97480022826f7fdc} 
+Team\+::\+Team (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{, }\item[{const std\+::string \&}]{password}{, }\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{members}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_team_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_team_a3c1b9b2e57a957e0b912e6645a2b01b8}\index{Team@{Team}!addMember@{addMember}}
+\index{addMember@{addMember}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{addMember()}{addMember()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_team_a3c1b9b2e57a957e0b912e6645a2b01b8} 
+void Team\+::add\+Member (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a08e45b24454c260a0f0249299b3cf313}\index{Team@{Team}!addMember@{addMember}}
+\index{addMember@{addMember}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{addMember()}{addMember()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_team_a08e45b24454c260a0f0249299b3cf313} 
+void Team\+::add\+Member (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{userid}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a5bcc4dc496dfce87f41a1a7dbeeae5ff}\index{Team@{Team}!containsUser@{containsUser}}
+\index{containsUser@{containsUser}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{containsUser()}{containsUser()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_team_a5bcc4dc496dfce87f41a1a7dbeeae5ff} 
+bool Team\+::contains\+User (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_ac1820a7d5ed3856fe1ac78ca15dc3dad}\index{Team@{Team}!containsUser@{containsUser}}
+\index{containsUser@{containsUser}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{containsUser()}{containsUser()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_team_ac1820a7d5ed3856fe1ac78ca15dc3dad} 
+bool Team\+::contains\+User (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{userid}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_a25c55467cd0c72d5a4e1eb7fb9810104}\index{Team@{Team}!getId@{getId}}
+\index{getId@{getId}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily \label{class_team_a25c55467cd0c72d5a4e1eb7fb9810104} 
+uint32\+\_\+t Team\+::get\+Id (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_a75f1beeecc394338233b4fab0bc7449b}\index{Team@{Team}!getMembers@{getMembers}}
+\index{getMembers@{getMembers}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{getMembers()}{getMembers()}}
+{\footnotesize\ttfamily \label{class_team_a75f1beeecc394338233b4fab0bc7449b} 
+std\+::vector$<$ uint32\+\_\+t $>$ Team\+::get\+Members (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_aa5ec4b752b6561920d89be7638232d8f}\index{Team@{Team}!getMembersAsUsers@{getMembersAsUsers}}
+\index{getMembersAsUsers@{getMembersAsUsers}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{getMembersAsUsers()}{getMembersAsUsers()}}
+{\footnotesize\ttfamily \label{class_team_aa5ec4b752b6561920d89be7638232d8f} 
+std\+::vector$<$ \mbox{\hyperlink{class_user}{User}} $>$ Team\+::get\+Members\+As\+Users (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_abd78875654e91bf887ecd2f915f4a0b3}\index{Team@{Team}!getName@{getName}}
+\index{getName@{getName}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily \label{class_team_abd78875654e91bf887ecd2f915f4a0b3} 
+std\+::string Team\+::get\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_a9eb7918b71c8feb4ed7ed143ec724138}\index{Team@{Team}!getPassword@{getPassword}}
+\index{getPassword@{getPassword}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{getPassword()}{getPassword()}}
+{\footnotesize\ttfamily \label{class_team_a9eb7918b71c8feb4ed7ed143ec724138} 
+std\+::string Team\+::get\+Password (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+\Hypertarget{class_team_a2e73b43acdc6d85e45471b3c311b512d}\index{Team@{Team}!removeMember@{removeMember}}
+\index{removeMember@{removeMember}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{removeMember()}{removeMember()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_team_a2e73b43acdc6d85e45471b3c311b512d} 
+void Team\+::remove\+Member (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_user}{User}} \&}]{user}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_aefa5e25a3d1abb69af915b1dca914034}\index{Team@{Team}!removeMember@{removeMember}}
+\index{removeMember@{removeMember}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{removeMember()}{removeMember()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_team_aefa5e25a3d1abb69af915b1dca914034} 
+void Team\+::remove\+Member (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{userid}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a2fcd7adc680638312fc9055c9f9793f9}\index{Team@{Team}!setId@{setId}}
+\index{setId@{setId}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{setId()}{setId()}}
+{\footnotesize\ttfamily \label{class_team_a2fcd7adc680638312fc9055c9f9793f9} 
+void Team\+::set\+Id (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a600021784df39bef9d5662e77457fed5}\index{Team@{Team}!setMembers@{setMembers}}
+\index{setMembers@{setMembers}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{setMembers()}{setMembers()}}
+{\footnotesize\ttfamily \label{class_team_a600021784df39bef9d5662e77457fed5} 
+void Team\+::set\+Members (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ uint32\+\_\+t $>$ \&}]{members}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_aa23602fd25e733b999c8e3dc534519a7}\index{Team@{Team}!setName@{setName}}
+\index{setName@{setName}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{setName()}{setName()}}
+{\footnotesize\ttfamily \label{class_team_aa23602fd25e733b999c8e3dc534519a7} 
+void Team\+::set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_a4bc6c42c2a9aee207aeb429181151c25}\index{Team@{Team}!setPassword@{setPassword}}
+\index{setPassword@{setPassword}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{setPassword()}{setPassword()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_team_a4bc6c42c2a9aee207aeb429181151c25} 
+void Team\+::set\+Password (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{password}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_team_ace45749f1a73a1d1347e50fdcab38278}\index{Team@{Team}!setPassword@{setPassword}}
+\index{setPassword@{setPassword}!Team@{Team}}
+\doxysubsubsection{\texorpdfstring{setPassword()}{setPassword()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_team_ace45749f1a73a1d1347e50fdcab38278} 
+void Team\+::set\+Password (\begin{DoxyParamCaption}\item[{std\+::string \&}]{password}{}\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Krzysztof/\+CLion\+Projects/\+To-\/\+Do-\/\+List/\mbox{\hyperlink{team_8h}{team.\+h}}\item 
+C\+:/\+Users/\+Krzysztof/\+CLion\+Projects/\+To-\/\+Do-\/\+List/\mbox{\hyperlink{team_8cpp}{team.\+cpp}}\end{DoxyCompactItemize}

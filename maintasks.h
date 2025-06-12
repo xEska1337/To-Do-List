@@ -68,32 +68,32 @@ private slots:
     // Others
 
     /**
-     * Updates Pomodoro Timer
+     * @brief Updates Pomodoro Timer
      */
     void updateDisplay();
 
     /**
-     * Changes Pomodoro Timer's display time
+     * @brief Changes Pomodoro Timer's display time
      */
     void setDisplay(int time);
 
     /**
-     * Changes Pomodoro Timer's time
+     * @brief Changes Pomodoro Timer's time
      */
     void setTimer(int time);
 
     /**
-     * Updates Task list in UI
+     * @brief Updates Task list in UI
      */
     void refreshTaskList();
 
     /**
-     * Updates logged in User's profile stats
+     * @brief Updates logged in User's profile stats
      */
     void updateProfileStats();
 
     /**
-     * Changes Task Button position in UI
+     * @brief Changes Task Button position in UI
      */
     void moveAddTaskButton();
 

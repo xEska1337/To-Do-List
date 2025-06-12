@@ -1,0 +1,24 @@
+\doxysection{C\+:/\+Users/\+Krzysztof/\+CLion\+Projects/\+To-\/\+Do-\/\+List/taskmanager.h File Reference}
+\hypertarget{taskmanager_8h}{}\label{taskmanager_8h}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/taskmanager.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/taskmanager.h}}
+{\ttfamily \#include "{}task.\+h"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_task_manager}{Task\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_task_manager_ab861fb7902a25da2d75bde462775811f}{Task\+Manager\+::create\+Task}} (const \mbox{\hyperlink{class_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Creates \doxylink{class_task}{Task} in a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_task}{Task}} $>$ \mbox{\hyperlink{namespace_task_manager_a3e03db817c3f64d023030232c4d3ff45}{Task\+Manager\+::get\+Tasks\+For\+Team}} (uint32\+\_\+t team\+Id)
+\begin{DoxyCompactList}\small\item\em Returns all \doxylink{class_team}{Team}\textquotesingle{}s \doxylink{class_task}{Task}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_task}{Task}} $>$ \mbox{\hyperlink{namespace_task_manager_afb066b574326c1541fd887e602cb302e}{Task\+Manager\+::get\+Tasks\+For\+User}} (uint32\+\_\+t user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns all \doxylink{class_user}{User}\textquotesingle{}s \doxylink{class_task}{Task}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_task}{Task}} \mbox{\hyperlink{namespace_task_manager_a841d4de2360276ce9e574ecad7736eac}{Task\+Manager\+::get\+Task}} (uint64\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_task}{Task} from a database identifying it by ID and returns as \doxylink{class_task}{Task}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_task_manager_a459f3d33e68cbf743f772cca37ad6f27}{Task\+Manager\+::update\+Task}} (const \mbox{\hyperlink{class_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Updates \doxylink{class_task}{Task} in a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_task_manager_a564f1f4ed29f53eda7c15e2f7764274f}{Task\+Manager\+::delete\+Task}} (const \mbox{\hyperlink{class_task}{Task}} \&task)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_task}{Task} from a database. \end{DoxyCompactList}\end{DoxyCompactItemize}

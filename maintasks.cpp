@@ -94,7 +94,7 @@ void MainTasks::on_startPomodoroButton_clicked()
 }
 
 /**
- * Updates Pomodoro Timer
+ * @brief Updates Pomodoro Timer
  */
 void MainTasks::updateDisplay()
 {
@@ -116,7 +116,7 @@ void MainTasks::updateDisplay()
 }
 
 /**
- * Changes Pomodoro Timer's display time
+ * @brief Changes Pomodoro Timer's display time
  */
 void MainTasks::setDisplay(int time)
 {
@@ -128,7 +128,7 @@ void MainTasks::setDisplay(int time)
 }
 
 /**
- * Changes Pomodoro Timer's time
+ * @brief Changes Pomodoro Timer's time
  */
 void MainTasks::setTimer(int time)
 {
@@ -167,7 +167,7 @@ void MainTasks::on_longBreakButton_clicked()
 //
 
 /**
- * Changes Task Button position in UI
+ * @brief Changes Task Button position in UI
  */
 void MainTasks::moveAddTaskButton(){
     //Pin button to right bottom corner
@@ -286,7 +286,7 @@ void MainTasks::on_confirmTaskAddButton_clicked()
 }
 
 /**
- * Updates Task list in UI
+ * @brief Updates Task list in UI
  */
 void MainTasks::refreshTaskList()
 {
@@ -491,7 +491,7 @@ void MainTasks::on_removeAccountButton_clicked()
 }
 
 /**
- * Updates logged in User's profile stats
+ * @brief Updates logged in User's profile stats
  */
 void MainTasks::updateProfileStats()
 {

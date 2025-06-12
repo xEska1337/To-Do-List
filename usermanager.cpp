@@ -4,7 +4,8 @@
 using namespace UserManager;
 
 /**
-* Creates User in a database
+* @brief Creates User in a database
+*
 * @param user User to create in a database
 * @return True if success, false if there was any error
 */
@@ -47,7 +48,8 @@ bool UserManager::createUser(const User& user) {
 }
 
 /**
- * Gets User from a database identifying him by username and returns as User's object
+ * @brief Gets User from a database identifying him by username and returns as User's object
+ *
  * @param username User's name
  * @return User's object, if User->id is 0, then User doesn't exist or there was an error
  */
@@ -86,7 +88,8 @@ User UserManager::getUser(const std::string &username) {
 }
 
 /**
- * Gets User from a database identifying him by ID and returns as User's object
+ * @brief Gets User from a database identifying him by ID and returns as User's object
+ *
  * @param id User's ID
  * @return User's object, if User->id is 0, then User doesn't exist or there was an error
  */
@@ -125,7 +128,8 @@ User UserManager::getUser(uint32_t id) {
 }
 
 /**
- * Updates User in a database
+ * @brief Updates User in a database
+ *
  * @param user User to update
  * @return True if success, false if there was any error
  */
@@ -169,7 +173,8 @@ bool UserManager::updateUser(const User &user) {
 }
 
 /**
- * Deletes User from a database
+ * @brief Deletes User from a database
+ *
  * @param user User to delete
  * @return True if success, false if User doesn't exist or there was any error
  */
@@ -178,7 +183,8 @@ bool UserManager::deleteUser(const User &user) {
 }
 
 /**
- * Deletes User using his ID from a database
+ * @brief Deletes User using his ID from a database
+ *
  * @param id ID of a User to delete
  * @return True if success, false if User doesn't exist or there was any error
  */
@@ -227,7 +233,8 @@ bool UserManager::deleteUser(uint32_t id) {
 }
 
 /**
- * Returns all Users from a database
+ * @brief Returns all Users from a database
+ *
  * @return Vector of all Users from a database
  */
 std::vector<User> UserManager::getAllUsers() {

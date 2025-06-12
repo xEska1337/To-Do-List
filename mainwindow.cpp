@@ -51,7 +51,8 @@ void MainWindow::on_registerButton_clicked()
 }
 
 /**
- * Authenticates user with specified name and password
+ * @brief Authenticates user with specified name and password
+ *
  * @param username User's name
  * @param password Password to authenticate
  * @return True if success, false if not
@@ -94,7 +95,8 @@ bool MainWindow::authenticateUser(const QString& username, const QString& passwo
 }
 
 /**
- * Returns User currently logged in
+ * @brief Returns User currently logged in
+ *
  * @return Current logged in User
  */
 User MainWindow::getCurrentUser() const

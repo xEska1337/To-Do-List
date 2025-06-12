@@ -29,7 +29,7 @@ private slots:
 private:
     Ui::CreateUser *ui;
     /**
-     * Validates if the input is correct.
+     * @brief Validates if the input is correct.
      * @return True if the input is correct, false if not.
      */
     bool validateInput();

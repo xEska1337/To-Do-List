@@ -1,0 +1,57 @@
+\doxysection{task.\+h}
+\hypertarget{task_8h_source}{}\label{task_8h_source}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/task.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/task.h}}
+\mbox{\hyperlink{task_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TASK\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TASK\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{taskstatus_8h}{taskstatus.h}}"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_task_a0ca53354bdc006762a0fda68c64f7608}{Task}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ uint64\_t\ id;}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ description;}
+\DoxyCodeLine{00015\ \ \ \ \ uint8\_t\ priority;}
+\DoxyCodeLine{00016\ \ \ \ \ uint32\_t\ teamId;\ \textcolor{comment}{//\ If\ teamId\ is\ 0,\ that\ means\ it's\ a\ Task\ specified\ only\ for\ one\ User}}
+\DoxyCodeLine{00017\ \ \ \ \ uint32\_t\ userId;\ \textcolor{comment}{//\ If\ userId\ is\ 0,\ that\ means\ it's\ Task\ specified\ for\ Team}}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{taskstatus_8h_aacda182df7dba8ce63a50654d7232ba8}{TaskStatus}}\ status;}
+\DoxyCodeLine{00019\ \ \ \ \ time\_t\ deadline;\ \textcolor{comment}{//\ If\ 0\ -\/\ Task\ with\ unlimited\ time.}}
+\DoxyCodeLine{00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_task_a0ca53354bdc006762a0fda68c64f7608}{Task}}();}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_task_a0ca53354bdc006762a0fda68c64f7608}{Task}}(uint32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_task_a0ca53354bdc006762a0fda68c64f7608}{Task}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ std::string\ \&description,\ uint8\_t\ priority,\ uint32\_t\ teamId,\ uint32\_t\ userId,\ \mbox{\hyperlink{taskstatus_8h_aacda182df7dba8ce63a50654d7232ba8}{TaskStatus}}\ status,\ time\_t\ deadline);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_task_a0ca53354bdc006762a0fda68c64f7608}{Task}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ std::string\ \&description,\ uint8\_t\ priority,\ uint32\_t\ teamId,\ uint32\_t\ userId,\ \mbox{\hyperlink{taskstatus_8h_aacda182df7dba8ce63a50654d7232ba8}{TaskStatus}}\ status,\ time\_t\ deadline);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a3ee87ea27f7a0d9b4db4a9847037d042}{setId}}(uint64\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a634c583ef91b204f4e1c929dd78a1401}{setName}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a1701cf243ecc756dcffd0686b7772fca}{setDescription}}(\textcolor{keyword}{const}\ std::string\ \&description);}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_aaa220be4e5007ede0bd3e5349d36eae9}{setPriority}}(uint8\_t\ priority);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a3012778f80ad2d29132efdcbbd954d54}{setTeamId}}(uint32\_t\ teamId);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_ad19de23988beb5491a3ed88327b8a035}{setUserId}}(uint32\_t\ userId);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a8fa9bb1e2d51ce78d1d4644b421f4f9d}{setStatus}}(\textcolor{keywordtype}{int}\ status);}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a8fa9bb1e2d51ce78d1d4644b421f4f9d}{setStatus}}(\mbox{\hyperlink{taskstatus_8h_aacda182df7dba8ce63a50654d7232ba8}{TaskStatus}}\ status);}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_task_a49e09b6d0f713b70b15bcffd4153ab9c}{setDeadline}}(time\_t\ deadline);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00039\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{class_task_a51aadcdee83fae3a1f39e23920f7c67a}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ std::string\ \mbox{\hyperlink{class_task_a935789567ea9e7d078e363d537e9d688}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ std::string\ \mbox{\hyperlink{class_task_aecbe79dd5334c9969320695b5a82e32a}{getDescription}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ uint8\_t\ \mbox{\hyperlink{class_task_aef8cf69a9b677977003d8b72d66d36d8}{getPriority}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_task_adb4d2bfd555e849c77ff712b7b88c350}{getTeamId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_task_a739b774d47a22bdc4ffe2896daf12320}{getUserId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_task_a18be70f41582b67bd10edd68ea8b6b6f}{getStatusAsInt}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{taskstatus_8h_aacda182df7dba8ce63a50654d7232ba8}{TaskStatus}}\ \mbox{\hyperlink{class_task_a001751ecb4ebcaea0ae6b50ee2948267}{getStatus}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00047\ \ \ \ \ time\_t\ \mbox{\hyperlink{class_task_a63b8317997ff716e02ae21422532adbe}{getDeadline}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TASK\_H}}
+
+\end{DoxyCode}

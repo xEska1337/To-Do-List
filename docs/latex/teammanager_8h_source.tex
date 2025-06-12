@@ -1,0 +1,42 @@
+\doxysection{teammanager.\+h}
+\hypertarget{teammanager_8h_source}{}\label{teammanager_8h_source}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/teammanager.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/teammanager.h}}
+\mbox{\hyperlink{teammanager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TEAMMANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TEAMMANAGER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{team_8h}{team.h}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QMessageBox>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QSqlDatabase>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <QSqlQuery>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <QSqlError>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_team_manager}{TeamManager}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_team_manager_a20fabf248676952821dc5a717b8fae2c}{createTeam}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_team}{Team}}\&\ team);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_team}{Team}}\ \mbox{\hyperlink{namespace_team_manager_a0301770e3385ac3ca94770c4d2f39590}{getTeam}}(\textcolor{keyword}{const}\ std::string\&\ name);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_team}{Team}}\ \mbox{\hyperlink{namespace_team_manager_a0301770e3385ac3ca94770c4d2f39590}{getTeam}}(uint32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_team_manager_a058764155814f62f155b83fdaa3ab412}{updateTeam}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_team}{Team}}\&\ team);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_team_manager_a3b63b37bd3a97bbd4729370a3875f57f}{deleteTeam}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_team}{Team}}\&\ team);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_team_manager_a3b63b37bd3a97bbd4729370a3875f57f}{deleteTeam}}(uint32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ std::vector<Team>\ \mbox{\hyperlink{namespace_team_manager_a69b087b0b80b871899126732ca1acfe4}{getAllTeams}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ std::vector<Team>\ \mbox{\hyperlink{namespace_team_manager_ab8cd0cc64494c55199dbb5da50098275}{getTeamsForUser}}(uint32\_t\ userId);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00081\ \ \ \ \ \mbox{\hyperlink{class_team}{Team}}\ \mbox{\hyperlink{namespace_team_manager_a218ed3d65fa0b2f37f79f918c2d0844c}{getTeamForUser}}(uint32\_t\ userId);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TEAMMANAGER\_H}}
+
+\end{DoxyCode}

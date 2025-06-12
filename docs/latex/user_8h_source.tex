@@ -1,0 +1,49 @@
+\doxysection{user.\+h}
+\hypertarget{user_8h_source}{}\label{user_8h_source}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/user.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/user.h}}
+\mbox{\hyperlink{user_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ USER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ USER\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QDate>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QCryptographicHash>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00012\ \ \ \ \ uint32\_t\ id;}
+\DoxyCodeLine{00013\ \ \ \ \ std::string\ username;}
+\DoxyCodeLine{00014\ \ \ \ \ std::string\ password;}
+\DoxyCodeLine{00015\ \ \ \ \ QDate\ creationDate;}
+\DoxyCodeLine{00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00018\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}();}
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ username,\ \textcolor{keyword}{const}\ std::string\ \&password);}
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ username,\ \textcolor{keyword}{const}\ std::string\ \&password,\ \textcolor{keyword}{const}\ QDate\ \&creationDate);}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ username,\ std::string\ \&password);}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ username,\ std::string\ \&password,\ \textcolor{keyword}{const}\ QDate\ \&creationDate);}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(\textcolor{keyword}{const}\ std::string\&\ username,\ \textcolor{keyword}{const}\ std::string\ \&password);}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(\textcolor{keyword}{const}\ std::string\&\ username,\ \textcolor{keyword}{const}\ std::string\ \&password,\ \textcolor{keyword}{const}\ QDate\ \&creationDate);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(\textcolor{keyword}{const}\ std::string\&\ username,\ std::string\ \&password);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(\textcolor{keyword}{const}\ std::string\&\ username,\ std::string\ \&password,\ \textcolor{keyword}{const}\ QDate\ \&creationDate);}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_user_a4a0137053e591fbb79d9057dd7d2283d}{User}}(\textcolor{keyword}{const}\ std::string\&\ username);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a7a4d83bbf24b084b3bf72acaa8d59c90}{setId}}(uint32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a7abee4d4937156ba0c1a657b9b84ddef}{setUsername}}(\textcolor{keyword}{const}\ std::string\ \&username);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a4c0be2061d0bb5bbf80ac0a4fdde16ff}{setPassword}}(\textcolor{keyword}{const}\ std::string\ \&password);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a4c0be2061d0bb5bbf80ac0a4fdde16ff}{setPassword}}(std::string\ \&password);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_user_a4a1a4166917579172b7f7d44601678a9}{setCreationDate}}(\textcolor{keyword}{const}\ QDate\ \&creationDate);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00037\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_user_a56bc6af11d0ea1c883087c4c6a80f1cc}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ \mbox{\hyperlink{class_user_a7079d6aefd9d1b930d837039c1b3e7df}{getUsername}}()\ \textcolor{keyword}{const};\ \textcolor{comment}{//\ Make\ const}}
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ \mbox{\hyperlink{class_user_a180e5acdc4b150463652d90d54caa8fc}{getPassword}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ QDate\ \mbox{\hyperlink{class_user_a280cda058879f92e125ac832852e338d}{getCreationDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \};}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ USER\_H}}
+
+\end{DoxyCode}

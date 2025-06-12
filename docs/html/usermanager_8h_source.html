@@ -91,41 +91,51 @@ $(function(){initNavTree('usermanager_8h_source.html','',''); });
   <div class="headertitle"><div class="title">usermanager.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef USERMANAGER_H</span></div>
+<a href="usermanager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef USERMANAGER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define USERMANAGER_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;QMessageBox&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QSqlDatabase&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QSqlQuery&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QSqlError&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;user.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="user_8h.html">user.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>UserManager {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> createUser(<span class="keyword">const</span> User&amp; user);</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    User getUser(<span class="keyword">const</span> std::string&amp; username);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    User getUser(uint32_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> updateUser(<span class="keyword">const</span> User&amp; user);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> deleteUser(<span class="keyword">const</span> User&amp; user);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">bool</span> deleteUser(uint32_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    std::vector&lt;User&gt; getAllUsers();</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">#endif </span><span class="comment">// USERMANAGER_H</span></div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespace_user_manager.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_user_manager.html">UserManager</a> {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_user_manager.html#ad102e157f2fd29ba6653ec653e6eeb4e">createUser</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_user.html">User</a>&amp; user);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_user.html">User</a> <a class="code hl_function" href="namespace_user_manager.html#a71d205bb3da539057a6c30cd48d4e053">getUser</a>(<span class="keyword">const</span> std::string&amp; username);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_class" href="class_user.html">User</a> <a class="code hl_function" href="namespace_user_manager.html#a71d205bb3da539057a6c30cd48d4e053">getUser</a>(uint32_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_user_manager.html#addd0fece521e9b0364a87f5ac63d377b">updateUser</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_user.html">User</a>&amp; user);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_user_manager.html#a59e0b484c96bbf7a9f192c55e3735a3e">deleteUser</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_user.html">User</a>&amp; user);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_user_manager.html#a59e0b484c96bbf7a9f192c55e3735a3e">deleteUser</a>(uint32_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    std::vector&lt;User&gt; <a class="code hl_function" href="namespace_user_manager.html#a449a6070c9fce9476a76185b414ed1a8">getAllUsers</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
+</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif </span><span class="comment">// USERMANAGER_H</span></div>
+<div class="ttc" id="aclass_user_html"><div class="ttname"><a href="class_user.html">User</a></div><div class="ttdef"><b>Definition</b> user.h:10</div></div>
+<div class="ttc" id="anamespace_user_manager_html"><div class="ttname"><a href="namespace_user_manager.html">UserManager</a></div><div class="ttdef"><b>Definition</b> usermanager.h:10</div></div>
+<div class="ttc" id="anamespace_user_manager_html_a449a6070c9fce9476a76185b414ed1a8"><div class="ttname"><a href="namespace_user_manager.html#a449a6070c9fce9476a76185b414ed1a8">UserManager::getAllUsers</a></div><div class="ttdeci">std::vector&lt; User &gt; getAllUsers()</div><div class="ttdoc">Returns all Users from a database.</div><div class="ttdef"><b>Definition</b> usermanager.cpp:240</div></div>
+<div class="ttc" id="anamespace_user_manager_html_a59e0b484c96bbf7a9f192c55e3735a3e"><div class="ttname"><a href="namespace_user_manager.html#a59e0b484c96bbf7a9f192c55e3735a3e">UserManager::deleteUser</a></div><div class="ttdeci">bool deleteUser(const User &amp;user)</div><div class="ttdoc">Deletes User from a database.</div><div class="ttdef"><b>Definition</b> usermanager.cpp:181</div></div>
+<div class="ttc" id="anamespace_user_manager_html_a71d205bb3da539057a6c30cd48d4e053"><div class="ttname"><a href="namespace_user_manager.html#a71d205bb3da539057a6c30cd48d4e053">UserManager::getUser</a></div><div class="ttdeci">User getUser(const std::string &amp;username)</div><div class="ttdoc">Gets User from a database identifying him by username and returns as User&#39;s object.</div><div class="ttdef"><b>Definition</b> usermanager.cpp:56</div></div>
+<div class="ttc" id="anamespace_user_manager_html_ad102e157f2fd29ba6653ec653e6eeb4e"><div class="ttname"><a href="namespace_user_manager.html#ad102e157f2fd29ba6653ec653e6eeb4e">UserManager::createUser</a></div><div class="ttdeci">bool createUser(const User &amp;user)</div><div class="ttdoc">Creates User in a database.</div><div class="ttdef"><b>Definition</b> usermanager.cpp:12</div></div>
+<div class="ttc" id="anamespace_user_manager_html_addd0fece521e9b0364a87f5ac63d377b"><div class="ttname"><a href="namespace_user_manager.html#addd0fece521e9b0364a87f5ac63d377b">UserManager::updateUser</a></div><div class="ttdeci">bool updateUser(const User &amp;user)</div><div class="ttdoc">Updates User in a database.</div><div class="ttdef"><b>Definition</b> usermanager.cpp:136</div></div>
+<div class="ttc" id="auser_8h_html"><div class="ttname"><a href="user_8h.html">user.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><b>usermanager.h</b></li>
+    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><a href="usermanager_8h.html">usermanager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

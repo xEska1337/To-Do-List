@@ -1,0 +1,28 @@
+\doxysection{taskmanager.\+h}
+\hypertarget{taskmanager_8h_source}{}\label{taskmanager_8h_source}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/taskmanager.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/taskmanager.h}}
+\mbox{\hyperlink{taskmanager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TASKMANAGER\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TASKMANAGER\_H}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{task_8h}{task.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_task_manager}{TaskManager}}\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_task_manager_ab861fb7902a25da2d75bde462775811f}{createTask}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_task}{Task}}\&\ task);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::vector<Task>\ \mbox{\hyperlink{namespace_task_manager_a3e03db817c3f64d023030232c4d3ff45}{getTasksForTeam}}(uint32\_t\ teamId);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<Task>\ \mbox{\hyperlink{namespace_task_manager_afb066b574326c1541fd887e602cb302e}{getTasksForUser}}(uint32\_t\ userId);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_task}{Task}}\ \mbox{\hyperlink{namespace_task_manager_a841d4de2360276ce9e574ecad7736eac}{getTask}}(uint64\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_task_manager_a459f3d33e68cbf743f772cca37ad6f27}{updateTask}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_task}{Task}}\&\ task);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{namespace_task_manager_a564f1f4ed29f53eda7c15e2f7764274f}{deleteTask}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_task}{Task}}\&\ task);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TASKMANAGER\_H}}
+
+\end{DoxyCode}

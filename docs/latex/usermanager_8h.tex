@@ -1,0 +1,29 @@
+\doxysection{C\+:/\+Users/\+Krzysztof/\+CLion\+Projects/\+To-\/\+Do-\/\+List/usermanager.h File Reference}
+\hypertarget{usermanager_8h}{}\label{usermanager_8h}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/usermanager.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/usermanager.h}}
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include $<$QSql\+Database$>$}\newline
+{\ttfamily \#include $<$QSql\+Query$>$}\newline
+{\ttfamily \#include $<$QSql\+Error$>$}\newline
+{\ttfamily \#include "{}user.\+h"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_user_manager}{User\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_user_manager_ad102e157f2fd29ba6653ec653e6eeb4e}{User\+Manager\+::create\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Creates \doxylink{class_user}{User} in a database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{namespace_user_manager_a71d205bb3da539057a6c30cd48d4e053}{User\+Manager\+::get\+User}} (const std\+::string \&username)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_user}{User} from a database identifying him by username and returns as \doxylink{class_user}{User}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_user}{User}} \mbox{\hyperlink{namespace_user_manager_a2949aea40eeb12b608666ee8721bc098}{User\+Manager\+::get\+User}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_user}{User} from a database identifying him by username and returns as \doxylink{class_user}{User}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_user_manager_addd0fece521e9b0364a87f5ac63d377b}{User\+Manager\+::update\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Updates \doxylink{class_user}{User} in a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_user_manager_a59e0b484c96bbf7a9f192c55e3735a3e}{User\+Manager\+::delete\+User}} (const \mbox{\hyperlink{class_user}{User}} \&user)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_user}{User} from a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_user_manager_a4d55187f4a6c41e96f3e8a4eea49b755}{User\+Manager\+::delete\+User}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_user}{User} using his ID from a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_user}{User}} $>$ \mbox{\hyperlink{namespace_user_manager_a449a6070c9fce9476a76185b414ed1a8}{User\+Manager\+::get\+All\+Users}} ()
+\begin{DoxyCompactList}\small\item\em Returns all Users from a database. \end{DoxyCompactList}\end{DoxyCompactItemize}

@@ -3,7 +3,8 @@
 using namespace TeamManager;
 
 /**
- * Creates Team in database
+ * @brief Creates Team in database
+ *
  * @param team Team to create
  * @return True if success, false if there was any error
  */
@@ -56,7 +57,8 @@ bool TeamManager::createTeam(const Team &team) {
 }
 
 /**
- * Gets Team from a database identifying it by name and returns as Team's object
+ * @brief Gets Team from a database identifying it by name and returns as Team's object
+ *
  * @param name Team's name
  * @return Team's object, if Team->id equals 0, then Team doesn't exist, or there was an error
  */
@@ -117,7 +119,8 @@ Team TeamManager::getTeam(const std::string &name) {
 }
 
 /**
- * Gets Team from a database identifying it by ID and returns as Team's object
+ * @brief Gets Team from a database identifying it by ID and returns as Team's object
+ *
  * @param id Team's ID
  * @return Team's object, if Team->id equals 0, then Team doesn't exist, or there was an error
  */
@@ -178,7 +181,8 @@ Team TeamManager::getTeam(uint32_t id) {
 }
 
 /**
- * Updates Team in a database
+ * @brief Updates Team in a database
+ *
  * @param team Team to update
  * @return True if success, false if there was any error
  */
@@ -230,7 +234,8 @@ bool TeamManager::updateTeam(const Team &team) {
 }
 
 /**
- * Deletes Team from a database
+ * @brief Deletes Team from a database
+ *
  * @param team Team to delete
  * @return True if success, false if Team doesn't exist or there was any error
  */
@@ -239,7 +244,8 @@ bool TeamManager::deleteTeam(const Team &team) {
 }
 
 /**
- * Deletes Team using his ID from a database
+ * @brief Deletes Team using his ID from a database
+ *
  * @param id ID of a Team to delete
  * @return True if success, false if Team doesn't exist or there was any error
  */
@@ -279,7 +285,8 @@ bool TeamManager::deleteTeam(uint32_t id) {
 }
 
 /**
- * Returns all Teams from a database
+ * @brief Returns all Teams from a database
+ *
  * @return Vector of all Teams from a database
  */
 std::vector<Team> TeamManager::getAllTeams() {
@@ -332,7 +339,8 @@ std::vector<Team> TeamManager::getAllTeams() {
 }
 
 /**
- * Returns all Teams that the User belongs to from a database
+ * @brief Returns all Teams that the User belongs to from a database
+ *
  * @return Vector of all Teams that the User belongs to
  */
 std::vector<Team> TeamManager::getTeamsForUser(uint32_t userId) {
@@ -349,7 +357,8 @@ std::vector<Team> TeamManager::getTeamsForUser(uint32_t userId) {
 }
 
 /**
- * Returns first User's Team from a database
+ * @brief Returns first User's Team from a database
+ *
  * @return First User's Team
  */
 Team TeamManager::getTeamForUser(uint32_t userId) {

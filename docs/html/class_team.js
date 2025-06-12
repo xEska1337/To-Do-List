@@ -1,0 +1,26 @@
+var class_team =
+[
+    [ "Team", "class_team.html#aada295895b747960576b69d8c87a54ba", null ],
+    [ "Team", "class_team.html#aa7b56cf1729eaf361674513fd28f1a6c", null ],
+    [ "Team", "class_team.html#ac21ffee0ca73b6d25de6ab0e53f92006", null ],
+    [ "Team", "class_team.html#aec523840fa8bc6af7855583ef8c7519a", null ],
+    [ "Team", "class_team.html#a725698ca023c3fef46353585c559346c", null ],
+    [ "Team", "class_team.html#a221b886d1d1ae7352fce14a846f29664", null ],
+    [ "Team", "class_team.html#aa77d172cbf97a00d97480022826f7fdc", null ],
+    [ "addMember", "class_team.html#a3c1b9b2e57a957e0b912e6645a2b01b8", null ],
+    [ "addMember", "class_team.html#a08e45b24454c260a0f0249299b3cf313", null ],
+    [ "containsUser", "class_team.html#a5bcc4dc496dfce87f41a1a7dbeeae5ff", null ],
+    [ "containsUser", "class_team.html#ac1820a7d5ed3856fe1ac78ca15dc3dad", null ],
+    [ "getId", "class_team.html#a25c55467cd0c72d5a4e1eb7fb9810104", null ],
+    [ "getMembers", "class_team.html#a75f1beeecc394338233b4fab0bc7449b", null ],
+    [ "getMembersAsUsers", "class_team.html#aa5ec4b752b6561920d89be7638232d8f", null ],
+    [ "getName", "class_team.html#abd78875654e91bf887ecd2f915f4a0b3", null ],
+    [ "getPassword", "class_team.html#a9eb7918b71c8feb4ed7ed143ec724138", null ],
+    [ "removeMember", "class_team.html#a2e73b43acdc6d85e45471b3c311b512d", null ],
+    [ "removeMember", "class_team.html#aefa5e25a3d1abb69af915b1dca914034", null ],
+    [ "setId", "class_team.html#a2fcd7adc680638312fc9055c9f9793f9", null ],
+    [ "setMembers", "class_team.html#a600021784df39bef9d5662e77457fed5", null ],
+    [ "setName", "class_team.html#aa23602fd25e733b999c8e3dc534519a7", null ],
+    [ "setPassword", "class_team.html#a4bc6c42c2a9aee207aeb429181151c25", null ],
+    [ "setPassword", "class_team.html#ace45749f1a73a1d1347e50fdcab38278", null ]
+];

@@ -1,0 +1,177 @@
+\doxysection{Team\+Manager Namespace Reference}
+\hypertarget{namespace_team_manager}{}\label{namespace_team_manager}\index{TeamManager@{TeamManager}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_team_manager_a20fabf248676952821dc5a717b8fae2c}{create\+Team}} (const \mbox{\hyperlink{class_team}{Team}} \&team)
+\begin{DoxyCompactList}\small\item\em Creates \doxylink{class_team}{Team} in a database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_team}{Team}} \mbox{\hyperlink{namespace_team_manager_a0301770e3385ac3ca94770c4d2f39590}{get\+Team}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_team}{Team} from a database identifying it by name and returns as \doxylink{class_team}{Team}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_team}{Team}} \mbox{\hyperlink{namespace_team_manager_aaae8e18ea02fe4d215602f02bd7d1b0e}{get\+Team}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_team}{Team} from a database identifying it by ID and returns as \doxylink{class_team}{Team}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_team_manager_a058764155814f62f155b83fdaa3ab412}{update\+Team}} (const \mbox{\hyperlink{class_team}{Team}} \&team)
+\begin{DoxyCompactList}\small\item\em Updates \doxylink{class_team}{Team} in a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_team_manager_a3b63b37bd3a97bbd4729370a3875f57f}{delete\+Team}} (const \mbox{\hyperlink{class_team}{Team}} \&team)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_team}{Team} from a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_team_manager_ac0cb2aebc272c6e57f73db20b8249192}{delete\+Team}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_team}{Team} using his ID from a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_team}{Team}} $>$ \mbox{\hyperlink{namespace_team_manager_a69b087b0b80b871899126732ca1acfe4}{get\+All\+Teams}} ()
+\begin{DoxyCompactList}\small\item\em Returns all Teams from a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_team}{Team}} $>$ \mbox{\hyperlink{namespace_team_manager_ab8cd0cc64494c55199dbb5da50098275}{get\+Teams\+For\+User}} (uint32\+\_\+t user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns all Teams that the \doxylink{class_user}{User} belongs to from a database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_team}{Team}} \mbox{\hyperlink{namespace_team_manager_a218ed3d65fa0b2f37f79f918c2d0844c}{get\+Team\+For\+User}} (uint32\+\_\+t user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns first \doxylink{class_user}{User}\textquotesingle{}s \doxylink{class_team}{Team} from a database. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-func-members}
+\Hypertarget{namespace_team_manager_doc-func-members}
+\doxysubsection{Function Documentation}
+\Hypertarget{namespace_team_manager_a20fabf248676952821dc5a717b8fae2c}\index{TeamManager@{TeamManager}!createTeam@{createTeam}}
+\index{createTeam@{createTeam}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{createTeam()}{createTeam()}}
+{\footnotesize\ttfamily \label{namespace_team_manager_a20fabf248676952821dc5a717b8fae2c} 
+bool Team\+Manager\+::create\+Team (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_team}{Team}} \&}]{team}{}\end{DoxyParamCaption})}
+
+
+
+Creates \doxylink{class_team}{Team} in a database. 
+
+Creates \doxylink{class_team}{Team} in database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & \doxylink{class_team}{Team} to create \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if there was any error 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_a3b63b37bd3a97bbd4729370a3875f57f}\index{TeamManager@{TeamManager}!deleteTeam@{deleteTeam}}
+\index{deleteTeam@{deleteTeam}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{deleteTeam()}{deleteTeam()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespace_team_manager_a3b63b37bd3a97bbd4729370a3875f57f} 
+bool Team\+Manager\+::delete\+Team (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_team}{Team}} \&}]{team}{}\end{DoxyParamCaption})}
+
+
+
+Deletes \doxylink{class_team}{Team} from a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & \doxylink{class_team}{Team} to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if \doxylink{class_team}{Team} doesn\textquotesingle{}t exist or there was any error 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_ac0cb2aebc272c6e57f73db20b8249192}\index{TeamManager@{TeamManager}!deleteTeam@{deleteTeam}}
+\index{deleteTeam@{deleteTeam}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{deleteTeam()}{deleteTeam()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespace_team_manager_ac0cb2aebc272c6e57f73db20b8249192} 
+bool Team\+Manager\+::delete\+Team (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Deletes \doxylink{class_team}{Team} using his ID from a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & ID of a \doxylink{class_team}{Team} to delete \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if \doxylink{class_team}{Team} doesn\textquotesingle{}t exist or there was any error 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_a69b087b0b80b871899126732ca1acfe4}\index{TeamManager@{TeamManager}!getAllTeams@{getAllTeams}}
+\index{getAllTeams@{getAllTeams}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{getAllTeams()}{getAllTeams()}}
+{\footnotesize\ttfamily \label{namespace_team_manager_a69b087b0b80b871899126732ca1acfe4} 
+std\+::vector$<$ \mbox{\hyperlink{class_team}{Team}} $>$ Team\+Manager\+::get\+All\+Teams (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Returns all Teams from a database. 
+
+\begin{DoxyReturn}{Returns}
+Vector of all Teams from a database 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_a0301770e3385ac3ca94770c4d2f39590}\index{TeamManager@{TeamManager}!getTeam@{getTeam}}
+\index{getTeam@{getTeam}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{namespace_team_manager_a0301770e3385ac3ca94770c4d2f39590} 
+\mbox{\hyperlink{class_team}{Team}} Team\+Manager\+::get\+Team (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name}{}\end{DoxyParamCaption})}
+
+
+
+Gets \doxylink{class_team}{Team} from a database identifying it by name and returns as \doxylink{class_team}{Team}\textquotesingle{}s object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \doxylink{class_team}{Team}\textquotesingle{}s name \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_team}{Team}\textquotesingle{}s object, if Team-\/\texorpdfstring{$>$}{>}id equals 0, then \doxylink{class_team}{Team} doesn\textquotesingle{}t exist, or there was an error 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_aaae8e18ea02fe4d215602f02bd7d1b0e}\index{TeamManager@{TeamManager}!getTeam@{getTeam}}
+\index{getTeam@{getTeam}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{getTeam()}{getTeam()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{namespace_team_manager_aaae8e18ea02fe4d215602f02bd7d1b0e} 
+\mbox{\hyperlink{class_team}{Team}} Team\+Manager\+::get\+Team (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{id}{}\end{DoxyParamCaption})}
+
+
+
+Gets \doxylink{class_team}{Team} from a database identifying it by ID and returns as \doxylink{class_team}{Team}\textquotesingle{}s object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \doxylink{class_team}{Team}\textquotesingle{}s ID \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_team}{Team}\textquotesingle{}s object, if Team-\/\texorpdfstring{$>$}{>}id equals 0, then \doxylink{class_team}{Team} doesn\textquotesingle{}t exist, or there was an error 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_a218ed3d65fa0b2f37f79f918c2d0844c}\index{TeamManager@{TeamManager}!getTeamForUser@{getTeamForUser}}
+\index{getTeamForUser@{getTeamForUser}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{getTeamForUser()}{getTeamForUser()}}
+{\footnotesize\ttfamily \label{namespace_team_manager_a218ed3d65fa0b2f37f79f918c2d0844c} 
+\mbox{\hyperlink{class_team}{Team}} Team\+Manager\+::get\+Team\+For\+User (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Returns first \doxylink{class_user}{User}\textquotesingle{}s \doxylink{class_team}{Team} from a database. 
+
+\begin{DoxyReturn}{Returns}
+First \doxylink{class_user}{User}\textquotesingle{}s \doxylink{class_team}{Team} 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_ab8cd0cc64494c55199dbb5da50098275}\index{TeamManager@{TeamManager}!getTeamsForUser@{getTeamsForUser}}
+\index{getTeamsForUser@{getTeamsForUser}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{getTeamsForUser()}{getTeamsForUser()}}
+{\footnotesize\ttfamily \label{namespace_team_manager_ab8cd0cc64494c55199dbb5da50098275} 
+std\+::vector$<$ \mbox{\hyperlink{class_team}{Team}} $>$ Team\+Manager\+::get\+Teams\+For\+User (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{user\+Id}{}\end{DoxyParamCaption})}
+
+
+
+Returns all Teams that the \doxylink{class_user}{User} belongs to from a database. 
+
+\begin{DoxyReturn}{Returns}
+Vector of all Teams that the \doxylink{class_user}{User} belongs to 
+\end{DoxyReturn}
+\Hypertarget{namespace_team_manager_a058764155814f62f155b83fdaa3ab412}\index{TeamManager@{TeamManager}!updateTeam@{updateTeam}}
+\index{updateTeam@{updateTeam}!TeamManager@{TeamManager}}
+\doxysubsubsection{\texorpdfstring{updateTeam()}{updateTeam()}}
+{\footnotesize\ttfamily \label{namespace_team_manager_a058764155814f62f155b83fdaa3ab412} 
+bool Team\+Manager\+::update\+Team (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_team}{Team}} \&}]{team}{}\end{DoxyParamCaption})}
+
+
+
+Updates \doxylink{class_team}{Team} in a database. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em team} & \doxylink{class_team}{Team} to update \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if success, false if there was any error 
+\end{DoxyReturn}

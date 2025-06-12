@@ -91,9 +91,9 @@ $(function(){initNavTree('teammanager_8h_source.html','',''); });
   <div class="headertitle"><div class="title">teammanager.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TEAMMANAGER_H</span></div>
+<a href="teammanager_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TEAMMANAGER_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TEAMMANAGER_H</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;team.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="team_8h.html">team.h</a>&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QMessageBox&gt;</span></div>
@@ -101,39 +101,51 @@ $(function(){initNavTree('teammanager_8h_source.html','',''); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;QSqlQuery&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;QSqlError&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>TeamManager {</div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespace_team_manager.html">   11</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespace_team_manager.html">TeamManager</a> {</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">bool</span> createTeam(<span class="keyword">const</span> Team&amp; team);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    Team getTeam(<span class="keyword">const</span> std::string&amp; name);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    Team getTeam(uint32_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> updateTeam(<span class="keyword">const</span> Team&amp; team);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> deleteTeam(<span class="keyword">const</span> Team&amp; team);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">bool</span> deleteTeam(uint32_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::vector&lt;Team&gt; getAllTeams();</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_team_manager.html#a20fabf248676952821dc5a717b8fae2c">createTeam</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_team.html">Team</a>&amp; team);</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_class" href="class_team.html">Team</a> <a class="code hl_function" href="namespace_team_manager.html#a0301770e3385ac3ca94770c4d2f39590">getTeam</a>(<span class="keyword">const</span> std::string&amp; name);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="class_team.html">Team</a> <a class="code hl_function" href="namespace_team_manager.html#a0301770e3385ac3ca94770c4d2f39590">getTeam</a>(uint32_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_team_manager.html#a058764155814f62f155b83fdaa3ab412">updateTeam</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_team.html">Team</a>&amp; team);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_team_manager.html#a3b63b37bd3a97bbd4729370a3875f57f">deleteTeam</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_team.html">Team</a>&amp; team);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="namespace_team_manager.html#a3b63b37bd3a97bbd4729370a3875f57f">deleteTeam</a>(uint32_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    std::vector&lt;Team&gt; getTeamsForUser(uint32_t userId);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Team getTeamForUser(uint32_t userId);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>}</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif </span><span class="comment">// TEAMMANAGER_H</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    std::vector&lt;Team&gt; <a class="code hl_function" href="namespace_team_manager.html#a69b087b0b80b871899126732ca1acfe4">getAllTeams</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    std::vector&lt;Team&gt; <a class="code hl_function" href="namespace_team_manager.html#ab8cd0cc64494c55199dbb5da50098275">getTeamsForUser</a>(uint32_t userId);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="class_team.html">Team</a> <a class="code hl_function" href="namespace_team_manager.html#a218ed3d65fa0b2f37f79f918c2d0844c">getTeamForUser</a>(uint32_t userId);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif </span><span class="comment">// TEAMMANAGER_H</span></div>
+<div class="ttc" id="aclass_team_html"><div class="ttname"><a href="class_team.html">Team</a></div><div class="ttdef"><b>Definition</b> team.h:13</div></div>
+<div class="ttc" id="anamespace_team_manager_html"><div class="ttname"><a href="namespace_team_manager.html">TeamManager</a></div><div class="ttdef"><b>Definition</b> teammanager.h:11</div></div>
+<div class="ttc" id="anamespace_team_manager_html_a0301770e3385ac3ca94770c4d2f39590"><div class="ttname"><a href="namespace_team_manager.html#a0301770e3385ac3ca94770c4d2f39590">TeamManager::getTeam</a></div><div class="ttdeci">Team getTeam(const std::string &amp;name)</div><div class="ttdoc">Gets Team from a database identifying it by name and returns as Team&#39;s object.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:65</div></div>
+<div class="ttc" id="anamespace_team_manager_html_a058764155814f62f155b83fdaa3ab412"><div class="ttname"><a href="namespace_team_manager.html#a058764155814f62f155b83fdaa3ab412">TeamManager::updateTeam</a></div><div class="ttdeci">bool updateTeam(const Team &amp;team)</div><div class="ttdoc">Updates Team in a database.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:189</div></div>
+<div class="ttc" id="anamespace_team_manager_html_a20fabf248676952821dc5a717b8fae2c"><div class="ttname"><a href="namespace_team_manager.html#a20fabf248676952821dc5a717b8fae2c">TeamManager::createTeam</a></div><div class="ttdeci">bool createTeam(const Team &amp;team)</div><div class="ttdoc">Creates Team in a database.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:11</div></div>
+<div class="ttc" id="anamespace_team_manager_html_a218ed3d65fa0b2f37f79f918c2d0844c"><div class="ttname"><a href="namespace_team_manager.html#a218ed3d65fa0b2f37f79f918c2d0844c">TeamManager::getTeamForUser</a></div><div class="ttdeci">Team getTeamForUser(uint32_t userId)</div><div class="ttdoc">Returns first User&#39;s Team from a database.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:364</div></div>
+<div class="ttc" id="anamespace_team_manager_html_a3b63b37bd3a97bbd4729370a3875f57f"><div class="ttname"><a href="namespace_team_manager.html#a3b63b37bd3a97bbd4729370a3875f57f">TeamManager::deleteTeam</a></div><div class="ttdeci">bool deleteTeam(const Team &amp;team)</div><div class="ttdoc">Deletes Team from a database.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:242</div></div>
+<div class="ttc" id="anamespace_team_manager_html_a69b087b0b80b871899126732ca1acfe4"><div class="ttname"><a href="namespace_team_manager.html#a69b087b0b80b871899126732ca1acfe4">TeamManager::getAllTeams</a></div><div class="ttdeci">std::vector&lt; Team &gt; getAllTeams()</div><div class="ttdoc">Returns all Teams from a database.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:292</div></div>
+<div class="ttc" id="anamespace_team_manager_html_ab8cd0cc64494c55199dbb5da50098275"><div class="ttname"><a href="namespace_team_manager.html#ab8cd0cc64494c55199dbb5da50098275">TeamManager::getTeamsForUser</a></div><div class="ttdeci">std::vector&lt; Team &gt; getTeamsForUser(uint32_t userId)</div><div class="ttdoc">Returns all Teams that the User belongs to from a database.</div><div class="ttdef"><b>Definition</b> teammanager.cpp:346</div></div>
+<div class="ttc" id="ateam_8h_html"><div class="ttname"><a href="team_8h.html">team.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><b>teammanager.h</b></li>
+    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><a href="teammanager_8h.html">teammanager.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

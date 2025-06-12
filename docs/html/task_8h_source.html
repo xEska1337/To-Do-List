@@ -91,16 +91,16 @@ $(function(){initNavTree('task_8h_source.html','',''); });
   <div class="headertitle"><div class="title">task.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TASK_H</span></div>
+<a href="task_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef TASK_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define TASK_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;taskstatus.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="taskstatus_8h.html">taskstatus.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_task.html">    9</a></span><span class="keyword">class </span>Task</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="class_task.html">    9</a></span><span class="keyword">class </span><a class="code hl_function" href="class_task.html#a0ca53354bdc006762a0fda68c64f7608">Task</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">private</span>:</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    uint64_t id;</div>
@@ -109,48 +109,68 @@ $(function(){initNavTree('task_8h_source.html','',''); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    uint8_t priority;</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    uint32_t teamId; <span class="comment">// If teamId is 0, that means it&#39;s a Task specified only for one User</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    uint32_t userId; <span class="comment">// If userId is 0, that means it&#39;s Task specified for Team</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    TaskStatus status;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <a class="code hl_enumeration" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status;</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    time_t deadline; <span class="comment">// If 0 - Task with unlimited time.</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="comment">// Constructors</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    Task();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Task(uint32_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    Task(uint32_t <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, TaskStatus status, time_t deadline);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    Task(<span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, TaskStatus status, time_t deadline);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_function" href="class_task.html#a0ca53354bdc006762a0fda68c64f7608">Task</a>();</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_function" href="class_task.html#a0ca53354bdc006762a0fda68c64f7608">Task</a>(uint32_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_function" href="class_task.html#a0ca53354bdc006762a0fda68c64f7608">Task</a>(uint32_t <span class="keywordtype">id</span>, <span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, <a class="code hl_enumeration" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status, time_t deadline);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_function" href="class_task.html#a0ca53354bdc006762a0fda68c64f7608">Task</a>(<span class="keyword">const</span> std::string &amp;name, <span class="keyword">const</span> std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, <a class="code hl_enumeration" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status, time_t deadline);</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="comment">// Setters</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> setId(uint64_t <span class="keywordtype">id</span>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> setName(<span class="keyword">const</span> std::string &amp;name);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> setDescription(<span class="keyword">const</span> std::string &amp;description);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> setPriority(uint8_t priority);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> setTeamId(uint32_t teamId);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> setUserId(uint32_t userId);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> setStatus(<span class="keywordtype">int</span> status);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> setStatus(TaskStatus status);</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> setDeadline(time_t deadline);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a3ee87ea27f7a0d9b4db4a9847037d042">setId</a>(uint64_t <span class="keywordtype">id</span>);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a634c583ef91b204f4e1c929dd78a1401">setName</a>(<span class="keyword">const</span> std::string &amp;name);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a1701cf243ecc756dcffd0686b7772fca">setDescription</a>(<span class="keyword">const</span> std::string &amp;description);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#aaa220be4e5007ede0bd3e5349d36eae9">setPriority</a>(uint8_t priority);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a3012778f80ad2d29132efdcbbd954d54">setTeamId</a>(uint32_t teamId);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#ad19de23988beb5491a3ed88327b8a035">setUserId</a>(uint32_t userId);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a8fa9bb1e2d51ce78d1d4644b421f4f9d">setStatus</a>(<span class="keywordtype">int</span> status);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a8fa9bb1e2d51ce78d1d4644b421f4f9d">setStatus</a>(<a class="code hl_enumeration" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_task.html#a49e09b6d0f713b70b15bcffd4153ab9c">setDeadline</a>(time_t deadline);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="comment">// Getters</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    uint64_t getId() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::string getName() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::string getDescription() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    uint8_t getPriority() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    uint32_t getTeamId() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    uint32_t getUserId() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> getStatusAsInt() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    TaskStatus getStatus() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    time_t getDeadline() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    uint64_t <a class="code hl_function" href="class_task.html#a51aadcdee83fae3a1f39e23920f7c67a">getId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::string <a class="code hl_function" href="class_task.html#a935789567ea9e7d078e363d537e9d688">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::string <a class="code hl_function" href="class_task.html#aecbe79dd5334c9969320695b5a82e32a">getDescription</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    uint8_t <a class="code hl_function" href="class_task.html#aef8cf69a9b677977003d8b72d66d36d8">getPriority</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    uint32_t <a class="code hl_function" href="class_task.html#adb4d2bfd555e849c77ff712b7b88c350">getTeamId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    uint32_t <a class="code hl_function" href="class_task.html#a739b774d47a22bdc4ffe2896daf12320">getUserId</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_task.html#a18be70f41582b67bd10edd68ea8b6b6f">getStatusAsInt</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_enumeration" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> <a class="code hl_function" href="class_task.html#a001751ecb4ebcaea0ae6b50ee2948267">getStatus</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    time_t <a class="code hl_function" href="class_task.html#a63b8317997ff716e02ae21422532adbe">getDeadline</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
 </div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif </span><span class="comment">// TASK_H</span></div>
+<div class="ttc" id="aclass_task_html_a001751ecb4ebcaea0ae6b50ee2948267"><div class="ttname"><a href="class_task.html#a001751ecb4ebcaea0ae6b50ee2948267">Task::getStatus</a></div><div class="ttdeci">TaskStatus getStatus() const</div><div class="ttdef"><b>Definition</b> task.cpp:93</div></div>
+<div class="ttc" id="aclass_task_html_a0ca53354bdc006762a0fda68c64f7608"><div class="ttname"><a href="class_task.html#a0ca53354bdc006762a0fda68c64f7608">Task::Task</a></div><div class="ttdeci">Task()</div><div class="ttdef"><b>Definition</b> task.cpp:3</div></div>
+<div class="ttc" id="aclass_task_html_a1701cf243ecc756dcffd0686b7772fca"><div class="ttname"><a href="class_task.html#a1701cf243ecc756dcffd0686b7772fca">Task::setDescription</a></div><div class="ttdeci">void setDescription(const std::string &amp;description)</div><div class="ttdef"><b>Definition</b> task.cpp:35</div></div>
+<div class="ttc" id="aclass_task_html_a18be70f41582b67bd10edd68ea8b6b6f"><div class="ttname"><a href="class_task.html#a18be70f41582b67bd10edd68ea8b6b6f">Task::getStatusAsInt</a></div><div class="ttdeci">int getStatusAsInt() const</div><div class="ttdef"><b>Definition</b> task.cpp:88</div></div>
+<div class="ttc" id="aclass_task_html_a3012778f80ad2d29132efdcbbd954d54"><div class="ttname"><a href="class_task.html#a3012778f80ad2d29132efdcbbd954d54">Task::setTeamId</a></div><div class="ttdeci">void setTeamId(uint32_t teamId)</div><div class="ttdef"><b>Definition</b> task.cpp:43</div></div>
+<div class="ttc" id="aclass_task_html_a3ee87ea27f7a0d9b4db4a9847037d042"><div class="ttname"><a href="class_task.html#a3ee87ea27f7a0d9b4db4a9847037d042">Task::setId</a></div><div class="ttdeci">void setId(uint64_t id)</div><div class="ttdef"><b>Definition</b> task.cpp:27</div></div>
+<div class="ttc" id="aclass_task_html_a49e09b6d0f713b70b15bcffd4153ab9c"><div class="ttname"><a href="class_task.html#a49e09b6d0f713b70b15bcffd4153ab9c">Task::setDeadline</a></div><div class="ttdeci">void setDeadline(time_t deadline)</div><div class="ttdef"><b>Definition</b> task.cpp:60</div></div>
+<div class="ttc" id="aclass_task_html_a51aadcdee83fae3a1f39e23920f7c67a"><div class="ttname"><a href="class_task.html#a51aadcdee83fae3a1f39e23920f7c67a">Task::getId</a></div><div class="ttdeci">uint64_t getId() const</div><div class="ttdef"><b>Definition</b> task.cpp:64</div></div>
+<div class="ttc" id="aclass_task_html_a634c583ef91b204f4e1c929dd78a1401"><div class="ttname"><a href="class_task.html#a634c583ef91b204f4e1c929dd78a1401">Task::setName</a></div><div class="ttdeci">void setName(const std::string &amp;name)</div><div class="ttdef"><b>Definition</b> task.cpp:31</div></div>
+<div class="ttc" id="aclass_task_html_a63b8317997ff716e02ae21422532adbe"><div class="ttname"><a href="class_task.html#a63b8317997ff716e02ae21422532adbe">Task::getDeadline</a></div><div class="ttdeci">time_t getDeadline() const</div><div class="ttdef"><b>Definition</b> task.cpp:97</div></div>
+<div class="ttc" id="aclass_task_html_a739b774d47a22bdc4ffe2896daf12320"><div class="ttname"><a href="class_task.html#a739b774d47a22bdc4ffe2896daf12320">Task::getUserId</a></div><div class="ttdeci">uint32_t getUserId() const</div><div class="ttdef"><b>Definition</b> task.cpp:84</div></div>
+<div class="ttc" id="aclass_task_html_a8fa9bb1e2d51ce78d1d4644b421f4f9d"><div class="ttname"><a href="class_task.html#a8fa9bb1e2d51ce78d1d4644b421f4f9d">Task::setStatus</a></div><div class="ttdeci">void setStatus(int status)</div><div class="ttdef"><b>Definition</b> task.cpp:51</div></div>
+<div class="ttc" id="aclass_task_html_a935789567ea9e7d078e363d537e9d688"><div class="ttname"><a href="class_task.html#a935789567ea9e7d078e363d537e9d688">Task::getName</a></div><div class="ttdeci">std::string getName() const</div><div class="ttdef"><b>Definition</b> task.cpp:68</div></div>
+<div class="ttc" id="aclass_task_html_aaa220be4e5007ede0bd3e5349d36eae9"><div class="ttname"><a href="class_task.html#aaa220be4e5007ede0bd3e5349d36eae9">Task::setPriority</a></div><div class="ttdeci">void setPriority(uint8_t priority)</div><div class="ttdef"><b>Definition</b> task.cpp:39</div></div>
+<div class="ttc" id="aclass_task_html_ad19de23988beb5491a3ed88327b8a035"><div class="ttname"><a href="class_task.html#ad19de23988beb5491a3ed88327b8a035">Task::setUserId</a></div><div class="ttdeci">void setUserId(uint32_t userId)</div><div class="ttdef"><b>Definition</b> task.cpp:47</div></div>
+<div class="ttc" id="aclass_task_html_adb4d2bfd555e849c77ff712b7b88c350"><div class="ttname"><a href="class_task.html#adb4d2bfd555e849c77ff712b7b88c350">Task::getTeamId</a></div><div class="ttdeci">uint32_t getTeamId() const</div><div class="ttdef"><b>Definition</b> task.cpp:80</div></div>
+<div class="ttc" id="aclass_task_html_aecbe79dd5334c9969320695b5a82e32a"><div class="ttname"><a href="class_task.html#aecbe79dd5334c9969320695b5a82e32a">Task::getDescription</a></div><div class="ttdeci">std::string getDescription() const</div><div class="ttdef"><b>Definition</b> task.cpp:72</div></div>
+<div class="ttc" id="aclass_task_html_aef8cf69a9b677977003d8b72d66d36d8"><div class="ttname"><a href="class_task.html#aef8cf69a9b677977003d8b72d66d36d8">Task::getPriority</a></div><div class="ttdeci">uint8_t getPriority() const</div><div class="ttdef"><b>Definition</b> task.cpp:76</div></div>
+<div class="ttc" id="ataskstatus_8h_html"><div class="ttname"><a href="taskstatus_8h.html">taskstatus.h</a></div></div>
+<div class="ttc" id="ataskstatus_8h_html_aacda182df7dba8ce63a50654d7232ba8"><div class="ttname"><a href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a></div><div class="ttdeci">TaskStatus</div><div class="ttdef"><b>Definition</b> taskstatus.h:4</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><b>task.h</b></li>
+    <li class="navelem"><a href="dir_ed353eea8d78a173a119b387b77c750d.html">CLionProjects</a></li><li class="navelem"><a href="dir_5ead9793fba0717ddcd1fac0e814676a.html">To-Do-List</a></li><li class="navelem"><a href="task_8h.html">task.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

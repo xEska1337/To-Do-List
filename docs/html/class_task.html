@@ -91,55 +91,476 @@ $(function(){initNavTree('class_task.html','','class_task-members'); });
   <div class="headertitle"><div class="title">Task Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="task_8h_source.html">task.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a81de8fa3c5552c1c2ab4aefada29251f" id="r_a81de8fa3c5552c1c2ab4aefada29251f"><td class="memItemLeft" align="right" valign="top"><a id="a81de8fa3c5552c1c2ab4aefada29251f" name="a81de8fa3c5552c1c2ab4aefada29251f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Task</b> (uint32_t id)</td></tr>
-<tr class="memitem:a9e6f1d3e9c00c6d1455eece7b59d73d8" id="r_a9e6f1d3e9c00c6d1455eece7b59d73d8"><td class="memItemLeft" align="right" valign="top"><a id="a9e6f1d3e9c00c6d1455eece7b59d73d8" name="a9e6f1d3e9c00c6d1455eece7b59d73d8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Task</b> (uint32_t id, const std::string &amp;name, const std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, TaskStatus status, time_t deadline)</td></tr>
-<tr class="memitem:afae37bad89a28dad6dd581292ec3b732" id="r_afae37bad89a28dad6dd581292ec3b732"><td class="memItemLeft" align="right" valign="top"><a id="afae37bad89a28dad6dd581292ec3b732" name="afae37bad89a28dad6dd581292ec3b732"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Task</b> (const std::string &amp;name, const std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, TaskStatus status, time_t deadline)</td></tr>
-<tr class="memitem:a3ee87ea27f7a0d9b4db4a9847037d042" id="r_a3ee87ea27f7a0d9b4db4a9847037d042"><td class="memItemLeft" align="right" valign="top"><a id="a3ee87ea27f7a0d9b4db4a9847037d042" name="a3ee87ea27f7a0d9b4db4a9847037d042"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (uint64_t id)</td></tr>
-<tr class="memitem:a634c583ef91b204f4e1c929dd78a1401" id="r_a634c583ef91b204f4e1c929dd78a1401"><td class="memItemLeft" align="right" valign="top"><a id="a634c583ef91b204f4e1c929dd78a1401" name="a634c583ef91b204f4e1c929dd78a1401"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setName</b> (const std::string &amp;name)</td></tr>
-<tr class="memitem:a1701cf243ecc756dcffd0686b7772fca" id="r_a1701cf243ecc756dcffd0686b7772fca"><td class="memItemLeft" align="right" valign="top"><a id="a1701cf243ecc756dcffd0686b7772fca" name="a1701cf243ecc756dcffd0686b7772fca"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDescription</b> (const std::string &amp;description)</td></tr>
-<tr class="memitem:aaa220be4e5007ede0bd3e5349d36eae9" id="r_aaa220be4e5007ede0bd3e5349d36eae9"><td class="memItemLeft" align="right" valign="top"><a id="aaa220be4e5007ede0bd3e5349d36eae9" name="aaa220be4e5007ede0bd3e5349d36eae9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPriority</b> (uint8_t priority)</td></tr>
-<tr class="memitem:a3012778f80ad2d29132efdcbbd954d54" id="r_a3012778f80ad2d29132efdcbbd954d54"><td class="memItemLeft" align="right" valign="top"><a id="a3012778f80ad2d29132efdcbbd954d54" name="a3012778f80ad2d29132efdcbbd954d54"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setTeamId</b> (uint32_t teamId)</td></tr>
-<tr class="memitem:ad19de23988beb5491a3ed88327b8a035" id="r_ad19de23988beb5491a3ed88327b8a035"><td class="memItemLeft" align="right" valign="top"><a id="ad19de23988beb5491a3ed88327b8a035" name="ad19de23988beb5491a3ed88327b8a035"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setUserId</b> (uint32_t userId)</td></tr>
-<tr class="memitem:a8fa9bb1e2d51ce78d1d4644b421f4f9d" id="r_a8fa9bb1e2d51ce78d1d4644b421f4f9d"><td class="memItemLeft" align="right" valign="top"><a id="a8fa9bb1e2d51ce78d1d4644b421f4f9d" name="a8fa9bb1e2d51ce78d1d4644b421f4f9d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStatus</b> (int status)</td></tr>
-<tr class="memitem:af290cfe0f9275a80b297fff0e38d673c" id="r_af290cfe0f9275a80b297fff0e38d673c"><td class="memItemLeft" align="right" valign="top"><a id="af290cfe0f9275a80b297fff0e38d673c" name="af290cfe0f9275a80b297fff0e38d673c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setStatus</b> (TaskStatus status)</td></tr>
-<tr class="memitem:a49e09b6d0f713b70b15bcffd4153ab9c" id="r_a49e09b6d0f713b70b15bcffd4153ab9c"><td class="memItemLeft" align="right" valign="top"><a id="a49e09b6d0f713b70b15bcffd4153ab9c" name="a49e09b6d0f713b70b15bcffd4153ab9c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDeadline</b> (time_t deadline)</td></tr>
-<tr class="memitem:a51aadcdee83fae3a1f39e23920f7c67a" id="r_a51aadcdee83fae3a1f39e23920f7c67a"><td class="memItemLeft" align="right" valign="top"><a id="a51aadcdee83fae3a1f39e23920f7c67a" name="a51aadcdee83fae3a1f39e23920f7c67a"></a>
-uint64_t&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const</td></tr>
-<tr class="memitem:a935789567ea9e7d078e363d537e9d688" id="r_a935789567ea9e7d078e363d537e9d688"><td class="memItemLeft" align="right" valign="top"><a id="a935789567ea9e7d078e363d537e9d688" name="a935789567ea9e7d078e363d537e9d688"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const</td></tr>
-<tr class="memitem:aecbe79dd5334c9969320695b5a82e32a" id="r_aecbe79dd5334c9969320695b5a82e32a"><td class="memItemLeft" align="right" valign="top"><a id="aecbe79dd5334c9969320695b5a82e32a" name="aecbe79dd5334c9969320695b5a82e32a"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getDescription</b> () const</td></tr>
-<tr class="memitem:aef8cf69a9b677977003d8b72d66d36d8" id="r_aef8cf69a9b677977003d8b72d66d36d8"><td class="memItemLeft" align="right" valign="top"><a id="aef8cf69a9b677977003d8b72d66d36d8" name="aef8cf69a9b677977003d8b72d66d36d8"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>getPriority</b> () const</td></tr>
-<tr class="memitem:adb4d2bfd555e849c77ff712b7b88c350" id="r_adb4d2bfd555e849c77ff712b7b88c350"><td class="memItemLeft" align="right" valign="top"><a id="adb4d2bfd555e849c77ff712b7b88c350" name="adb4d2bfd555e849c77ff712b7b88c350"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getTeamId</b> () const</td></tr>
-<tr class="memitem:a739b774d47a22bdc4ffe2896daf12320" id="r_a739b774d47a22bdc4ffe2896daf12320"><td class="memItemLeft" align="right" valign="top"><a id="a739b774d47a22bdc4ffe2896daf12320" name="a739b774d47a22bdc4ffe2896daf12320"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>getUserId</b> () const</td></tr>
-<tr class="memitem:a18be70f41582b67bd10edd68ea8b6b6f" id="r_a18be70f41582b67bd10edd68ea8b6b6f"><td class="memItemLeft" align="right" valign="top"><a id="a18be70f41582b67bd10edd68ea8b6b6f" name="a18be70f41582b67bd10edd68ea8b6b6f"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getStatusAsInt</b> () const</td></tr>
-<tr class="memitem:a001751ecb4ebcaea0ae6b50ee2948267" id="r_a001751ecb4ebcaea0ae6b50ee2948267"><td class="memItemLeft" align="right" valign="top"><a id="a001751ecb4ebcaea0ae6b50ee2948267" name="a001751ecb4ebcaea0ae6b50ee2948267"></a>
-TaskStatus&#160;</td><td class="memItemRight" valign="bottom"><b>getStatus</b> () const</td></tr>
-<tr class="memitem:a63b8317997ff716e02ae21422532adbe" id="r_a63b8317997ff716e02ae21422532adbe"><td class="memItemLeft" align="right" valign="top"><a id="a63b8317997ff716e02ae21422532adbe" name="a63b8317997ff716e02ae21422532adbe"></a>
-time_t&#160;</td><td class="memItemRight" valign="bottom"><b>getDeadline</b> () const</td></tr>
+<tr class="memitem:a0ca53354bdc006762a0fda68c64f7608" id="r_a0ca53354bdc006762a0fda68c64f7608"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ca53354bdc006762a0fda68c64f7608">Task</a> ()</td></tr>
+<tr class="memitem:a81de8fa3c5552c1c2ab4aefada29251f" id="r_a81de8fa3c5552c1c2ab4aefada29251f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81de8fa3c5552c1c2ab4aefada29251f">Task</a> (uint32_t id)</td></tr>
+<tr class="memitem:a9e6f1d3e9c00c6d1455eece7b59d73d8" id="r_a9e6f1d3e9c00c6d1455eece7b59d73d8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e6f1d3e9c00c6d1455eece7b59d73d8">Task</a> (uint32_t id, const std::string &amp;name, const std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, <a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status, time_t deadline)</td></tr>
+<tr class="memitem:afae37bad89a28dad6dd581292ec3b732" id="r_afae37bad89a28dad6dd581292ec3b732"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afae37bad89a28dad6dd581292ec3b732">Task</a> (const std::string &amp;name, const std::string &amp;description, uint8_t priority, uint32_t teamId, uint32_t userId, <a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status, time_t deadline)</td></tr>
+<tr class="memitem:a3ee87ea27f7a0d9b4db4a9847037d042" id="r_a3ee87ea27f7a0d9b4db4a9847037d042"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ee87ea27f7a0d9b4db4a9847037d042">setId</a> (uint64_t id)</td></tr>
+<tr class="memitem:a634c583ef91b204f4e1c929dd78a1401" id="r_a634c583ef91b204f4e1c929dd78a1401"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a634c583ef91b204f4e1c929dd78a1401">setName</a> (const std::string &amp;name)</td></tr>
+<tr class="memitem:a1701cf243ecc756dcffd0686b7772fca" id="r_a1701cf243ecc756dcffd0686b7772fca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1701cf243ecc756dcffd0686b7772fca">setDescription</a> (const std::string &amp;description)</td></tr>
+<tr class="memitem:aaa220be4e5007ede0bd3e5349d36eae9" id="r_aaa220be4e5007ede0bd3e5349d36eae9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaa220be4e5007ede0bd3e5349d36eae9">setPriority</a> (uint8_t priority)</td></tr>
+<tr class="memitem:a3012778f80ad2d29132efdcbbd954d54" id="r_a3012778f80ad2d29132efdcbbd954d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3012778f80ad2d29132efdcbbd954d54">setTeamId</a> (uint32_t teamId)</td></tr>
+<tr class="memitem:ad19de23988beb5491a3ed88327b8a035" id="r_ad19de23988beb5491a3ed88327b8a035"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad19de23988beb5491a3ed88327b8a035">setUserId</a> (uint32_t userId)</td></tr>
+<tr class="memitem:a8fa9bb1e2d51ce78d1d4644b421f4f9d" id="r_a8fa9bb1e2d51ce78d1d4644b421f4f9d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fa9bb1e2d51ce78d1d4644b421f4f9d">setStatus</a> (int status)</td></tr>
+<tr class="memitem:af290cfe0f9275a80b297fff0e38d673c" id="r_af290cfe0f9275a80b297fff0e38d673c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af290cfe0f9275a80b297fff0e38d673c">setStatus</a> (<a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> status)</td></tr>
+<tr class="memitem:a49e09b6d0f713b70b15bcffd4153ab9c" id="r_a49e09b6d0f713b70b15bcffd4153ab9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49e09b6d0f713b70b15bcffd4153ab9c">setDeadline</a> (time_t deadline)</td></tr>
+<tr class="memitem:a51aadcdee83fae3a1f39e23920f7c67a" id="r_a51aadcdee83fae3a1f39e23920f7c67a"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51aadcdee83fae3a1f39e23920f7c67a">getId</a> () const</td></tr>
+<tr class="memitem:a935789567ea9e7d078e363d537e9d688" id="r_a935789567ea9e7d078e363d537e9d688"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a935789567ea9e7d078e363d537e9d688">getName</a> () const</td></tr>
+<tr class="memitem:aecbe79dd5334c9969320695b5a82e32a" id="r_aecbe79dd5334c9969320695b5a82e32a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aecbe79dd5334c9969320695b5a82e32a">getDescription</a> () const</td></tr>
+<tr class="memitem:aef8cf69a9b677977003d8b72d66d36d8" id="r_aef8cf69a9b677977003d8b72d66d36d8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef8cf69a9b677977003d8b72d66d36d8">getPriority</a> () const</td></tr>
+<tr class="memitem:adb4d2bfd555e849c77ff712b7b88c350" id="r_adb4d2bfd555e849c77ff712b7b88c350"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb4d2bfd555e849c77ff712b7b88c350">getTeamId</a> () const</td></tr>
+<tr class="memitem:a739b774d47a22bdc4ffe2896daf12320" id="r_a739b774d47a22bdc4ffe2896daf12320"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a739b774d47a22bdc4ffe2896daf12320">getUserId</a> () const</td></tr>
+<tr class="memitem:a18be70f41582b67bd10edd68ea8b6b6f" id="r_a18be70f41582b67bd10edd68ea8b6b6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18be70f41582b67bd10edd68ea8b6b6f">getStatusAsInt</a> () const</td></tr>
+<tr class="memitem:a001751ecb4ebcaea0ae6b50ee2948267" id="r_a001751ecb4ebcaea0ae6b50ee2948267"><td class="memItemLeft" align="right" valign="top"><a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a001751ecb4ebcaea0ae6b50ee2948267">getStatus</a> () const</td></tr>
+<tr class="memitem:a63b8317997ff716e02ae21422532adbe" id="r_a63b8317997ff716e02ae21422532adbe"><td class="memItemLeft" align="right" valign="top">time_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63b8317997ff716e02ae21422532adbe">getDeadline</a> () const</td></tr>
 </table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0ca53354bdc006762a0fda68c64f7608" name="a0ca53354bdc006762a0fda68c64f7608"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ca53354bdc006762a0fda68c64f7608">&#9670;&#160;</a></span>Task() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task::Task </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a81de8fa3c5552c1c2ab4aefada29251f" name="a81de8fa3c5552c1c2ab4aefada29251f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81de8fa3c5552c1c2ab4aefada29251f">&#9670;&#160;</a></span>Task() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9e6f1d3e9c00c6d1455eece7b59d73d8" name="a9e6f1d3e9c00c6d1455eece7b59d73d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e6f1d3e9c00c6d1455eece7b59d73d8">&#9670;&#160;</a></span>Task() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>teamId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>userId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a></td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">time_t</td>          <td class="paramname"><span class="paramname"><em>deadline</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afae37bad89a28dad6dd581292ec3b732" name="afae37bad89a28dad6dd581292ec3b732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afae37bad89a28dad6dd581292ec3b732">&#9670;&#160;</a></span>Task() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>description</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>teamId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>userId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a></td>          <td class="paramname"><span class="paramname"><em>status</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">time_t</td>          <td class="paramname"><span class="paramname"><em>deadline</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a63b8317997ff716e02ae21422532adbe" name="a63b8317997ff716e02ae21422532adbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63b8317997ff716e02ae21422532adbe">&#9670;&#160;</a></span>getDeadline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">time_t Task::getDeadline </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aecbe79dd5334c9969320695b5a82e32a" name="aecbe79dd5334c9969320695b5a82e32a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecbe79dd5334c9969320695b5a82e32a">&#9670;&#160;</a></span>getDescription()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Task::getDescription </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51aadcdee83fae3a1f39e23920f7c67a" name="a51aadcdee83fae3a1f39e23920f7c67a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51aadcdee83fae3a1f39e23920f7c67a">&#9670;&#160;</a></span>getId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t Task::getId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a935789567ea9e7d078e363d537e9d688" name="a935789567ea9e7d078e363d537e9d688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a935789567ea9e7d078e363d537e9d688">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Task::getName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aef8cf69a9b677977003d8b72d66d36d8" name="aef8cf69a9b677977003d8b72d66d36d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef8cf69a9b677977003d8b72d66d36d8">&#9670;&#160;</a></span>getPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Task::getPriority </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a001751ecb4ebcaea0ae6b50ee2948267" name="a001751ecb4ebcaea0ae6b50ee2948267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a001751ecb4ebcaea0ae6b50ee2948267">&#9670;&#160;</a></span>getStatus()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a> Task::getStatus </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18be70f41582b67bd10edd68ea8b6b6f" name="a18be70f41582b67bd10edd68ea8b6b6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18be70f41582b67bd10edd68ea8b6b6f">&#9670;&#160;</a></span>getStatusAsInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Task::getStatusAsInt </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adb4d2bfd555e849c77ff712b7b88c350" name="adb4d2bfd555e849c77ff712b7b88c350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb4d2bfd555e849c77ff712b7b88c350">&#9670;&#160;</a></span>getTeamId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Task::getTeamId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a739b774d47a22bdc4ffe2896daf12320" name="a739b774d47a22bdc4ffe2896daf12320"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a739b774d47a22bdc4ffe2896daf12320">&#9670;&#160;</a></span>getUserId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Task::getUserId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a49e09b6d0f713b70b15bcffd4153ab9c" name="a49e09b6d0f713b70b15bcffd4153ab9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49e09b6d0f713b70b15bcffd4153ab9c">&#9670;&#160;</a></span>setDeadline()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setDeadline </td>
+          <td>(</td>
+          <td class="paramtype">time_t</td>          <td class="paramname"><span class="paramname"><em>deadline</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1701cf243ecc756dcffd0686b7772fca" name="a1701cf243ecc756dcffd0686b7772fca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1701cf243ecc756dcffd0686b7772fca">&#9670;&#160;</a></span>setDescription()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setDescription </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>description</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ee87ea27f7a0d9b4db4a9847037d042" name="a3ee87ea27f7a0d9b4db4a9847037d042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ee87ea27f7a0d9b4db4a9847037d042">&#9670;&#160;</a></span>setId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setId </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a634c583ef91b204f4e1c929dd78a1401" name="a634c583ef91b204f4e1c929dd78a1401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a634c583ef91b204f4e1c929dd78a1401">&#9670;&#160;</a></span>setName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setName </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aaa220be4e5007ede0bd3e5349d36eae9" name="aaa220be4e5007ede0bd3e5349d36eae9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa220be4e5007ede0bd3e5349d36eae9">&#9670;&#160;</a></span>setPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setPriority </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8fa9bb1e2d51ce78d1d4644b421f4f9d" name="a8fa9bb1e2d51ce78d1d4644b421f4f9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fa9bb1e2d51ce78d1d4644b421f4f9d">&#9670;&#160;</a></span>setStatus() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setStatus </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>status</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af290cfe0f9275a80b297fff0e38d673c" name="af290cfe0f9275a80b297fff0e38d673c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af290cfe0f9275a80b297fff0e38d673c">&#9670;&#160;</a></span>setStatus() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setStatus </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="taskstatus_8h.html#aacda182df7dba8ce63a50654d7232ba8">TaskStatus</a></td>          <td class="paramname"><span class="paramname"><em>status</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3012778f80ad2d29132efdcbbd954d54" name="a3012778f80ad2d29132efdcbbd954d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3012778f80ad2d29132efdcbbd954d54">&#9670;&#160;</a></span>setTeamId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setTeamId </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>teamId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad19de23988beb5491a3ed88327b8a035" name="ad19de23988beb5491a3ed88327b8a035"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad19de23988beb5491a3ed88327b8a035">&#9670;&#160;</a></span>setUserId()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Task::setUserId </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>userId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Krzysztof/CLionProjects/To-Do-List/<a class="el" href="task_8h_source.html">task.h</a></li>
-<li>C:/Users/Krzysztof/CLionProjects/To-Do-List/<b>task.cpp</b></li>
+<li>C:/Users/Krzysztof/CLionProjects/To-Do-List/<a class="el" href="task_8cpp.html">task.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

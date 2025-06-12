@@ -1,0 +1,59 @@
+\doxysection{team.\+h}
+\hypertarget{team_8h_source}{}\label{team_8h_source}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/team.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/team.h}}
+\mbox{\hyperlink{team_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TEAM\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TEAM\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QCryptographicHash>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{user_8h}{user.h}}"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{usermanager_8h}{usermanager.h}}"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00015\ \ \ \ \ uint32\_t\ id;}
+\DoxyCodeLine{00016\ \ \ \ \ std::string\ name;}
+\DoxyCodeLine{00017\ \ \ \ \ std::string\ password;}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<uint32\_t>\ members;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{comment}{//\ Constructors}}
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&name,\ std::string\ \&password,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&members);}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ std::string\ \&password,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&members);}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&name,\ std::string\ \&password);}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}(uint32\_t\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ std::string\ \&password);}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}(\textcolor{keyword}{const}\ std::string\ \&name,\ std::string\ \&password,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&members);}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_team_aada295895b747960576b69d8c87a54ba}{Team}}(\textcolor{keyword}{const}\ std::string\ \&name,\ \textcolor{keyword}{const}\ std::string\ \&password,\ \textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&members);}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{comment}{//\ Setters}}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a2fcd7adc680638312fc9055c9f9793f9}{setId}}(uint32\_t\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_aa23602fd25e733b999c8e3dc534519a7}{setName}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a4bc6c42c2a9aee207aeb429181151c25}{setPassword}}(\textcolor{keyword}{const}\ std::string\ \&password);}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a4bc6c42c2a9aee207aeb429181151c25}{setPassword}}(std::string\ \&password);}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a600021784df39bef9d5662e77457fed5}{setMembers}}(\textcolor{keyword}{const}\ std::vector<uint32\_t>\ \&members);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Getters}}
+\DoxyCodeLine{00037\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{class_team_a25c55467cd0c72d5a4e1eb7fb9810104}{getId}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00038\ \ \ \ \ std::string\ \mbox{\hyperlink{class_team_abd78875654e91bf887ecd2f915f4a0b3}{getName}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ \mbox{\hyperlink{class_team_a9eb7918b71c8feb4ed7ed143ec724138}{getPassword}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ \ \ \ \ std::vector<uint32\_t>\ \mbox{\hyperlink{class_team_a75f1beeecc394338233b4fab0bc7449b}{getMembers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<User>\ \mbox{\hyperlink{class_team_aa5ec4b752b6561920d89be7638232d8f}{getMembersAsUsers}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_team_ac1820a7d5ed3856fe1ac78ca15dc3dad}{containsUser}}(uint32\_t\ userid)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_team_ac1820a7d5ed3856fe1ac78ca15dc3dad}{containsUser}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_user}{User}}\ \&user)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Adding\ members}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a3c1b9b2e57a957e0b912e6645a2b01b8}{addMember}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_user}{User}}\ \&user);}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a3c1b9b2e57a957e0b912e6645a2b01b8}{addMember}}(uint32\_t\ userid);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a2e73b43acdc6d85e45471b3c311b512d}{removeMember}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{class_user}{User}}\ \&user);}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_team_a2e73b43acdc6d85e45471b3c311b512d}{removeMember}}(uint32\_t\ userid);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TEAM\_H}}
+
+\end{DoxyCode}

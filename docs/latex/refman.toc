@@ -1,0 +1,172 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Namespace List}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}%
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}%
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}%
+\contentsline {chapter}{\numberline {5}Namespace Documentation}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Task\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Namespace Reference}{9}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Function Documentation}{9}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}createTask()}{9}{subsubsection.5.1.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.2}deleteTask()}{9}{subsubsection.5.1.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.1.3}getTask()}{10}{subsubsection.5.1.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.1.4}getTasksForTeam()}{10}{subsubsection.5.1.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.1.5}getTasksForUser()}{10}{subsubsection.5.1.1.5}%
+\contentsline {subsubsection}{\numberline {5.1.1.6}updateTask()}{11}{subsubsection.5.1.1.6}%
+\contentsline {section}{\numberline {5.2}Team\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Namespace Reference}{11}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Function Documentation}{11}{subsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.1}createTeam()}{11}{subsubsection.5.2.1.1}%
+\contentsline {subsubsection}{\numberline {5.2.1.2}deleteTeam()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{12}{subsubsection.5.2.1.2}%
+\contentsline {subsubsection}{\numberline {5.2.1.3}deleteTeam()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{12}{subsubsection.5.2.1.3}%
+\contentsline {subsubsection}{\numberline {5.2.1.4}getAllTeams()}{12}{subsubsection.5.2.1.4}%
+\contentsline {subsubsection}{\numberline {5.2.1.5}getTeam()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{12}{subsubsection.5.2.1.5}%
+\contentsline {subsubsection}{\numberline {5.2.1.6}getTeam()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{13}{subsubsection.5.2.1.6}%
+\contentsline {subsubsection}{\numberline {5.2.1.7}getTeamForUser()}{13}{subsubsection.5.2.1.7}%
+\contentsline {subsubsection}{\numberline {5.2.1.8}getTeamsForUser()}{13}{subsubsection.5.2.1.8}%
+\contentsline {subsubsection}{\numberline {5.2.1.9}updateTeam()}{13}{subsubsection.5.2.1.9}%
+\contentsline {section}{\numberline {5.3}Ui Namespace Reference}{14}{section.5.3}%
+\contentsline {section}{\numberline {5.4}User\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Manager Namespace Reference}{14}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Function Documentation}{14}{subsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.1}createUser()}{14}{subsubsection.5.4.1.1}%
+\contentsline {subsubsection}{\numberline {5.4.1.2}deleteUser()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{14}{subsubsection.5.4.1.2}%
+\contentsline {subsubsection}{\numberline {5.4.1.3}deleteUser()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{15}{subsubsection.5.4.1.3}%
+\contentsline {subsubsection}{\numberline {5.4.1.4}getAllUsers()}{15}{subsubsection.5.4.1.4}%
+\contentsline {subsubsection}{\numberline {5.4.1.5}getUser()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{15}{subsubsection.5.4.1.5}%
+\contentsline {subsubsection}{\numberline {5.4.1.6}getUser()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{16}{subsubsection.5.4.1.6}%
+\contentsline {subsubsection}{\numberline {5.4.1.7}updateUser()}{16}{subsubsection.5.4.1.7}%
+\contentsline {chapter}{\numberline {6}Class Documentation}{17}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Create\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}User Class Reference}{17}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Constructor \& Destructor Documentation}{17}{subsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.1.1}CreateUser()}{17}{subsubsection.6.1.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.1.2}$\sim $CreateUser()}{17}{subsubsection.6.1.1.2}%
+\contentsline {section}{\numberline {6.2}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Tasks Class Reference}{18}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Constructor \& Destructor Documentation}{18}{subsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.1}MainTasks()}{18}{subsubsection.6.2.1.1}%
+\contentsline {subsubsection}{\numberline {6.2.1.2}$\sim $MainTasks()}{18}{subsubsection.6.2.1.2}%
+\contentsline {subsection}{\numberline {6.2.2}Member Function Documentation}{18}{subsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.2.1}resizeEvent()}{18}{subsubsection.6.2.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2.2}showEvent()}{18}{subsubsection.6.2.2.2}%
+\contentsline {section}{\numberline {6.3}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{19}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Constructor \& Destructor Documentation}{19}{subsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.1}MainWindow()}{19}{subsubsection.6.3.1.1}%
+\contentsline {subsubsection}{\numberline {6.3.1.2}$\sim $MainWindow()}{19}{subsubsection.6.3.1.2}%
+\contentsline {subsection}{\numberline {6.3.2}Member Data Documentation}{19}{subsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {6.3.2.1}currentUser}{19}{subsubsection.6.3.2.1}%
+\contentsline {section}{\numberline {6.4}Task Class Reference}{19}{section.6.4}%
+\contentsline {subsection}{\numberline {6.4.1}Constructor \& Destructor Documentation}{20}{subsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.1}Task()\hspace {0.1cm}{\footnotesize \ttfamily [1/4]}}{20}{subsubsection.6.4.1.1}%
+\contentsline {subsubsection}{\numberline {6.4.1.2}Task()\hspace {0.1cm}{\footnotesize \ttfamily [2/4]}}{20}{subsubsection.6.4.1.2}%
+\contentsline {subsubsection}{\numberline {6.4.1.3}Task()\hspace {0.1cm}{\footnotesize \ttfamily [3/4]}}{20}{subsubsection.6.4.1.3}%
+\contentsline {subsubsection}{\numberline {6.4.1.4}Task()\hspace {0.1cm}{\footnotesize \ttfamily [4/4]}}{21}{subsubsection.6.4.1.4}%
+\contentsline {subsection}{\numberline {6.4.2}Member Function Documentation}{21}{subsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.1}getDeadline()}{21}{subsubsection.6.4.2.1}%
+\contentsline {subsubsection}{\numberline {6.4.2.2}getDescription()}{21}{subsubsection.6.4.2.2}%
+\contentsline {subsubsection}{\numberline {6.4.2.3}getId()}{21}{subsubsection.6.4.2.3}%
+\contentsline {subsubsection}{\numberline {6.4.2.4}getName()}{21}{subsubsection.6.4.2.4}%
+\contentsline {subsubsection}{\numberline {6.4.2.5}getPriority()}{21}{subsubsection.6.4.2.5}%
+\contentsline {subsubsection}{\numberline {6.4.2.6}getStatus()}{21}{subsubsection.6.4.2.6}%
+\contentsline {subsubsection}{\numberline {6.4.2.7}getStatusAsInt()}{21}{subsubsection.6.4.2.7}%
+\contentsline {subsubsection}{\numberline {6.4.2.8}getTeamId()}{21}{subsubsection.6.4.2.8}%
+\contentsline {subsubsection}{\numberline {6.4.2.9}getUserId()}{22}{subsubsection.6.4.2.9}%
+\contentsline {subsubsection}{\numberline {6.4.2.10}setDeadline()}{22}{subsubsection.6.4.2.10}%
+\contentsline {subsubsection}{\numberline {6.4.2.11}setDescription()}{22}{subsubsection.6.4.2.11}%
+\contentsline {subsubsection}{\numberline {6.4.2.12}setId()}{22}{subsubsection.6.4.2.12}%
+\contentsline {subsubsection}{\numberline {6.4.2.13}setName()}{22}{subsubsection.6.4.2.13}%
+\contentsline {subsubsection}{\numberline {6.4.2.14}setPriority()}{22}{subsubsection.6.4.2.14}%
+\contentsline {subsubsection}{\numberline {6.4.2.15}setStatus()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{22}{subsubsection.6.4.2.15}%
+\contentsline {subsubsection}{\numberline {6.4.2.16}setStatus()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{22}{subsubsection.6.4.2.16}%
+\contentsline {subsubsection}{\numberline {6.4.2.17}setTeamId()}{22}{subsubsection.6.4.2.17}%
+\contentsline {subsubsection}{\numberline {6.4.2.18}setUserId()}{23}{subsubsection.6.4.2.18}%
+\contentsline {section}{\numberline {6.5}Team Class Reference}{23}{section.6.5}%
+\contentsline {subsection}{\numberline {6.5.1}Constructor \& Destructor Documentation}{23}{subsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.1}Team()\hspace {0.1cm}{\footnotesize \ttfamily [1/7]}}{23}{subsubsection.6.5.1.1}%
+\contentsline {subsubsection}{\numberline {6.5.1.2}Team()\hspace {0.1cm}{\footnotesize \ttfamily [2/7]}}{24}{subsubsection.6.5.1.2}%
+\contentsline {subsubsection}{\numberline {6.5.1.3}Team()\hspace {0.1cm}{\footnotesize \ttfamily [3/7]}}{24}{subsubsection.6.5.1.3}%
+\contentsline {subsubsection}{\numberline {6.5.1.4}Team()\hspace {0.1cm}{\footnotesize \ttfamily [4/7]}}{24}{subsubsection.6.5.1.4}%
+\contentsline {subsubsection}{\numberline {6.5.1.5}Team()\hspace {0.1cm}{\footnotesize \ttfamily [5/7]}}{24}{subsubsection.6.5.1.5}%
+\contentsline {subsubsection}{\numberline {6.5.1.6}Team()\hspace {0.1cm}{\footnotesize \ttfamily [6/7]}}{24}{subsubsection.6.5.1.6}%
+\contentsline {subsubsection}{\numberline {6.5.1.7}Team()\hspace {0.1cm}{\footnotesize \ttfamily [7/7]}}{24}{subsubsection.6.5.1.7}%
+\contentsline {subsection}{\numberline {6.5.2}Member Function Documentation}{24}{subsection.6.5.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.1}addMember()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{24}{subsubsection.6.5.2.1}%
+\contentsline {subsubsection}{\numberline {6.5.2.2}addMember()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{25}{subsubsection.6.5.2.2}%
+\contentsline {subsubsection}{\numberline {6.5.2.3}containsUser()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{25}{subsubsection.6.5.2.3}%
+\contentsline {subsubsection}{\numberline {6.5.2.4}containsUser()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{25}{subsubsection.6.5.2.4}%
+\contentsline {subsubsection}{\numberline {6.5.2.5}getId()}{25}{subsubsection.6.5.2.5}%
+\contentsline {subsubsection}{\numberline {6.5.2.6}getMembers()}{25}{subsubsection.6.5.2.6}%
+\contentsline {subsubsection}{\numberline {6.5.2.7}getMembersAsUsers()}{25}{subsubsection.6.5.2.7}%
+\contentsline {subsubsection}{\numberline {6.5.2.8}getName()}{25}{subsubsection.6.5.2.8}%
+\contentsline {subsubsection}{\numberline {6.5.2.9}getPassword()}{25}{subsubsection.6.5.2.9}%
+\contentsline {subsubsection}{\numberline {6.5.2.10}removeMember()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{25}{subsubsection.6.5.2.10}%
+\contentsline {subsubsection}{\numberline {6.5.2.11}removeMember()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{25}{subsubsection.6.5.2.11}%
+\contentsline {subsubsection}{\numberline {6.5.2.12}setId()}{26}{subsubsection.6.5.2.12}%
+\contentsline {subsubsection}{\numberline {6.5.2.13}setMembers()}{26}{subsubsection.6.5.2.13}%
+\contentsline {subsubsection}{\numberline {6.5.2.14}setName()}{26}{subsubsection.6.5.2.14}%
+\contentsline {subsubsection}{\numberline {6.5.2.15}setPassword()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{26}{subsubsection.6.5.2.15}%
+\contentsline {subsubsection}{\numberline {6.5.2.16}setPassword()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{26}{subsubsection.6.5.2.16}%
+\contentsline {section}{\numberline {6.6}User Class Reference}{26}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Constructor \& Destructor Documentation}{27}{subsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.1}User()\hspace {0.1cm}{\footnotesize \ttfamily [1/10]}}{27}{subsubsection.6.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.6.1.2}User()\hspace {0.1cm}{\footnotesize \ttfamily [2/10]}}{27}{subsubsection.6.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.6.1.3}User()\hspace {0.1cm}{\footnotesize \ttfamily [3/10]}}{27}{subsubsection.6.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.6.1.4}User()\hspace {0.1cm}{\footnotesize \ttfamily [4/10]}}{27}{subsubsection.6.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.6.1.5}User()\hspace {0.1cm}{\footnotesize \ttfamily [5/10]}}{27}{subsubsection.6.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.6.1.6}User()\hspace {0.1cm}{\footnotesize \ttfamily [6/10]}}{27}{subsubsection.6.6.1.6}%
+\contentsline {subsubsection}{\numberline {6.6.1.7}User()\hspace {0.1cm}{\footnotesize \ttfamily [7/10]}}{27}{subsubsection.6.6.1.7}%
+\contentsline {subsubsection}{\numberline {6.6.1.8}User()\hspace {0.1cm}{\footnotesize \ttfamily [8/10]}}{28}{subsubsection.6.6.1.8}%
+\contentsline {subsubsection}{\numberline {6.6.1.9}User()\hspace {0.1cm}{\footnotesize \ttfamily [9/10]}}{28}{subsubsection.6.6.1.9}%
+\contentsline {subsubsection}{\numberline {6.6.1.10}User()\hspace {0.1cm}{\footnotesize \ttfamily [10/10]}}{28}{subsubsection.6.6.1.10}%
+\contentsline {subsection}{\numberline {6.6.2}Member Function Documentation}{28}{subsection.6.6.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.1}getCreationDate()}{28}{subsubsection.6.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.6.2.2}getId()}{28}{subsubsection.6.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.6.2.3}getPassword()}{28}{subsubsection.6.6.2.3}%
+\contentsline {subsubsection}{\numberline {6.6.2.4}getUsername()}{28}{subsubsection.6.6.2.4}%
+\contentsline {subsubsection}{\numberline {6.6.2.5}setCreationDate()}{28}{subsubsection.6.6.2.5}%
+\contentsline {subsubsection}{\numberline {6.6.2.6}setId()}{28}{subsubsection.6.6.2.6}%
+\contentsline {subsubsection}{\numberline {6.6.2.7}setPassword()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{29}{subsubsection.6.6.2.7}%
+\contentsline {subsubsection}{\numberline {6.6.2.8}setPassword()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{29}{subsubsection.6.6.2.8}%
+\contentsline {subsubsection}{\numberline {6.6.2.9}setUsername()}{29}{subsubsection.6.6.2.9}%
+\contentsline {chapter}{\numberline {7}File Documentation}{31}{chapter.7}%
+\contentsline {section}{\numberline {7.1}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/createuser.cpp File Reference}{31}{section.7.1}%
+\contentsline {section}{\numberline {7.2}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/createuser.h File Reference}{31}{section.7.2}%
+\contentsline {section}{\numberline {7.3}createuser.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{32}{section.7.3}%
+\contentsline {section}{\numberline {7.4}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/main.cpp File Reference}{32}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Function Documentation}{32}{subsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.1.1}main()}{32}{subsubsection.7.4.1.1}%
+\contentsline {section}{\numberline {7.5}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/maintasks.cpp File Reference}{33}{section.7.5}%
+\contentsline {section}{\numberline {7.6}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/maintasks.h File Reference}{33}{section.7.6}%
+\contentsline {section}{\numberline {7.7}maintasks.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{33}{section.7.7}%
+\contentsline {section}{\numberline {7.8}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/mainwindow.cpp File Reference}{35}{section.7.8}%
+\contentsline {section}{\numberline {7.9}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/mainwindow.h File Reference}{35}{section.7.9}%
+\contentsline {section}{\numberline {7.10}mainwindow.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{35}{section.7.10}%
+\contentsline {section}{\numberline {7.11}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/task.cpp File Reference}{36}{section.7.11}%
+\contentsline {section}{\numberline {7.12}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/task.h File Reference}{36}{section.7.12}%
+\contentsline {section}{\numberline {7.13}task.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{36}{section.7.13}%
+\contentsline {section}{\numberline {7.14}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/taskmanager.cpp File Reference}{37}{section.7.14}%
+\contentsline {section}{\numberline {7.15}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/taskmanager.h File Reference}{37}{section.7.15}%
+\contentsline {section}{\numberline {7.16}taskmanager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{38}{section.7.16}%
+\contentsline {section}{\numberline {7.17}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/taskstatus.cpp File Reference}{38}{section.7.17}%
+\contentsline {subsection}{\numberline {7.17.1}Function Documentation}{39}{subsection.7.17.1}%
+\contentsline {subsubsection}{\numberline {7.17.1.1}getTaskStatus()}{39}{subsubsection.7.17.1.1}%
+\contentsline {subsubsection}{\numberline {7.17.1.2}getTaskStatusInt()}{39}{subsubsection.7.17.1.2}%
+\contentsline {section}{\numberline {7.18}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/taskstatus.h File Reference}{39}{section.7.18}%
+\contentsline {subsection}{\numberline {7.18.1}Enumeration Type Documentation}{39}{subsection.7.18.1}%
+\contentsline {subsubsection}{\numberline {7.18.1.1}TaskStatus}{39}{subsubsection.7.18.1.1}%
+\contentsline {subsection}{\numberline {7.18.2}Function Documentation}{39}{subsection.7.18.2}%
+\contentsline {subsubsection}{\numberline {7.18.2.1}getTaskStatus()}{39}{subsubsection.7.18.2.1}%
+\contentsline {subsubsection}{\numberline {7.18.2.2}getTaskStatusInt()}{40}{subsubsection.7.18.2.2}%
+\contentsline {section}{\numberline {7.19}taskstatus.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{40}{section.7.19}%
+\contentsline {section}{\numberline {7.20}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/team.cpp File Reference}{40}{section.7.20}%
+\contentsline {section}{\numberline {7.21}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/team.h File Reference}{40}{section.7.21}%
+\contentsline {section}{\numberline {7.22}team.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{41}{section.7.22}%
+\contentsline {section}{\numberline {7.23}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/teammanager.cpp File Reference}{41}{section.7.23}%
+\contentsline {section}{\numberline {7.24}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/teammanager.h File Reference}{41}{section.7.24}%
+\contentsline {section}{\numberline {7.25}teammanager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{42}{section.7.25}%
+\contentsline {section}{\numberline {7.26}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/user.cpp File Reference}{43}{section.7.26}%
+\contentsline {section}{\numberline {7.27}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/user.h File Reference}{43}{section.7.27}%
+\contentsline {section}{\numberline {7.28}user.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{43}{section.7.28}%
+\contentsline {section}{\numberline {7.29}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/usermanager.cpp File Reference}{44}{section.7.29}%
+\contentsline {section}{\numberline {7.30}C\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}:/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Users/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Krzysztof/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CLion\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Projects/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}To-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Do-\/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}List/usermanager.h File Reference}{44}{section.7.30}%
+\contentsline {section}{\numberline {7.31}usermanager.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}h}{45}{section.7.31}%

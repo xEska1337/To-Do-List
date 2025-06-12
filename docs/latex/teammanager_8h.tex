@@ -1,0 +1,34 @@
+\doxysection{C\+:/\+Users/\+Krzysztof/\+CLion\+Projects/\+To-\/\+Do-\/\+List/teammanager.h File Reference}
+\hypertarget{teammanager_8h}{}\label{teammanager_8h}\index{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/teammanager.h@{C:/Users/Krzysztof/CLionProjects/To-\/Do-\/List/teammanager.h}}
+{\ttfamily \#include "{}team.\+h"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include $<$QSql\+Database$>$}\newline
+{\ttfamily \#include $<$QSql\+Query$>$}\newline
+{\ttfamily \#include $<$QSql\+Error$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_team_manager}{Team\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{namespace_team_manager_a20fabf248676952821dc5a717b8fae2c}{Team\+Manager\+::create\+Team}} (const \mbox{\hyperlink{class_team}{Team}} \&team)
+\begin{DoxyCompactList}\small\item\em Creates \doxylink{class_team}{Team} in a database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_team}{Team}} \mbox{\hyperlink{namespace_team_manager_a0301770e3385ac3ca94770c4d2f39590}{Team\+Manager\+::get\+Team}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_team}{Team} from a database identifying it by name and returns as \doxylink{class_team}{Team}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_team}{Team}} \mbox{\hyperlink{namespace_team_manager_aaae8e18ea02fe4d215602f02bd7d1b0e}{Team\+Manager\+::get\+Team}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Gets \doxylink{class_team}{Team} from a database identifying it by ID and returns as \doxylink{class_team}{Team}\textquotesingle{}s object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_team_manager_a058764155814f62f155b83fdaa3ab412}{Team\+Manager\+::update\+Team}} (const \mbox{\hyperlink{class_team}{Team}} \&team)
+\begin{DoxyCompactList}\small\item\em Updates \doxylink{class_team}{Team} in a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_team_manager_a3b63b37bd3a97bbd4729370a3875f57f}{Team\+Manager\+::delete\+Team}} (const \mbox{\hyperlink{class_team}{Team}} \&team)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_team}{Team} from a database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{namespace_team_manager_ac0cb2aebc272c6e57f73db20b8249192}{Team\+Manager\+::delete\+Team}} (uint32\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Deletes \doxylink{class_team}{Team} using his ID from a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_team}{Team}} $>$ \mbox{\hyperlink{namespace_team_manager_a69b087b0b80b871899126732ca1acfe4}{Team\+Manager\+::get\+All\+Teams}} ()
+\begin{DoxyCompactList}\small\item\em Returns all Teams from a database. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_team}{Team}} $>$ \mbox{\hyperlink{namespace_team_manager_ab8cd0cc64494c55199dbb5da50098275}{Team\+Manager\+::get\+Teams\+For\+User}} (uint32\+\_\+t user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns all Teams that the \doxylink{class_user}{User} belongs to from a database. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_team}{Team}} \mbox{\hyperlink{namespace_team_manager_a218ed3d65fa0b2f37f79f918c2d0844c}{Team\+Manager\+::get\+Team\+For\+User}} (uint32\+\_\+t user\+Id)
+\begin{DoxyCompactList}\small\item\em Returns first \doxylink{class_user}{User}\textquotesingle{}s \doxylink{class_team}{Team} from a database. \end{DoxyCompactList}\end{DoxyCompactItemize}
